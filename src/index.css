@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Sunflower:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&family=Sunflower:wght@300&display=swap');
+
+:root {
+  font-family: "Exo 2", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* color: #c8d3d3; */
+  color: #b7c0c0;
+  letter-spacing: .5px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100svh;
+  background-color: #171721;
+  scroll-behavior: smooth;
+}
+
+
+
+
+/* SCROLL STYLING */
+/* =========================================================== */
+
+*::-webkit-scrollbar {
+  width: 6px;
+  padding-left: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================== */
+/* =========================================================== */
+
+
+
+
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  font-size: 15px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  align-self: stretch;
+  align-items: center; justify-content: center; display: flex;
+  gap: 12px;
+  text-align: center;
+  transition: .15s;
+}
+
+.gradient_text {
+  background: linear-gradient(45deg, #ff9e70, #c2c3ff, #b941ce);
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0px 0px 20px #e0ecff3a);
+  transition: .3s;
+}
+
+.neum {
+  padding: 12px 24px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #242429;
+  /* box-shadow: 4px 4px 20px rgba(10, 10, 10, .5), -3px -3px 8px rgba(60, 162, 240, 0.07); */
+  box-shadow: 4px 4px 20px rgba(10, 10, 10, .5);
+  transition: .15s;
+}
+
+.neum_hoverable {
+  cursor: pointer;
+}
+
+.neum_hoverable:hover {
+  /* background: #1b1b27; */
+  box-shadow: 6px 6px 26px rgba(10, 10, 10, .6), -3px -3px 12px rgba(60, 162, 240, 0.08);
+  transform: scale(1.05);
+}

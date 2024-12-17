@@ -1,0 +1,102 @@
+.page_home {
+    width: 100%;
+}
+
+.page_home .section {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    min-height: 100svh;
+    background: #0a0a0c;
+}
+
+.page_home .section_top {
+    width: 100%;
+    height: 100vh;
+    align-items: center; justify-content: end; display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at 50%, #151325, #060607);
+    overflow: hidden;
+}
+
+.page_home .section_top .maintitle {
+    position: absolute;
+    top: 10svh;
+    left: 0px;
+    text-align: center;
+    width: 100%;
+    filter: drop-shadow(0px 0px 16px #151325);
+}
+
+.page_home .section_top .maintitle h1 {
+    font-size: 42px;
+    display: inline;
+    background: linear-gradient(45deg, #ffffff, #c2c3ff, #b7c0c0);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0px 0px 20px #e0ecff3a);
+}
+
+
+
+
+
+.page_home .section_top_transition {
+    pointer-events: none;
+    width: 100%;
+    height: 10svh;
+    position: absolute;
+    z-index: 100;
+    top: calc(100vh - 10svh);
+    left: 0;
+    background: linear-gradient(to bottom, #0a0a0c00, #0a0a0c);
+}
+
+.page_home .section_top .mainlayout {
+    pointer-events: none;
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    padding: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    align-items: start; justify-content: space-between; display: flex;
+}
+
+.page_home .section_top .mainlayout div {
+    pointer-events: none;
+}
+
+.page_home .section_top .mainlayout_left {
+    align-items: center; justify-content: start; display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 160px;
+    gap: 12px;
+}
+
+.page_home .section_top .mainlayout_left .neum {
+    align-self: stretch;
+    align-items: center; justify-content: center; display: flex;
+    text-align: center;
+}
+
+.page_home .section_top .mainlayout_right {
+    align-self: stretch;
+    align-items: center; justify-content: end; display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page_home .section_top .mainlayout_right .neum {
+    align-self: stretch;
+}
+
+.page_home .section_top .mainlayout_right .neum button {
+    width: 100%;
+    gap: 18px;
+}
