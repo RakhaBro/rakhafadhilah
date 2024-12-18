@@ -7,7 +7,7 @@ import { EffectComposer, Bloom, SSAO, Vignette } from "@react-three/postprocessi
 import React, { useEffect, useState } from "react";
 
 
-const Scene_Rakha = React.memo(() => {
+const Scene_Rakha = React.memo(({mousePosition}) => {
 
 
     // SCROLL
@@ -15,17 +15,6 @@ const Scene_Rakha = React.memo(() => {
     const handleScroll = () => {
         const currentScrollPosition = (window.scrollY || document.documentElement.scrollTop) / window.innerHeight * 100;
         setScrollPosition(currentScrollPosition);
-    };
-    // ===============================================
-
-    // MOUSE
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-    const handleMouseMove = (event) => {
-        setMousePosition({
-            x: (event.clientX - (window.innerWidth / 2)) / window.innerWidth * 2,
-            y: (event.clientY - (window.innerHeight / 2)) / window.innerHeight * -2
-        });
     };
     // ===============================================
     
@@ -45,7 +34,7 @@ const Scene_Rakha = React.memo(() => {
                 opacity: (80 - scrollPosition) / 100
             }}
         >
-            <div className="canvas_container" onMouseMove={handleMouseMove}>
+            <div className="canvas_container">
                 <Canvas
                     flat
                     linear

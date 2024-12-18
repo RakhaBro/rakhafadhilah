@@ -34,7 +34,7 @@ const Rakha = React.memo(({mouseCoordinate, ...props}) => {
             // General rotation control by mouse coordinate
             meshRef.current.rotation.y = MathUtils.lerp(
                 meshRef.current.rotation.y,
-                mouseCoordinate.x * .7,
+                mouseCoordinate.x * .4,
                 0.075
             );
             
@@ -48,15 +48,15 @@ const Rakha = React.memo(({mouseCoordinate, ...props}) => {
                         subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_up']] = mouseCoordinate.y * 1.2;
                     } else {
                         // SHAPE KEY: HEAD DOWN
-                        subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_down']] = -mouseCoordinate.y * .75;
+                        subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_down']] = -mouseCoordinate.y * .5;
                     }
 
                     if (mouseCoordinate.x >= 0) {
                         // SHAPE KEY: HEAD LEFT
-                        subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_left']] = mouseCoordinate.x * .8;
+                        subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_left']] = mouseCoordinate.x * 1.2;
                     } else {
                         // SHAPE KEY: HEAD RIGHT
-                        subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_right']] = -mouseCoordinate.x * .8;
+                        subMesh.morphTargetInfluences[subMesh.morphTargetDictionary['head_right']] = -mouseCoordinate.x * 1.2;
                     }
 
                 });
@@ -67,7 +67,7 @@ const Rakha = React.memo(({mouseCoordinate, ...props}) => {
 
     return(
         <group
-            {...props} scale={[.52, .52, .52]} position={[0, -.9, 0]}
+            {...props} scale={[.5, .5, .5]} position={[0, -.9, 0]}
         >
             <primitive ref={meshRef} object={scene} />
         </group>

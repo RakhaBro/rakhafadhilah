@@ -1,12 +1,24 @@
 import "./home.css";
 import Icon_Chevron_Bottom from "../../assets/icons/chevron_bottom";
 import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
+import { useState } from "react";
 
 function Page_Home() {
 
+    // MOUSE
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    const handleMouseMove = (event) => {
+        setMousePosition({
+            x: (event.clientX - (window.innerWidth / 2)) / window.innerWidth * 2,
+            y: (event.clientY - (window.innerHeight / 2)) / window.innerHeight * -2
+        });
+    };
+    // ===============================================
+
     return(
         <div className="page_home">
-            <div className="section_top">
+            <div className="section_top" onMouseMove={handleMouseMove}>
                 
                 <div className="mainlayout">
 
@@ -17,28 +29,25 @@ function Page_Home() {
                         </p>
                     </div>
 
-                    <div className="mainlayout_left">
-                        <div className="neum neum_hoverable">
-                            <button><span className="gradient_text">Home</span></button>
-                        </div>
-                        <div className="neum neum_hoverable">
-                            <button><span className="gradient_text">Projects</span></button>
-                        </div>
-                        <div className="neum neum_hoverable">
-                            <button><span className="gradient_text">Contact</span></button>
-                        </div>
+                    {/* LEFT SIDE */}
+                    <div className="mainlayout_side">
+                        <div className="neum"></div>
+                        <div className="neum max"></div>
                     </div>
-                    <div className="mainlayout_right">
-                        <div className="neum neum_hoverable">
-                            <button>
-                                <span className="gradient_text">See overview</span>
-                                <Icon_Chevron_Bottom dimension={10} />
-                            </button>
-                        </div>
+
+                    {/* RIGHT SIDE */}
+                    <div className="mainlayout_side">
+                        <div className="neum"></div>
+                        <div className="neum max"></div>
                     </div>
+
+                    <div className="btn_more_container">
+                        <button className="btn_more"><p>See detail</p><Icon_Chevron_Bottom color={"#000000"} dimension={10} /></button>
+                    </div>
+
                 </div>
                 
-                <Scene_Rakha />
+                <Scene_Rakha mousePosition={mousePosition} />
                 
             </div>
 
