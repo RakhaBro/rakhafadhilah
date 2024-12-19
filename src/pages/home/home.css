@@ -75,7 +75,7 @@
     height: 100%;
     min-width: 250px;
     gap: 12px;
-    /* display: none; */
+    display: none;
 }
 
 .page_home .section_top .mainlayout_side .neum {
@@ -94,30 +94,6 @@
 .page_home .section_top .mainlayout_side .max {
     flex: 1;
 }
-
-.page_home .section_top .btn_more_container {
-    position: absolute;
-    width: 100%;
-    align-items: center; justify-content: center; display: flex;
-}
-
-.page_home .section_top .btn_more {
-    pointer-events: visible;
-    position: absolute;
-    top: 82svh;
-    background: rgba(255, 255, 255, 0.65);
-    color: black;
-    padding: 12px 24px;
-    border-radius: 1000vh;
-    transition: .1s;
-}
-
-
-.page_home .section_top .btn_more:hover {
-    background: white;
-    transform: scale(1.04);
-}
-
 
 
 

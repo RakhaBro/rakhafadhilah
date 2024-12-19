@@ -25,7 +25,7 @@ function Page_Home() {
                     <div className="maintitle">
                         <h1>Rakha Fadhilah</h1>
                         <p>
-                            Executive at Hiclob | Three JS expert
+                            Executive at Hiclob | Front-End Developer
                         </p>
                     </div>
 
@@ -39,10 +39,6 @@ function Page_Home() {
                     <div className="mainlayout_side">
                         <div className="neum"></div>
                         <div className="neum max"></div>
-                    </div>
-
-                    <div className="btn_more_container">
-                        <button className="btn_more"><p>See detail</p><Icon_Chevron_Bottom color={"#000000"} dimension={10} /></button>
                     </div>
 
                 </div>
