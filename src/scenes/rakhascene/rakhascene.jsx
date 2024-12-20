@@ -101,7 +101,7 @@ const Scene_Rakha = React.memo(({mousePosition}) => {
                             radius={2}
                             luminanceThreshold={3}
                         /> */}
-                        {/* <Vignette eskil={true} offset={0.2} darkness={2.1} /> */}
+                        <Vignette eskil={true} offset={0.2} darkness={2.1} />
                     </EffectComposer>
                 </Canvas>
             </div>

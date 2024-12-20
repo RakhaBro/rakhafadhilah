@@ -2,6 +2,7 @@ import "./home.css";
 import Icon_Chevron_Bottom from "../../assets/icons/chevron_bottom";
 import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
 import { useState } from "react";
+import SocialMedia from "../../components/socialmediadetail/socialmedia";
 
 function Page_Home() {
 
@@ -29,21 +30,11 @@ function Page_Home() {
                         </p>
                     </div>
 
-                    {/* LEFT SIDE */}
-                    <div className="mainlayout_side">
-                        <div className="neum"></div>
-                        <div className="neum max"></div>
-                    </div>
-
-                    {/* RIGHT SIDE */}
-                    <div className="mainlayout_side">
-                        <div className="neum"></div>
-                        <div className="neum max"></div>
-                    </div>
-
                 </div>
                 
                 <Scene_Rakha mousePosition={mousePosition} />
+
+                <SocialMedia />
                 
             </div>
 

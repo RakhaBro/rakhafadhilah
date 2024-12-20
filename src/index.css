@@ -90,8 +90,6 @@ button {
 }
 
 .neum {
-  padding: 12px 24px;
-  box-sizing: border-box;
   border-radius: 16px;
   background: #242429;
   /* box-shadow: 4px 4px 20px rgba(10, 10, 10, .5), -3px -3px 8px rgba(60, 162, 240, 0.07); */
