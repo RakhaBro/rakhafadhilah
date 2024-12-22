@@ -113,7 +113,7 @@ button {
   width: max-content;
   height: max-content;
   align-items: center; justify-content: center; display: flex;
-  background: linear-gradient(45deg, #5aecff, #e659ff, #ff9b74);
+  background: linear-gradient(45deg, #5aecff, #7259ff, #ff2cae);
   transition: .15s;
 }
 

@@ -67,7 +67,7 @@ const Rakha = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
                 scrollPhase_xPosition <= 100
                 ? (scrollPhase_xPosition * 20 / 100) * .1
                 : (scrollPhase_xPosition * 20 / 100) * .15,
-                0.03
+                0.07
             );
 
             controlHead();

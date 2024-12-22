@@ -16,7 +16,7 @@ body {
     scroll-snap-align: start;
     width: 100%;
     height: 100svh;
-    align-items: center; justify-content: start; display: flex;
+    align-items: center; justify-content: space-between; display: flex;
     padding: 48px;
     box-sizing: border-box;
 }
@@ -56,14 +56,37 @@ body {
     /* left: 0; */
     padding: 12px;
     box-sizing: border-box;
-    align-items: start; justify-content: space-between; display: flex;
+    align-items: start; justify-content: center; display: flex;
+}
+
+.page_home .section_top .mainlayout .btn_scrolldown {
+    all: unset;
+    pointer-events: all;
+    cursor: pointer;
+    position: fixed;
+    top: 90svh;
+    color: #000;
+    background: #ffffffaa;
+    padding: 12px 24px;
+    border-radius: 100vh;
+    align-items: center; justify-content: center; display: flex;
+    gap: 12px;
+    transition: .15s;
+}
+
+
+.page_home .section_top .mainlayout .btn_scrolldown:hover {
+    background-color: #fff;
 }
 
 
 
 
-/* SUMMARY ======================================== */
-/* ================================================ */
+
+
+
+/* SUMMARY SECTION ======================================== */
+/* ======================================================== */
 
 .page_home .summary_container {
     width: 100%;
@@ -79,12 +102,29 @@ body {
     align-items: start; justify-content: center; display: flex;
     flex-direction: column;
     gap: 24px;
+    transition: .15s;
 }
 
 .page_home .summary > div {
     padding: 24px;
     box-sizing: border-box;
     transition: .15s;
+}
+
+.page_home .summary .neum {
+    animation: summary_neum_background 2.5s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+@keyframes summary_neum_background {
+    0% {
+        background: #212832ff;
+    }
+    50% {
+        background: #161c24bb;
+    }
+    100% {
+        background: #212832ff;
+    }
 }
 
 .page_home .summary > div:hover {
@@ -101,6 +141,10 @@ body {
 .page_home .summary h2 {
     color: #fff;
     font-size: 1.5em;
+}
+
+.page_home .summary .upper h2 {
+    margin-bottom: 8px;
 }
 
 .page_home .summary .upper .img_container {
@@ -122,5 +166,32 @@ body {
 
 .page_home .summary .lower p span {
     font-weight: bold;
+    color: #1efcde;
+    filter: drop-shadow(0px 0px 8px #1efcde22);
+}
+
+
+
+
+/* SKILL SECTION ========================================== */
+/* ======================================================== */
+
+.page_home .section .skill_container {
+    justify-content: end;
+    width: 50%;
+}
+
+.page_home .section .skill {
+    width: 100%;
+    padding: 48px;
+    box-sizing: border-box;
+}
+
+.page_home .section .skill h1 {
+    color: #fff;
+    font-size: 4em;
+}
+
+.page_home .section .skill h3 {
     color: #fff;
 }

@@ -22,19 +22,19 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
     const controlAnimation = () => {
         if (meshRef.current && rotationRef.current) {
             
-            // General rotation control by mouse X coordinate
+            // General rotation control by mouse Y coordinate
             rotationRef.current.rotation.y = MathUtils.lerp(
                 rotationRef.current.rotation.y,
                 mouseCoordinate.x * 1,
                 0.06
             );
             
-            // General rotation control by mouse Y coordinate
-            rotationRef.current.rotation.x = MathUtils.lerp(
-                rotationRef.current.rotation.x,
-                -mouseCoordinate.y * 1,
-                0.06
-            );
+            // General rotation control by mouse X coordinate
+            // rotationRef.current.rotation.x = MathUtils.lerp(
+            //     rotationRef.current.rotation.x,
+            //     -mouseCoordinate.y * 1,
+            //     0.06
+            // );
 
             // General position control by mouse coordinate
             const scrollPhase_xPosition = scrollPosition <= 100 ? -100 : (scrollPosition - 200);
@@ -71,6 +71,7 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
             <group
                 position={[-1, -.1, 0]}
                 scale={[.38, .38, .38]}
+                rotation={[.6, 0, 0]}
                 >
                 <group ref={rotationRef}>
                     <primitive object={scene}/>
