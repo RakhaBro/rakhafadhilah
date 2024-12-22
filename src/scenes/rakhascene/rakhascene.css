@@ -1,12 +1,6 @@
-.page_home .section_top #canvas_container_scrolltranslate {
+.page_home .canvas_container {
     position: fixed;
-    width: 100%;
-    height: 100svh;
-    transition: .1s;
-}
-
-.page_home .section_top .canvas_container {
-    z-index: 1;
+    z-index: -1;
     width: 100%;
     height: 100svh;
     transition: .2s;
@@ -27,8 +21,9 @@
     }
 }
 
-.page_home .section_top .canvas_container canvas {
+.page_home .canvas_container canvas {
     width: 100%;
     height: 100%;
     filter: drop-shadow(0px 0px 16px rgba(100, 156, 230, 0.1));
+    pointer-events: none;
 }
