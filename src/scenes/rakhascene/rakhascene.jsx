@@ -72,7 +72,7 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
 
     useFrame(() => {
         setSkillPhaseProgress(
-            (scrollPosition - 100 > 0 ? scrollPosition - 100 : 0)
+            (scrollPosition - 100 > 100 ? scrollPosition - 200 : 0)
             / 100
         );
     });

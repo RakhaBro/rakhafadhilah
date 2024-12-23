@@ -1,13 +1,15 @@
 import "./home.css";
 import Icon_Chevron_Bottom from "../../assets/icons/chevron_bottom";
 import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SocialMedia from "../../components/socialmedia/socialmedia";
 
-function Page_Home() {
+const Page_Home = React.memo(({mousePosition}) => {
+
 
     const pageDocumentRef = useRef(null);
-    
+
+
     // SCROLL CONTROL ================================
     const [scrollPosition, setScrollPosition] = useState(0);
     
@@ -18,18 +20,6 @@ function Page_Home() {
     };
     // ===============================================
 
-    // MOUSE ========================================
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-    const handleMouseMove = (event) => {
-        setMousePosition({
-            x: (event.clientX - (window.innerWidth / 2)) / window.innerWidth * 2,
-            y: (event.clientY - (window.innerHeight / 2)) / window.innerHeight * -2
-        });
-    };
-    // ===============================================
-    
-    
     
     // COVER PHASE PROGRESS ========================
     const [coverPhaseProgress, setCoverPhaseProgress] = useState(0);
@@ -55,6 +45,20 @@ function Page_Home() {
     // ===============================================
 
 
+    // SUMMARY PHASE PROGRESS ========================
+    const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
+    useEffect(() => {
+        setSkillPhaseProgress(
+            scrollPosition <= 300
+            ? scrollPosition <= 200
+                ? 0
+                : (scrollPosition - 200) / 100
+            : (300 - (scrollPosition - 100)) / 100
+        );
+    }, [scrollPosition]);
+    // ===============================================
+
+
 
     useEffect(() => {
         pageDocumentRef.current.scrollTo({top: 0, behavior: 'smooth'});
@@ -69,7 +73,6 @@ function Page_Home() {
             className="page_home"
             id="page_home"
             ref={pageDocumentRef}
-            onMouseMove={handleMouseMove}
         >
 
             <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
@@ -83,16 +86,19 @@ function Page_Home() {
                         <p>Founder of Hiclob | React Developer</p>
                     </div>
 
-                    <button className="btn_scrolldown"
-                        onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight, behavior: 'smooth'})}
+                    <div className="btn_scrolldown_container"
                         style={{
                             opacity: coverPhaseProgress,
                             display: coverPhaseProgress === 0 ? "none" : "flex"
                         }}
                     >
-                        <p>Scroll down</p>
-                        <Icon_Chevron_Bottom dimension={12} color={"#000"} />
-                    </button>
+                        <button className="btn_scrolldown"
+                            onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight, behavior: 'smooth'})}
+                        >
+                            <p>Scroll down</p>
+                            <Icon_Chevron_Bottom dimension={12} color={"#000"} />
+                        </button>
+                    </div>
 
                 </div>
                 
@@ -116,24 +122,43 @@ function Page_Home() {
                                 <p>
                                     React JS, React Native, Node JS, Vite, Electron,
                                     Flutter, Firebase, React Three Fiber, Three JS
+                                    <br />
+                                    <span>(2+ years experience)</span>
                                 </p>
                             </div>
                         </div>
                         <div className="lower neum neum_hoverable">
-                            <h2>About</h2>
-                            <br />
+                            <h2>Summary</h2>
                             <p>
-                                I can proudly admit that I have <span>entreperneurial spirit</span> and <span>strong passion</span> in
-                                technology. Currently, I am a <span>founder</span> and an executive at a startup project,
-                                <span> Hiclob</span>, a meet-based social platform to connect people with similar interest.
+                                I embody an <span>entrepreneurial spirit</span> and a <span>strong passion</span> for technology. 
+                                As the <span>founder</span> of
+                                <span> <a href="https://hiclob.com" target="_blank">Hiclob</a></span>, 
+                                a platform connecting people with shared interests, I aim to foster meaningful connections.
                             </p>
-                            <br />
                             <p>
-                                For <span>technical experience</span>, I have been working as a developer for almost 3 years
-                                and have been involved in many projects with <span>divergent</span> tech-stacks. Most tech-stacks
-                                I have been familiar with is <span>Javascript</span> ecosystem.
+                                I have contributed to diverse projects
+                                spanning <span>Web, Mobile, and Desktop</span> platforms, 
+                                working with a wide range of <span>tech stacks</span>.
+                                My expertise lies in the <span>JavaScript ecosystem</span>.
                             </p>
+                            <div></div>
+                            <button
+                                className="btn_see_my_project"
+                                onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight * 2, behavior: 'smooth'})}
+                            >
+                                <p>See my projects</p>
+                                {/* <Icon_Chevron_Bottom dimension={12} color={"#000"} /> */}
+                            </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* PROJECT SECTION */}
+            <div className="section">
+                <div className="project_container">
+                    <div className="project">
+                        <h1>Projects</h1>
                     </div>
                 </div>
             </div>
@@ -142,7 +167,11 @@ function Page_Home() {
             <div className="section">
                 <div></div>
                 <div className="skill_container">
-                    <div className="skill">
+                    <div className="skill"
+                        style={{
+                            opacity: skillPhaseProgress
+                        }}
+                    >
                         <h1>Skills</h1>
                         <div className="skill_list">
                             
@@ -168,9 +197,13 @@ function Page_Home() {
                     </div>
                 </div>
             </div>
+
+
+            <div className="section"></div>
+
             
         </div>
     );
-}
+});
 
 export default Page_Home;

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&family=Sunflower:wght@300&display=swap');
 
 :root {
+  cursor: url('./assets/svg/cursor.svg') 16 16, auto;
   font-family: "Exo 2", sans-serif;
   font-weight: bold;
   line-height: 1.5;
@@ -26,6 +27,11 @@ body {
   height: 100svh;
   background-color: #000000;
   scroll-behavior: smooth;
+}
+
+a {
+  all: unset;
+  text-decoration: underline;
 }
 
 
@@ -70,7 +76,6 @@ p {
 
 button {
   all: unset;
-  cursor: pointer;
   box-sizing: border-box;
   align-self: stretch;
   align-items: center; justify-content: center; display: flex;
@@ -95,10 +100,6 @@ button {
   /* box-shadow: 4px 4px 20px rgba(10, 10, 10, .5), -3px -3px 8px rgba(60, 162, 240, 0.07); */
   box-shadow: 4px 4px 20px rgba(10, 10, 10, .5);
   transition: .15s;
-}
-
-.neum_hoverable {
-  cursor: pointer;
 }
 
 .neum_hoverable:hover {

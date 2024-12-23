@@ -59,24 +59,46 @@ body {
     align-items: start; justify-content: center; display: flex;
 }
 
+
+.page_home .section_top .btn_scrolldown_container {
+    align-items: center; justify-content: center; display: flex;
+}
+
 .page_home .section_top .mainlayout .btn_scrolldown {
     all: unset;
     pointer-events: all;
-    cursor: pointer;
     position: fixed;
     top: 90svh;
     color: #000;
-    background: #ffffffaa;
     padding: 12px 24px;
     border-radius: 100vh;
+    background-color: #ffffff;
     align-items: center; justify-content: center; display: flex;
+    animation: btn_scrolldown 2s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
     gap: 12px;
     transition: .15s;
+}
+
+@keyframes btn_scrolldown {
+    0% {
+        opacity: 1;
+        box-shadow: 0px 0px 16px #ffffff77;
+    }
+    50% {
+        opacity: .5;
+        box-shadow: 0px 0px 16px #ffffff00;
+    }
+    100% {
+        opacity: 1;
+        box-shadow: 0px 0px 16px #ffffff77;
+    }
 }
 
 
 .page_home .section_top .mainlayout .btn_scrolldown:hover {
     background-color: #fff;
+    box-shadow: 0px 0px 16px #ffffff77;
+    animation: none;
 }
 
 
@@ -147,6 +169,11 @@ body {
     margin-bottom: 8px;
 }
 
+.page_home .summary .upper span {
+    color: #fff;
+    font-weight: bold;
+}
+
 .page_home .summary .upper .img_container {
     width: 20%;
     min-width: 120px;
@@ -162,12 +189,35 @@ body {
 .page_home .summary .lower {
     flex: 1;
     max-height: 400px;
+    align-items: start; justify-content: start; display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.page_home .summary .lower p {
+    text-align: left;
+    font-size: 1.02em;
 }
 
 .page_home .summary .lower p span {
     font-weight: bold;
-    color: #1efcde;
+    color: #8cfff0;
     filter: drop-shadow(0px 0px 8px #1efcde22);
+}
+
+.page_home .summary .lower .btn_see_my_project {
+    all: unset;
+    padding: 12px 24px;
+    border-radius: 100vh;
+    background-color: #ffffff;
+    color: #000;
+    align-items: center; justify-content: center; display: flex;
+    gap: 12px;
+    transition: .15s;
+}
+
+.page_home .summary .lower .btn_see_my_project:hover {
+    box-shadow: 0px 0px 16px #ffffff77;
 }
 
 

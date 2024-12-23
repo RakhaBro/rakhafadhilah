@@ -1,0 +1,17 @@
+.customizedcursor_container {
+    position: fixed;
+    z-index: 600;
+    align-items: center; justify-content: center; display: flex;
+    pointer-events: none;
+}
+
+.customizedcursor {
+    position: relative;
+    top: -30px;
+    left: -30px;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(199, 255, 250, 0), rgba(191, 255, 234, 0.08));
+    border-radius: 100vh;
+    transition: .15s opacity;
+}

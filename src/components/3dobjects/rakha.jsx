@@ -7,6 +7,7 @@ const Rakha = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
     const meshRef = useRef();
     const { scene, animations } = useGLTF('assets/glb/rakha.glb');
+
     let headMesh = scene.getObjectByName('head');
 
     const controlHead = () => {
@@ -62,11 +63,14 @@ const Rakha = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
             // General position control by mouse coordinate
             const scrollPhase_xPosition = scrollPosition <= 200 ? scrollPosition : 200;
+            const windowAspectRatio = window.innerWidth / window.innerHeight;
             meshRef.current.position.x = MathUtils.lerp(
                 meshRef.current.position.x,
-                scrollPhase_xPosition <= 100
-                ? (scrollPhase_xPosition * 20 / 100) * .1
-                : (scrollPhase_xPosition * 20 / 100) * .15,
+                (
+                    scrollPhase_xPosition <= 100
+                        ? (scrollPhase_xPosition * 20 / 100) * .1 
+                        : (scrollPhase_xPosition * 20 / 100) * .2
+                ) * (windowAspectRatio * .5),
                 0.07
             );
 
