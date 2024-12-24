@@ -68,7 +68,7 @@ const Rakha = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
                 meshRef.current.position.x,
                 (
                     scrollPhase_xPosition <= 100
-                        ? (scrollPhase_xPosition * 20 / 100) * .1 
+                        ? (scrollPhase_xPosition * 20 / 100) * .1
                         : (scrollPhase_xPosition * 20 / 100) * .2
                 ) * (windowAspectRatio * .5),
                 0.07

@@ -6,6 +6,7 @@ import Rakha from "../../components/3dobjects/rakha";
 import { EffectComposer, Bloom, SSAO, Vignette } from "@react-three/postprocessing";
 import React, { Suspense, useEffect, useState } from "react";
 import SkillCube from "../../components/3dobjects/skillcube";
+import AchievementHighlights from "../../components/3dobjects/achievement_highlights";
 
 
 const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
@@ -40,6 +41,7 @@ const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
                 <Suspense fallback={null}>
                     <Rakha mouseCoordinate={mousePosition} scrollPosition={scrollPosition} />
                     <SkillCube mouseCoordinate={mousePosition} scrollPosition={scrollPosition} />
+                    <AchievementHighlights mouseCoordinate={mousePosition} scrollPosition={scrollPosition} />
                 </Suspense>
                 
                 <EffectComposer>
@@ -69,10 +71,15 @@ const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
 const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
 
     const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
+    const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
 
     useFrame(() => {
         setSkillPhaseProgress(
             (scrollPosition - 100 > 100 ? scrollPosition - 200 : 0)
+            / 100
+        );
+        setAchievementPhaseProgress(
+            (scrollPosition - 200 > 100 ? scrollPosition - 300 : 0)
             / 100
         );
     });
@@ -80,32 +87,35 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
     return(
         <>
             <Environment preset="studio" backgroundIntensity={.2} />
-            <ambientLight intensity={0.45 + (skillPhaseProgress * 2)} color={"#4763ff"} />
+            <ambientLight intensity={0.45 + (achievementPhaseProgress * 2)} color={"#4763ff"} />
 
             <directionalLight
                 position={[4, 1.2, 1]}
                 color={"#ff5555"}
-                intensity={9 * (1 - skillPhaseProgress)}
+                intensity={9 * (1 - achievementPhaseProgress)}
                 castShadow
             />
 
             <directionalLight
                 position={[-4, .25, -4]}
                 color={"#47ffd7"}
-                intensity={7 * (1 - skillPhaseProgress)}
+                intensity={7 * (1 - achievementPhaseProgress)}
                 castShadow
             />
             <directionalLight
                 position={[-4, .5, 4]}
                 color={"#0000ff"}
-                intensity={1 * (1 - skillPhaseProgress)}
+                intensity={1 * (1 - achievementPhaseProgress)}
                 castShadow
             />
 
             {/* LIGHT ADJUSTED FOR SKILL PHASE */}
             <directionalLight
-                // position={[4, .5, -5]}
-                position={[4, (.5 + (skillPhaseProgress / 2)), (-5 * (1 - skillPhaseProgress))]}
+                position={[
+                    (4 * (1 - achievementPhaseProgress)),
+                    (.5 + (achievementPhaseProgress / 2)),
+                    (-10 * (1 - achievementPhaseProgress) + 5)
+                ]}
                 color={"#ffabab"}
                 intensity={12}
                 castShadow

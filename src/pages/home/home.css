@@ -7,6 +7,7 @@ body {
     z-index: 10;
     width: 100%;
     height: 100svh;
+    min-height: 500px;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
@@ -82,7 +83,7 @@ body {
 @keyframes btn_scrolldown {
     0% {
         opacity: 1;
-        box-shadow: 0px 0px 16px #ffffff77;
+        box-shadow: 0px 0px 26px #ffffff33;
     }
     50% {
         opacity: .5;
@@ -90,14 +91,14 @@ body {
     }
     100% {
         opacity: 1;
-        box-shadow: 0px 0px 16px #ffffff77;
+        box-shadow: 0px 0px 26px #ffffff33;
     }
 }
 
 
 .page_home .section_top .mainlayout .btn_scrolldown:hover {
     background-color: #fff;
-    box-shadow: 0px 0px 16px #ffffff77;
+    box-shadow: 0px 0px 26px #ffffff33;
     animation: none;
 }
 
@@ -151,7 +152,7 @@ body {
 
 .page_home .summary > div:hover {
     transform: scale(1.01);
-    box-shadow: 0px 0px 16px #151325;
+    /* box-shadow: 0px 0px 16px #151325; */
 }
 
 .page_home .summary .upper {
@@ -201,8 +202,8 @@ body {
 
 .page_home .summary .lower p span {
     font-weight: bold;
-    color: #8cfff0;
-    filter: drop-shadow(0px 0px 8px #1efcde22);
+    color: white;
+    /* filter: drop-shadow(0px 0px 8px #1efcde22); */
 }
 
 .page_home .summary .lower .btn_see_my_project {
@@ -217,31 +218,104 @@ body {
 }
 
 .page_home .summary .lower .btn_see_my_project:hover {
-    box-shadow: 0px 0px 16px #ffffff77;
+    box-shadow: 0px 0px 26px #ffffff33;
 }
 
 
 
 
-/* SKILL SECTION ========================================== */
+/* SKILLS SECTION ========================================= */
 /* ======================================================== */
 
-.page_home .section .skill_container {
+.page_home .section .skills_container {
     justify-content: end;
     width: 50%;
 }
 
-.page_home .section .skill {
+.page_home .section .skills {
     width: 100%;
     padding: 48px;
     box-sizing: border-box;
 }
 
-.page_home .section .skill h1 {
+.page_home .section .skills h1 {
     color: #fff;
     font-size: 4em;
 }
 
-.page_home .section .skill h3 {
+.page_home .section .skills h3 {
     color: #fff;
+}
+
+
+
+
+/* PROJECTS SECTION ======================================= */
+/* ======================================================== */
+
+.page_home .section .projects_container {
+    width: 50%;
+    justify-content: end;
+}
+
+.page_home .section .projects_container .title {
+    width: 100%;
+    padding: 48px;
+    box-sizing: border-box;
+}
+
+.page_home .section .projects_container .title h1 {
+    color: #fff;
+    font-size: 4em;
+}
+
+.page_home .section .projects_container .title h2 {
+    margin-top: 12px;
+    font-weight: unset;
+}
+
+
+
+
+/* ACHIEVEMENTS SECTION =================================== */
+/* ======================================================== */
+
+.page_home .section .achievements_container {
+    width: 50%;
+    justify-content: end;
+}
+
+.page_home .section .achievements_container .title {
+    width: 100%;
+    padding: 48px;
+    box-sizing: border-box;
+}
+
+.page_home .section .achievements_container .title h1 {
+    color: #fff;
+    font-size: 4em;
+}
+
+.page_home .section .achievements_container .title h2 {
+    margin-top: 12px;
+    font-weight: unset;
+}
+
+.page_home .section .achievements_container .title button {
+    all: unset;
+    padding: 12px 24px;
+    border-radius: 100vh;
+    background-color: #ffffff;
+    color: #000;
+    align-items: center; justify-content: center; display: flex;
+    gap: 12px;
+    transition: .15s;
+}
+
+.page_home .section .achievements_container .title button p {
+    font-size: 1.04em;
+}
+
+.page_home .section .achievements_container .title button:hover {
+    box-shadow: 0px 0px 26px #ffffff33;
 }

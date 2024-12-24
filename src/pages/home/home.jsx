@@ -95,7 +95,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <button className="btn_scrolldown"
                             onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight, behavior: 'smooth'})}
                         >
-                            <p>Scroll down</p>
+                            <p>Start a tour</p>
                             <Icon_Chevron_Bottom dimension={12} color={"#000"} />
                         </button>
                     </div>
@@ -105,12 +105,14 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <SocialMedia />
             </div>
 
+
             {/* SUMMARY SECTION */}
             <div className="section">
                 <div className="summary_container">
                     <div className="summary"
                         style={{
-                            opacity: 2 * (summaryPhaseProgress - .5)
+                            opacity: summaryPhaseProgress,
+                            filter: `blur(${(1 - summaryPhaseProgress) * 12}px)`
                         }}
                     >
                         <div className="upper neum neum_hoverable">
@@ -123,7 +125,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                                     React JS, React Native, Node JS, Vite, Electron,
                                     Flutter, Firebase, React Three Fiber, Three JS
                                     <br />
-                                    <span>(2+ years experience)</span>
+                                    <span>(2+ years of study and work)</span>
                                 </p>
                             </div>
                         </div>
@@ -154,22 +156,26 @@ const Page_Home = React.memo(({mousePosition}) => {
                 </div>
             </div>
 
+
             {/* PROJECT SECTION */}
             <div className="section">
-                <div className="project_container">
-                    <div className="project">
-                        <h1>Projects</h1>
+                <div className="projects_container">
+                    <div className="title">
+                        <h1>Project Highlights</h1>
+                        <h2>From 2022 to 2025</h2>
                     </div>
                 </div>
             </div>
 
+
             {/* SKILL SECTION */}
             <div className="section">
                 <div></div>
-                <div className="skill_container">
-                    <div className="skill"
+                <div className="skills_container">
+                    <div className="skills"
                         style={{
-                            opacity: skillPhaseProgress
+                            opacity: skillPhaseProgress,
+                            filter: `blur(${(1 - skillPhaseProgress) * 16}px)`
                         }}
                     >
                         <h1>Skills</h1>
@@ -199,7 +205,23 @@ const Page_Home = React.memo(({mousePosition}) => {
             </div>
 
 
-            <div className="section"></div>
+            {/* ACHIEVEMENT SECTION */}
+            <div className="section">
+                <div className="achievements_container">
+                    <div className="title">
+                        <h1>Achievement Highlights</h1>
+                        <h2>From 2022 to 2024</h2>
+                        <br />
+                        <br />
+                        <button><p>See more</p></button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div className="section">
+                
+            </div>
 
             
         </div>
