@@ -3,6 +3,7 @@ import Icon_Chevron_Bottom from "../../assets/icons/chevron_bottom";
 import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
 import React, { useEffect, useRef, useState } from "react";
 import SocialMedia from "../../components/socialmedia/socialmedia";
+import ProjectItem from "../../components/projectitem/projectitem";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
@@ -13,7 +14,8 @@ const Page_Home = React.memo(({mousePosition}) => {
     // SCROLL CONTROL ================================
     const [scrollPosition, setScrollPosition] = useState(0);
     
-    const handleScroll = () => {
+    const handleScroll = (event) => {
+        event.preventDefault();
         const documentScroll = pageDocumentRef.current.scrollTop;
         const currentScrollPosition = documentScroll / window.innerHeight * 100;
         setScrollPosition(currentScrollPosition);
@@ -57,6 +59,19 @@ const Page_Home = React.memo(({mousePosition}) => {
         );
     }, [scrollPosition]);
     // ===============================================
+    
+    // ACHIEVEMENT PHASE PROGRESS ====================
+    const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
+    useEffect(() => {
+        setAchievementPhaseProgress(
+            scrollPosition <= 400
+            ? scrollPosition <= 300
+                ? 0
+                : (scrollPosition - 300) / 100
+            : (400 - (scrollPosition - 100)) / 100
+        );
+    }, [scrollPosition]);
+    // ===============================================
 
 
 
@@ -70,7 +85,7 @@ const Page_Home = React.memo(({mousePosition}) => {
 
     return(
         <div
-            className="page_home"
+            className="page_home scroll-container"
             id="page_home"
             ref={pageDocumentRef}
         >
@@ -158,11 +173,23 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
             {/* PROJECT SECTION */}
-            <div className="section">
+            <div className="section section_project">
                 <div className="projects_container">
                     <div className="title">
                         <h1>Project Highlights</h1>
                         <h2>From 2022 to 2025</h2>
+                    </div>
+                    <div className="projects_content">
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
+                        <ProjectItem />
                     </div>
                 </div>
             </div>
@@ -206,7 +233,12 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
             {/* ACHIEVEMENT SECTION */}
-            <div className="section">
+            <div className="section"
+                style={{
+                    opacity: achievementPhaseProgress,
+                    filter: `blur(${(1 - achievementPhaseProgress) * 12}px)`
+                }}
+            >
                 <div className="achievements_container">
                     <div className="title">
                         <h1>Achievement Highlights</h1>

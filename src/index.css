@@ -41,20 +41,25 @@ a {
 /* =========================================================== */
 
 *::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: block;
   width: 6px;
   padding-left: 12px;
 }
 
-*::-webkit-scrollbar-thumb {
+.scroll-container::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 4px;
 }
 
-*::-webkit-scrollbar-thumb:hover {
+.scroll-container::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.7);
 }
 
-*::-webkit-scrollbar-track {
+.scroll-container::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.2);
 }
 

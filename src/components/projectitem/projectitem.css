@@ -1,0 +1,12 @@
+.projectitem {
+    width: 400px;
+    height: calc(50% - 12px);
+    align-items: center; justify-content: center; display: flex;
+}
+
+.projectitem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 48px;
+}
