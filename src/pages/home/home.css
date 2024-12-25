@@ -124,7 +124,7 @@ body {
     align-self: stretch;
     align-items: start; justify-content: center; display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
     transition: .15s;
 }
 
@@ -284,6 +284,7 @@ body {
 .page_home .section .projects_container .projects_content {
     flex: 1;
     align-items: center; justify-content: center; display: flex;
+    
     flex-direction: column;
     flex-wrap: wrap;
     height: 100%;

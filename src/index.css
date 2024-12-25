@@ -101,7 +101,7 @@ button {
 
 .neum {
   border-radius: 48px;
-  background: #212832;
+  background: linear-gradient(45deg, #212832, #3b2d3b);
   /* box-shadow: 4px 4px 20px rgba(10, 10, 10, .5), -3px -3px 8px rgba(60, 162, 240, 0.07); */
   /* box-shadow: 4px 4px 20px rgba(10, 10, 10, .5); */
   transition: .15s;

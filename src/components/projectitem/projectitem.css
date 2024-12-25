@@ -1,12 +1,32 @@
 .projectitem {
-    width: 400px;
     height: calc(50% - 12px);
+    aspect-ratio: 16/9;
     align-items: center; justify-content: center; display: flex;
+    transition: .15s;
+    transform: scale(1);
+}
+
+.projectitem:hover {
+    transform: scale(1.01);
+    filter: brightness(1.4);
+}
+
+.projectitem_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .projectitem img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 48px;
+}
+
+.projectitem_gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 48px;
 }

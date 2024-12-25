@@ -37,7 +37,7 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
             // // General rotation control by mouse Y coordinate
             rotationRef.current.rotation.y = MathUtils.lerp(
                 rotationRef.current.rotation.y,
-                mouseCoordinate.x * .17 - .9,
+                mouseCoordinate.x * .17 - .6,
                 0.06
             );
             

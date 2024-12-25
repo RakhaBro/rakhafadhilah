@@ -94,8 +94,8 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
             <group
                 position={[0, -.05, 0]}
                 scale={[
-                    (windowAspectRatio <= 1 ? windowAspectRatio : 1) * .38, 
-                    (windowAspectRatio <= 1 ? windowAspectRatio : 1) * .38, 
+                    (windowAspectRatio <= 1 ? windowAspectRatio : 1) * .38,
+                    (windowAspectRatio <= 1 ? windowAspectRatio : 1) * .38,
                     (windowAspectRatio <= 1 ? windowAspectRatio : 1) * .38
                 ]}
                 rotation={[.6, .8, 0]}

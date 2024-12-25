@@ -9,13 +9,106 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
     const pageDocumentRef = useRef(null);
+    const projectSectionRef = useRef(null);
 
 
     // SCROLL CONTROL ================================
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollMovement, setScrollMovement] = useState(0);
+    const [isScrolling, setIsScrolling] = useState(false);
+
+    const [projectSectionScrollPosition, setProjectSectionScrollPosition] = useState(0);
+    useEffect(() => {
+        projectSectionRef.current.scrollTo({
+            left: projectSectionScrollPosition,
+            behavior: projectPhaseProgress === 1 ? 'smooth' : 'instant'
+        });
+    }, [projectSectionScrollPosition]);
     
-    const handleScroll = (event) => {
+    useEffect(() => {
+
+        if (scrollMovement >= 100 || scrollMovement <= -100) {
+            setIsScrolling(true);
+            setTimeout(() => {
+                setIsScrolling(false)
+            }, 400);
+        }
+
+        if (!isScrolling) {
+            
+            // IF IN PROJECTS PHASE
+            if (
+                projectPhaseProgress > 0
+                && scrollMovement >= 100
+                && projectSectionRef.current.scrollLeft < projectSectionRef.current.scrollWidth - window.innerWidth
+            ) {
+                if (projectPhaseProgress == 1) {
+                    setProjectSectionScrollPosition((value) =>
+                        value + 400 > projectSectionRef.current.scrollWidth - window.innerWidth
+                            ? projectSectionRef.current.scrollWidth - window.innerWidth
+                            : value + 400
+                    );
+                }
+            } else if (
+                projectPhaseProgress > 0
+                && scrollMovement <= -100
+                && projectSectionRef.current.scrollLeft > 0
+            ) {
+                if (projectPhaseProgress == 1) {
+                    setProjectSectionScrollPosition((value) =>
+                        value - 400 < 0
+                            ? 0
+                            : value - 400
+                    );
+                }
+            }
+            
+            // ELSE, IF PAGE HAS NO SCROLL PREVENTION (DEFAULT)
+            else {
+                if (scrollMovement >= 100) {
+                    pageDocumentRef.current.scrollTo({
+                        top: (scrollPosition + 100) / 100 * window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                } else if (scrollMovement <= -100) {
+                    pageDocumentRef.current.scrollTo({
+                        top: (scrollPosition - 100) / 100 * window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        const scrollMovementInterval = setInterval(() => {
+            setScrollMovement((value) => value - value);
+        }, 20);
+        return () => {
+            clearInterval(scrollMovementInterval);
+        };
+
+    }, [scrollMovement]);
+    
+    const handleWheel = (event) => {
         event.preventDefault();
+        setScrollMovement((value) =>
+            value + event.deltaY > 200
+                ? 200
+                : value + event.deltaY < -200
+                    ? -200
+                    : value + event.deltaY
+        );
+        if (projectPhaseProgress === 1 && event.deltaX !== 0) {
+            setScrollMovement((value) =>
+                value + event.deltaX > 200
+                    ? 200
+                    : value + event.deltaX < -200
+                        ? -200
+                        : value + event.deltaX
+            );
+        }
+    };
+
+    const handleScroll = () => {
         const documentScroll = pageDocumentRef.current.scrollTop;
         const currentScrollPosition = documentScroll / window.innerHeight * 100;
         setScrollPosition(currentScrollPosition);
@@ -34,7 +127,6 @@ const Page_Home = React.memo(({mousePosition}) => {
     }, [scrollPosition]);
     // ===============================================
 
-
     // SUMMARY PHASE PROGRESS ========================
     const [summaryPhaseProgress, setSummaryPhaseProgress] = useState(0);
     useEffect(() => {
@@ -46,8 +138,25 @@ const Page_Home = React.memo(({mousePosition}) => {
     }, [scrollPosition]);
     // ===============================================
 
+    // PROJECTS PHASE PROGRESS =======================
+    const [projectPhaseProgress, setProjectPhaseProgress] = useState(0);
+    useEffect(() => {
+        if (projectPhaseProgress < .1) {
+            setProjectSectionScrollPosition(0);
+        }
+    }, [projectPhaseProgress]);
+    useEffect(() => {
+        setProjectPhaseProgress(
+            scrollPosition <= 200
+            ? scrollPosition <= 100
+                ? 0
+                : (scrollPosition - 100) / 100
+            : (200 - (scrollPosition - 100)) / 100
+        );
+    }, [scrollPosition]);
+    // ===============================================
 
-    // SUMMARY PHASE PROGRESS ========================
+    // SKILL PHASE PROGRESS ==========================
     const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
     useEffect(() => {
         setSkillPhaseProgress(
@@ -76,9 +185,12 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
     useEffect(() => {
+        projectSectionRef.current.scrollTo({left: 0, behavior: 'smooth'});
         pageDocumentRef.current.scrollTo({top: 0, behavior: 'smooth'});
+        pageDocumentRef.current.addEventListener("wheel", handleWheel);
         pageDocumentRef.current.addEventListener("scroll", handleScroll);
         return () => {
+            pageDocumentRef.current.removeEventListener("wheel", handleWheel);
             pageDocumentRef.current.removeEventListener("scroll", handleScroll);
         };
     }, []);
@@ -173,15 +285,13 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
             {/* PROJECT SECTION */}
-            <div className="section section_project">
+            <div className="section section_project" ref={projectSectionRef}>
                 <div className="projects_container">
                     <div className="title">
                         <h1>Project Highlights</h1>
                         <h2>From 2022 to 2025</h2>
                     </div>
                     <div className="projects_content">
-                        <ProjectItem />
-                        <ProjectItem />
                         <ProjectItem />
                         <ProjectItem />
                         <ProjectItem />

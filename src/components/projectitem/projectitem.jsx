@@ -5,7 +5,10 @@ const ProjectItem = React.memo(({}) => {
 
     return(
         <div className="projectitem neum">
-            {/* <img src="./hiclob_poster_temp.jpg" alt="" /> */}
+            <div className="projectitem_content">
+                {/* <img src="./hiclob_poster_temp.jpg" alt="" /> */}
+            </div>
+            <div className="projectitem_gradient"></div>
         </div>
     );
 })
