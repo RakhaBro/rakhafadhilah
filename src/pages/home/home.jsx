@@ -44,9 +44,9 @@ const Page_Home = React.memo(({mousePosition}) => {
             ) {
                 if (projectPhaseProgress == 1) {
                     setProjectSectionScrollPosition((value) =>
-                        value + 400 > projectSectionRef.current.scrollWidth - window.innerWidth
+                        value + 500 > projectSectionRef.current.scrollWidth - window.innerWidth
                             ? projectSectionRef.current.scrollWidth - window.innerWidth
-                            : value + 400
+                            : value + 500
                     );
                 }
             } else if (
@@ -56,9 +56,9 @@ const Page_Home = React.memo(({mousePosition}) => {
             ) {
                 if (projectPhaseProgress == 1) {
                     setProjectSectionScrollPosition((value) =>
-                        value - 400 < 0
+                        value - 500 < 0
                             ? 0
-                            : value - 400
+                            : value - 500
                     );
                 }
             }
@@ -292,14 +292,77 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <h2>From 2022 to 2025</h2>
                     </div>
                     <div className="projects_content">
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
+                        
+                        <ProjectItem
+                            cover={"hiclob"}
+                            title={"Hiclob"}
+                            description={
+                                <p>
+                                    Meet-based <span>social platform</span> to connect people
+                                    with similar interests. People can create and
+                                    join <span>talks</span> and <span>communities</span> to meet new people.
+                                </p>
+                            }
+                            skills={["flutter", "dart", "firebase", "node", "figma"]}
+                            role={"As PM & Frontend Developer"}
+                            />
+                        
+                        <ProjectItem
+                            cover={"hiclob"}
+                            title={"Mebelverse"}
+                            description={
+                                <p>
+                                    <span>VR-Based E-Commerce</span> that focuses on selling
+                                    bamboo <span>furniture</span>, that helps local to sell their
+                                    handmade furniture <span>abroad</span>.
+                                </p>
+                            }
+                            skills={["codeigniter", "php", "mysql", "three", "xendit"]}
+                            role={"As PM & Fullstack Developer"}
+                            />
+                        
+                        <ProjectItem
+                            cover={"hiclob"}
+                            title={"Findelify"}
+                            description={
+                                <p>
+                                    A stuff finder app that helps you <span>find</span> your
+                                    lost <span>stuff</span>. Users can post their lost stuff
+                                    to the app and other users can help them <span>find it</span>.
+                                </p>
+                            }
+                            skills={["codeigniter", "php", "mysql", "bootstrap"]}
+                            role={"As Project Manager"}
+                        />
+                        
+                        <ProjectItem
+                            cover={"hiclob"}
+                            title={"Fozzle"}
+                            description={
+                                <p>
+                                    Challange to develop a game mechanism
+                                    with <span>website technology</span>
+                                    (React). The game is a <span>2D platformer</span>
+                                </p>
+                            }
+                            skills={["react", "electron", "js", "css"]}
+                            role={"Single Developer"}
+                        />
+                        
+                        <ProjectItem
+                            cover={"hiclob"}
+                            title={"Simpelku"}
+                            description={
+                                <p>
+                                    An <span>integrated</span> school management system
+                                    that covers finance, LMS, and employee management
+                                    in a <span>single software</span>.
+                                </p>
+                            }
+                            skills={["react", "electron", "js", "css"]}
+                            role={"Single Developer"}
+                        />
+                    
                     </div>
                 </div>
             </div>
@@ -355,7 +418,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <h2>From 2022 to 2024</h2>
                         <br />
                         <br />
-                        <button><p>See more</p></button>
+                        <button><p>See all</p></button>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Rakha from "../../components/3dobjects/rakha";
 import { EffectComposer, Bloom, SSAO, Vignette } from "@react-three/postprocessing";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 import SkillCube from "../../components/3dobjects/skillcube";
 import AchievementHighlights from "../../components/3dobjects/achievement_highlights";
 

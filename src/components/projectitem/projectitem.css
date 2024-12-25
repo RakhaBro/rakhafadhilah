@@ -1,7 +1,18 @@
+.projectitem_container {
+    height: 100%;
+    align-items: start; justify-content: center; display: flex;
+}
+
+.projectitem_container:nth-child(even) {
+    align-items: end;
+}
+
 .projectitem {
-    height: calc(50% - 12px);
-    aspect-ratio: 16/9;
+    min-height: 85%;
+    min-width: 400px;
+    aspect-ratio: .9;
     align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
     transition: .15s;
     transform: scale(1);
 }
@@ -11,22 +22,112 @@
     filter: brightness(1.4);
 }
 
-.projectitem_content {
-    position: relative;
+
+
+
+
+.projectitem .projectitem_cover {
     width: 100%;
-    height: 100%;
 }
 
-.projectitem img {
+.projectitem .projectitem_cover img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 2.8;
     object-fit: cover;
-    border-radius: 48px;
+    border-radius: 48px 48px 0px 0px;
 }
 
 .projectitem_gradient {
     position: absolute;
     width: 100%;
+    aspect-ratio: 2.8;
+    background: linear-gradient(0deg, #212832 3.5%, #21283200 66%);
+    transform: translateY(-100%);
+    border-radius: 48px 48px 0px 0px;
+}
+
+
+
+
+
+.projectitem_content {
+    width: 100%;
     height: 100%;
-    border-radius: 48px;
+    box-sizing: border-box;
+    align-items: start; justify-content: space-between; display: flex;
+    /* gap: 12px; */
+    flex-direction: column;
+    text-align: justify;
+}
+
+.projectitem_content .title {
+    width: 100%;
+    padding: 0px 24px;
+    padding-top: 0px;
+    box-sizing: border-box;
+}
+
+.projectitem_container .title h1 {
+    color: #fff;
+}
+
+
+
+
+
+.projectitem .description {
+    padding: 0px 24px;
+    box-sizing: border-box;
+}
+
+.projectitem .description p span{
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+
+
+.projectitem .skills_related {
+    min-width: 100%;
+    padding: 0px 24px;
+    box-sizing: border-box;
+    align-items: center; justify-content: start; display: flex;
+    gap: 12px;
+}
+
+.projectitem .skills_related img {
+    height: 24px;
+    padding: 12px 0px;
+    object-position: top;
+    /* aspect-ratio: 1; */
+    /* object-fit: contain; */
+}
+
+
+
+
+
+.projectitem .btn_container {
+    width: 100%;
+    padding: 24px;
+    padding-top: 0px;
+    box-sizing: border-box;
+    align-items: end; justify-content: end; display: flex;
+    flex-direction: column;
+}
+
+.projectitem_container button {
+    all: unset;
+    padding: 12px 48px;
+    border-radius: 100vh;
+    background-color: #ffffff;
+    color: #000;
+    align-items: center; justify-content: center; display: flex;
+    transition: .15s;
+}
+
+.projectitem_container button:hover {
+    box-shadow: 0px 0px 26px #ffffff33;
 }
