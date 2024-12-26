@@ -1,7 +1,7 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef, useState } from "react";
-import { MathUtils, MeshStandardMaterial, NormalBlending } from "three";
+import React, { useEffect, useRef } from "react";
+import { MathUtils, MeshStandardMaterial } from "three";
 
 const Rakha = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 

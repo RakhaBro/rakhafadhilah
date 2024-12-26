@@ -3,7 +3,9 @@ import Page_Projects from "./pages/projects/projects"
 import Page_Home from "./pages/home/home"
 import Page_Contact from "./pages/contact/contact"
 import CustomizeCursor from "./components/cursor/cursor"
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { PopupContext } from './providers/popupProvider';
+import Popup from './components/popup/popup';
 
 function App() {
 
@@ -30,12 +32,18 @@ function App() {
   // ===============================================
 
 
+  // POPUP CONTROLLER ==============================
+  const { popupChild } = useContext(PopupContext);
+  // ===============================================
+
+
   return (
     <div onMouseMove={handleMouseMove}>
       <CustomizeCursor
         mousePosition={mousePosition}
         isMousePositionInitialized={isMousePositionInitialized}
       />
+      <Popup />
       <Router>
         <Routes>
           <Route path='/' element={<Page_Home mousePosition={mousePosition} />} />

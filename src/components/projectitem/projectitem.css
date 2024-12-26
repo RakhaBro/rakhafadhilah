@@ -10,7 +10,7 @@
 .projectitem {
     min-height: 85%;
     min-width: 400px;
-    aspect-ratio: .9;
+    aspect-ratio: 1;
     align-items: center; justify-content: center; display: flex;
     flex-direction: column;
     transition: .15s;
@@ -34,14 +34,20 @@
     width: 100%;
     aspect-ratio: 2.8;
     object-fit: cover;
+    filter: saturate(10%);
     border-radius: 48px 48px 0px 0px;
+    transition: .15s;
+}
+
+.projectitem:hover .projectitem_cover img {
+    filter: saturate(60%);
 }
 
 .projectitem_gradient {
     position: absolute;
     width: 100%;
     aspect-ratio: 2.8;
-    background: linear-gradient(0deg, #212832 3.5%, #21283200 66%);
+    background: linear-gradient(0deg, #212832 3.5%, #21283200 65%);
     transform: translateY(-100%);
     border-radius: 48px 48px 0px 0px;
 }
@@ -55,7 +61,7 @@
     height: 100%;
     box-sizing: border-box;
     align-items: start; justify-content: space-between; display: flex;
-    /* gap: 12px; */
+    gap: 6px;
     flex-direction: column;
     text-align: justify;
 }

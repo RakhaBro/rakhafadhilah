@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./projectitem.css";
+import { PopupContext } from "../../providers/popupProvider";
 
 const ProjectItem = React.memo(({title, description, cover, skills, role}) => {
 
+    const {setPopupChild} = useContext(PopupContext);
+
+    const openProjectDetail = () => {
+        setPopupChild(
+            <div className="neum" style={{padding: "20px"}}>
+                <h1>Popup</h1>
+                <p>This is a popup to give more detail information about something</p>
+            </div>
+        );
+    }
+
     return(
         <div className="projectitem_container">
-            <div className="projectitem neum">
+            <div className="projectitem neum"
+                 onClick={openProjectDetail}
+            >
                 
                 {
                     cover &&

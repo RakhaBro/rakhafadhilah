@@ -234,14 +234,14 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
             {/* SUMMARY SECTION */}
-            <div className="section">
+            <div className="section"
+                style={{
+                    opacity: summaryPhaseProgress > 0.5 ? 1 : 0,
+                    filter: `blur(${summaryPhaseProgress > 0.5 ? 0 : 16}px)`
+                }}
+            >
                 <div className="summary_container">
-                    <div className="summary"
-                        style={{
-                            opacity: summaryPhaseProgress,
-                            filter: `blur(${(1 - summaryPhaseProgress) * 12}px)`
-                        }}
-                    >
+                    <div className="summary">
                         <div className="upper neum neum_hoverable">
                             <div className="img_container">
                                 <img src="/assets/img/rakha.webp" alt="" />
@@ -285,7 +285,14 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
             {/* PROJECT SECTION */}
-            <div className="section section_project" ref={projectSectionRef}>
+            <div
+                className="section section_project"
+                ref={projectSectionRef}
+                style={{
+                    opacity: projectPhaseProgress > 0.5 ? 1 : 0,
+                    filter: `blur(${projectPhaseProgress > 0.5 ? 0 : 16}px)`
+                }}
+            >
                 <div className="projects_container">
                     <div className="title">
                         <h1>Project Highlights</h1>
@@ -304,11 +311,11 @@ const Page_Home = React.memo(({mousePosition}) => {
                                 </p>
                             }
                             skills={["flutter", "dart", "firebase", "node", "figma"]}
-                            role={"As PM & Frontend Developer"}
+                            role={"As Founder, PM, Fullstack Developer"}
                             />
                         
                         <ProjectItem
-                            cover={"hiclob"}
+                            cover={"mebelverse"}
                             title={"Mebelverse"}
                             description={
                                 <p>
@@ -317,12 +324,12 @@ const Page_Home = React.memo(({mousePosition}) => {
                                     handmade furniture <span>abroad</span>.
                                 </p>
                             }
-                            skills={["codeigniter", "php", "mysql", "three", "xendit"]}
-                            role={"As PM & Fullstack Developer"}
+                            skills={["three", "php", "mysql", "xendit"]}
+                            role={"As Founder, PM, Fullstack Developer"}
                             />
                         
                         <ProjectItem
-                            cover={"hiclob"}
+                            cover={"findelify"}
                             title={"Findelify"}
                             description={
                                 <p>
@@ -332,17 +339,16 @@ const Page_Home = React.memo(({mousePosition}) => {
                                 </p>
                             }
                             skills={["codeigniter", "php", "mysql", "bootstrap"]}
-                            role={"As Project Manager"}
+                            role={"As Co-Founder, PM"}
                         />
                         
                         <ProjectItem
-                            cover={"hiclob"}
+                            cover={"fozzle"}
                             title={"Fozzle"}
                             description={
                                 <p>
-                                    Challange to develop a game mechanism
-                                    with <span>website technology</span>
-                                    (React). The game is a <span>2D platformer</span>
+                                    5 days of <span>game development</span> challange
+                                    with <span>website technology</span> (React).
                                 </p>
                             }
                             skills={["react", "electron", "js", "css"]}
@@ -350,7 +356,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         />
                         
                         <ProjectItem
-                            cover={"hiclob"}
+                            cover={"simpelku"}
                             title={"Simpelku"}
                             description={
                                 <p>
@@ -369,15 +375,15 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
             {/* SKILL SECTION */}
-            <div className="section">
+            <div className="section"
+                style={{
+                    opacity: skillPhaseProgress > 0.5 ? 1 : 0,
+                    filter: `blur(${skillPhaseProgress > 0.5 ? 0 : 16}px)`
+                }}
+            >
                 <div></div>
                 <div className="skills_container">
-                    <div className="skills"
-                        style={{
-                            opacity: skillPhaseProgress,
-                            filter: `blur(${(1 - skillPhaseProgress) * 16}px)`
-                        }}
-                    >
+                    <div className="skills">
                         <h1>Skills</h1>
                         <div className="skill_list">
                             
@@ -408,8 +414,8 @@ const Page_Home = React.memo(({mousePosition}) => {
             {/* ACHIEVEMENT SECTION */}
             <div className="section"
                 style={{
-                    opacity: achievementPhaseProgress,
-                    filter: `blur(${(1 - achievementPhaseProgress) * 12}px)`
+                    opacity: achievementPhaseProgress > 0.5 ? 1 : 0,
+                    filter: `blur(${achievementPhaseProgress > 0.5 ? 0 : 16}px)`
                 }}
             >
                 <div className="achievements_container">

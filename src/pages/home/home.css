@@ -13,6 +13,7 @@ body {
 }
 
 .page_home .section {
+    pointer-events: none;
     position: relative;
     scroll-snap-align: start;
     width: 100%;
@@ -20,6 +21,7 @@ body {
     align-items: center; justify-content: space-between; display: flex;
     padding: 48px;
     box-sizing: border-box;
+    transition: .4s;
 }
 
 .page_home .section_top {
@@ -29,6 +31,18 @@ body {
     align-items: center; justify-content: center; display: flex;
     flex-direction: column;
     overflow: hidden;
+    opacity: 0;
+    animation: 2s section_top_init forwards cubic-bezier(0.215, 0.610, 0.355, 1);
+    animation-delay: 2s;
+}
+
+@keyframes section_top_init {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .page_home .section_top .maintitle {
@@ -321,7 +335,6 @@ body {
 }
 
 .page_home .section .achievements_container .title button {
-    all: unset;
     padding: 12px 24px;
     border-radius: 100vh;
     background-color: #ffffff;
