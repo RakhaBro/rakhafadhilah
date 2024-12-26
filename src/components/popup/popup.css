@@ -6,9 +6,26 @@
     width: 100%;
     height: 100svh;
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(9px) saturate(0%);
+    backdrop-filter: blur(9px) saturate(0%) sepia(20%);
     align-items: center; justify-content: center; display: flex;
-    transition: .5s;
+    opacity: 0;
+}
+
+.popup_active {
+    opacity: 1;
+}
+
+.popup_opening {
+    animation: popup_toggle .25s forwards cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.popup_closing {
+    animation: popup_toggle .25s reverse forwards cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+@keyframes popup_toggle {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .popup_container .neum {
@@ -19,6 +36,7 @@
     align-self: unset;
     color: white;
     height: min-content;
+    align-self: stretch;
     flex-shrink: 0;
     width: 60px;
     aspect-ratio: 1;
@@ -33,8 +51,9 @@
 
 
 .popup_container .popup_content {
-    max-width: 80%;
-    max-height: 80%;
-    align-items: start; justify-content: center; display: flex;
+    width: 90%;
+    height: 90%;
+    max-height: 800px;
+    align-items: center; justify-content: center; display: flex;
     gap: 24px;
 }

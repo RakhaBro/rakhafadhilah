@@ -4,6 +4,7 @@ import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
 import React, { useEffect, useRef, useState } from "react";
 import SocialMedia from "../../components/socialmedia/socialmedia";
 import ProjectItem from "../../components/projectitem/projectitem";
+import data_of_projects from "../../models/projects";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
@@ -44,9 +45,9 @@ const Page_Home = React.memo(({mousePosition}) => {
             ) {
                 if (projectPhaseProgress == 1) {
                     setProjectSectionScrollPosition((value) =>
-                        value + 500 > projectSectionRef.current.scrollWidth - window.innerWidth
+                        value + 400 > projectSectionRef.current.scrollWidth - window.innerWidth
                             ? projectSectionRef.current.scrollWidth - window.innerWidth
-                            : value + 500
+                            : value + 400
                     );
                 }
             } else if (
@@ -56,9 +57,9 @@ const Page_Home = React.memo(({mousePosition}) => {
             ) {
                 if (projectPhaseProgress == 1) {
                     setProjectSectionScrollPosition((value) =>
-                        value - 500 < 0
+                        value - 400 < 0
                             ? 0
-                            : value - 500
+                            : value - 400
                     );
                 }
             }
@@ -222,7 +223,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <button className="btn_scrolldown"
                             onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight, behavior: 'smooth'})}
                         >
-                            <p>Start a tour</p>
+                            <p>Start stalking</p>
                             <Icon_Chevron_Bottom dimension={12} color={"#000"} />
                         </button>
                     </div>
@@ -300,74 +301,16 @@ const Page_Home = React.memo(({mousePosition}) => {
                     </div>
                     <div className="projects_content">
                         
-                        <ProjectItem
-                            cover={"hiclob"}
-                            title={"Hiclob"}
-                            description={
-                                <p>
-                                    Meet-based <span>social platform</span> to connect people
-                                    with similar interests. People can create and
-                                    join <span>talks</span> and <span>communities</span> to meet new people.
-                                </p>
-                            }
-                            skills={["flutter", "dart", "firebase", "node", "figma"]}
-                            role={"As Founder, PM, Fullstack Developer"}
-                            />
-                        
-                        <ProjectItem
-                            cover={"mebelverse"}
-                            title={"Mebelverse"}
-                            description={
-                                <p>
-                                    <span>VR-Based E-Commerce</span> that focuses on selling
-                                    bamboo <span>furniture</span>, that helps local to sell their
-                                    handmade furniture <span>abroad</span>.
-                                </p>
-                            }
-                            skills={["three", "php", "mysql", "xendit"]}
-                            role={"As Founder, PM, Fullstack Developer"}
-                            />
-                        
-                        <ProjectItem
-                            cover={"findelify"}
-                            title={"Findelify"}
-                            description={
-                                <p>
-                                    A stuff finder app that helps you <span>find</span> your
-                                    lost <span>stuff</span>. Users can post their lost stuff
-                                    to the app and other users can help them <span>find it</span>.
-                                </p>
-                            }
-                            skills={["codeigniter", "php", "mysql", "bootstrap"]}
-                            role={"As Co-Founder, PM"}
-                        />
-                        
-                        <ProjectItem
-                            cover={"fozzle"}
-                            title={"Fozzle"}
-                            description={
-                                <p>
-                                    5 days of <span>game development</span> challange
-                                    with <span>website technology</span> (React).
-                                </p>
-                            }
-                            skills={["react", "electron", "js", "css"]}
-                            role={"Single Developer"}
-                        />
-                        
-                        <ProjectItem
-                            cover={"simpelku"}
-                            title={"Simpelku"}
-                            description={
-                                <p>
-                                    An <span>integrated</span> school management system
-                                    that covers finance, LMS, and employee management
-                                    in a <span>single software</span>.
-                                </p>
-                            }
-                            skills={["react", "electron", "js", "css"]}
-                            role={"Single Developer"}
-                        />
+                        {
+                            data_of_projects.map((projectData, index) => {
+                                return(
+                                    <ProjectItem
+                                        key={index}
+                                        data={projectData}
+                                    />
+                                );
+                            })
+                        }
                     
                     </div>
                 </div>

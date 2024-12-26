@@ -134,6 +134,7 @@ body {
 }
 
 .page_home .summary {
+    max-height: 800px;
     width: 50%;
     align-self: stretch;
     align-items: start; justify-content: center; display: flex;
@@ -144,6 +145,7 @@ body {
 
 .page_home .summary > div {
     padding: 24px;
+    min-width: 400px;
     box-sizing: border-box;
     transition: .15s;
 }
@@ -154,13 +156,13 @@ body {
 
 @keyframes summary_neum_background {
     0% {
-        background: #212832ff;
+        background: #212832;
     }
     50% {
-        background: #161c24bb;
+        background: #16202e;
     }
     100% {
-        background: #212832ff;
+        background: #212832;
     }
 }
 
@@ -190,8 +192,8 @@ body {
 }
 
 .page_home .summary .upper .img_container {
-    width: 20%;
-    min-width: 120px;
+    width: 120px;
+    flex-shrink: 0;
     border-radius: 100vh;
 }
 
@@ -202,8 +204,8 @@ body {
 }
 
 .page_home .summary .lower {
-    flex: 1;
-    max-height: 400px;
+    /* flex: 1; */
+    /* max-height: 400px; */
     align-items: start; justify-content: start; display: flex;
     flex-direction: column;
     gap: 18px;

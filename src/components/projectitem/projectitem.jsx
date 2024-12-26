@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
 import "./projectitem.css";
 import { PopupContext } from "../../providers/popupProvider";
+import ProjectDetail from "../../pages/projectdetail/projectdetail";
+import data_of_skills from "../../models/skills";
 
-const ProjectItem = React.memo(({title, description, cover, skills, role}) => {
+const ProjectItem = React.memo(({data}) => {
 
     const {setPopupChild} = useContext(PopupContext);
 
     const openProjectDetail = () => {
         setPopupChild(
-            <div className="neum" style={{padding: "20px"}}>
-                <h1>Popup</h1>
-                <p>This is a popup to give more detail information about something</p>
-            </div>
+            <ProjectDetail data={data} />
         );
     }
 
@@ -22,9 +21,9 @@ const ProjectItem = React.memo(({title, description, cover, skills, role}) => {
             >
                 
                 {
-                    cover &&
+                    data.cover &&
                     <div className="projectitem_cover">
-                        <img src={`./assets/img/projects/project_${cover}.webp`} alt="" />
+                        <img src={`./assets/img/projects/project_${data.cover}.webp`} alt="" />
                         <div className="projectitem_gradient"></div>
                     </div>
                 }
@@ -34,22 +33,28 @@ const ProjectItem = React.memo(({title, description, cover, skills, role}) => {
 
                     
                     <div className="title">
-                        <h1>{title}</h1>
-                        <p>{role}</p>
+                        <h1>{data.title}</h1>
+                        <p>
+                            {data.team && "As "}
+                            {data.role}
+                        </p>
                     </div>
 
                     <div></div>
                     
                     <div className="description">
-                        {description}
+                        {data.description}
                     </div>
 
                     <div className="skills_related">
                         {
-                            skills && skills.map((skillUrl, index) => (
+                            data.skills && data.skills.map((skill, index) => (
                                 <img
+                                    title={
+                                        data_of_skills.find(item => item.id === skill).name
+                                    }
                                     key={index}
-                                    src={`./assets/img/skills/skill_${skillUrl}.webp`} alt=""
+                                    src={`./assets/img/skills/skill_${skill}.webp`} alt=""
                                 />
                             ))
                         }

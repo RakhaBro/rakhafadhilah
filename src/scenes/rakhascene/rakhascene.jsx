@@ -86,8 +86,8 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
 
     return(
         <>
-            <Environment preset="studio" backgroundIntensity={.2} />
-            <ambientLight intensity={0.45 + (achievementPhaseProgress * 2)} color={"#4763ff"} />
+            {/* <Environment preset="studio" backgroundIntensity={.2} /> */}
+            <ambientLight intensity={0.85 + (achievementPhaseProgress * 2)} color={"#4763ff"} />
 
             <directionalLight
                 position={[4, 1.2, 1]}

@@ -1,0 +1,137 @@
+.projectdetail_container {
+    width: 100%;
+    height: 100%;
+    align-items: start; justify-content: center; display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.projectdetail_container .neum {
+    border-radius: 48px !important;
+}
+
+.projectdetail_container iframe {
+    flex-shrink: 0;
+    border-radius: 48px;
+}
+
+.projectdetail_container > div {
+    align-items: start; justify-content: start; display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/* LEFT */
+
+.projectdetail_container .left {
+    align-self: stretch;
+    gap: 12px;
+}
+
+.projectdetail_container .project_secondary_information {
+    padding: 24px;
+    box-sizing: border-box;
+    align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+/* RIGHT */
+
+.projectdetail_container .right {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 240px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.projectdetail_container .right .cover {
+    position: relative;
+}
+
+.projectdetail_container .right .cover img {
+    width: 100%;
+    aspect-ratio: 3.5;
+    object-fit: cover;
+    border-radius: 48px 48px 0px 0px;
+}
+
+.projectdetail_container .right .cover .cover_gradient {
+    position: absolute;
+    /* position: relative; */
+    width: 100%;
+    aspect-ratio: 4;
+    background: linear-gradient(0deg, #212832 3.5%, #21283200 65%);
+    transform: translateY(-100%);
+    border-radius: 48px 48px 0px 0px;
+}
+
+.projectdetail_container .right .content {
+    width: 100%;
+    overflow-y: scroll;
+    padding: 0px 24px;
+    box-sizing: border-box;
+    align-items: start; justify-content: start; display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.projectdetail_container .right h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.projectdetail_container .right p span {
+    font-weight: bold;
+    color: white;
+}
+
+.projectdetail_container .right .content table tr td {
+    vertical-align: baseline;
+}
+
+.projectdetail_container .right .content table tr td:first-child {
+    font-weight: bold;
+    /* color: white; */
+    padding-right: 24px;
+    
+}
+
+.projectdetail_container .right .content table tr td:nth-child(2) {
+    font-weight: bold;
+    /* color: white; */
+    padding-right: 12px;
+}
+
+.projectdetail_container .right .content .skills_container {
+    margin: 48px 0px;
+    width: 100%;
+    align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.projectdetail_container .right .content .skills_container .skills_img {
+    height: 40px;
+    align-items: start; justify-content: start; display: flex;
+    gap: 12px;
+}
+
+.projectdetail_container .right .content .skills_container img {
+    height: 100%;
+}
+
+.projectdetail_container .right .content .skills_container p {
+    font-size: 14px;
+    font-style: italic;
+}
