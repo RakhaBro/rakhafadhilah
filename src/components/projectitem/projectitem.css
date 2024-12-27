@@ -5,6 +5,7 @@
 
 .projectitem_container:nth-child(even) {
     align-items: end;
+    margin-right: 96px;
 }
 
 .projectitem {

@@ -51,8 +51,8 @@
 
 
 .popup_container .popup_content {
-    width: 90%;
-    height: 90%;
+    /* width: 90%; */
+    /* height: 90%; */
     max-height: 800px;
     align-items: center; justify-content: center; display: flex;
     gap: 24px;

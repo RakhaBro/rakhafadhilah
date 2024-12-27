@@ -1,12 +1,22 @@
 import "./home.css";
 import Icon_Chevron_Bottom from "../../assets/icons/chevron_bottom";
 import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import AllSkills from "../skills/skills";
 import SocialMedia from "../../components/socialmedia/socialmedia";
 import ProjectItem from "../../components/projectitem/projectitem";
-import data_of_projects from "../../models/projects";
+import data_of_projects from "../../data/projects";
+import { PopupContext } from "../../providers/popupProvider";
 
 const Page_Home = React.memo(({mousePosition}) => {
+
+    const {popupChild, setPopupChild} = useContext(PopupContext);
+
+    const showAllSkills = () => {
+        setPopupChild(
+            <AllSkills />
+        );
+    };
 
 
     const pageDocumentRef = useRef(null);
@@ -45,9 +55,9 @@ const Page_Home = React.memo(({mousePosition}) => {
             ) {
                 if (projectPhaseProgress == 1) {
                     setProjectSectionScrollPosition((value) =>
-                        value + 400 > projectSectionRef.current.scrollWidth - window.innerWidth
+                        value + 500 > projectSectionRef.current.scrollWidth - window.innerWidth
                             ? projectSectionRef.current.scrollWidth - window.innerWidth
-                            : value + 400
+                            : value + 500
                     );
                 }
             } else if (
@@ -57,9 +67,9 @@ const Page_Home = React.memo(({mousePosition}) => {
             ) {
                 if (projectPhaseProgress == 1) {
                     setProjectSectionScrollPosition((value) =>
-                        value - 400 < 0
+                        value - 500 < 0
                             ? 0
-                            : value - 400
+                            : value - 500
                     );
                 }
             }
@@ -327,7 +337,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div></div>
                 <div className="skills_container">
                     <div className="skills">
-                        <h1>Skills</h1>
+                        <h1>Tech Skills</h1>
                         <div className="skill_list">
                             
                             <br />
@@ -349,6 +359,9 @@ const Page_Home = React.memo(({mousePosition}) => {
                             </div>
 
                         </div>
+                        <br />
+                        <br />
+                        <button onClick={showAllSkills}><p>See all</p></button>
                     </div>
                 </div>
             </div>
@@ -364,7 +377,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div className="achievements_container">
                     <div className="title">
                         <h1>Achievement Highlights</h1>
-                        <h2>From 2022 to 2024</h2>
+                        <h2>From 2022 to 2025</h2>
                         <br />
                         <br />
                         <button><p>See all</p></button>

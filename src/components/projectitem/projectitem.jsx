@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./projectitem.css";
 import { PopupContext } from "../../providers/popupProvider";
 import ProjectDetail from "../../pages/projectdetail/projectdetail";
-import data_of_skills from "../../models/skills";
+import data_of_skills from "../../data/skills";
 
 const ProjectItem = React.memo(({data}) => {
 

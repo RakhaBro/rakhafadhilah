@@ -1,7 +1,7 @@
 .social_media_container {
     pointer-events: all;
     position: fixed;
-    z-index: 500;
+    z-index: 1000 !important;
     bottom: 0px;
     right: 0px;
     align-items: end; justify-content: center; display: flex;

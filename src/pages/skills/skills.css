@@ -1,0 +1,60 @@
+.allskills_container {
+    background: #21283244;
+    /* width: 86%; */
+    max-width: 1200px;
+    height: 90%;
+    overflow: hidden;
+}
+
+.allskills_container .upper {
+    width: 100%;
+    align-items: center; justify-content: center; display: flex;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.allskills_container .searchinput_container {
+    width: 50%;
+    align-items: center; justify-content: start; display: flex;
+    gap: 12px;
+    background-color: #212832;
+    padding: 12px 24px;
+    border-radius: 12px;
+}
+
+.allskills_container .upper input {
+    all: unset;
+    width: 100%;
+}
+
+.allskills_container .content {
+    width: 100%;
+    height: 60svh;
+    padding: 24px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 12px;
+    row-gap: 12px;
+    overflow-y: auto;
+}
+
+
+
+
+
+/* SKILL ITEM */
+
+.skillitem {
+    align-items: center; justify-content: start; display: flex;
+    gap: 12px;
+    padding: 12px;
+    align-self: stretch;
+    break-inside: avoid;
+}
+
+.skillitem img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}

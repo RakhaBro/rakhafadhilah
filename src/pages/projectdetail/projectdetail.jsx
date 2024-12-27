@@ -1,9 +1,20 @@
-import data_of_skills from "../../models/skills";
-import React from "react";
+import data_of_skills from "../../data/skills";
+import React, { useEffect, useState } from "react";
 import Icon_Out from "../../assets/icons/outIcon";
 import "./projectdetail.css";
 
 const ProjectDetail = React.memo(({ data }) => {
+
+    const [isVideoStarted, setIsVideoStarted] = useState(false);
+    const [isVideoReady, setIsVideoReady] = useState(false);
+    useEffect(() => {
+        if (isVideoReady) {
+            setTimeout(() => {
+                setIsVideoStarted(true);
+            }, 250);
+        }
+    }, [isVideoReady]);
+
 
     return (
         <div className="projectdetail_container">
@@ -31,12 +42,21 @@ const ProjectDetail = React.memo(({ data }) => {
                 <div className="cover">
                     <div className="img_container">
                         {
-                            data.assetvideo != null
-                            ? <video autoPlay loop muted playsInline>
+                            !isVideoStarted &&
+                            <img src={`./assets/img/projects/project_${data.cover}_clean.webp`} alt="" />
+                        }
+                        {
+                            data.assetvideo &&
+                            <video
+                                autoPlay loop muted playsInline
+                                onCanPlay={() => setIsVideoReady(true)}
+                                style={{
+                                    opacity: isVideoReady ? 1 : 0,
+                                }}
+                            >
                                 <source src={data.assetvideo} type="video/webm" />
                                 <p>Your browser doesn't support video tag</p>
                             </video>
-                            : <img src={`./assets/img/projects/project_${data.cover}.webp`} alt="" />
                         }
                         <div className="upper">
                             <h1>{data.title}</h1>
@@ -45,7 +65,7 @@ const ProjectDetail = React.memo(({ data }) => {
                         {
                             data.link &&
                             <a href={data.link} target="_blank">
-                                Visit Product
+                                Visit {data.title}
                                 <Icon_Out dimension={12} color={"#222"} />
                             </a>
                         }
