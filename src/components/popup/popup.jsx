@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./popup.css";
 import { PopupContext } from "../../providers/popupProvider";
-import Icon_Close from "../icons/closeIcon";
+import Icon_Close from "../../assets/icons/closeIcon";
 
 const Popup = React.memo(() => {
 

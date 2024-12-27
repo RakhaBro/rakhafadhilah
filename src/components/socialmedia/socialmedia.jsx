@@ -38,7 +38,7 @@ function SocialMedia() {
                     onMouseEnter={() => setChosenSocialMedia("Linkedin")}
                     onClick={() => openPage(url)}
                 >
-                    <img src="./assets/img/linkedin_icon.webp" alt="Linkedin" />
+                    <img src="./assets/img/media/linkedin_icon.webp" alt="Linkedin" />
                 </div>
 
                 {/* GITHUB */}
@@ -46,7 +46,7 @@ function SocialMedia() {
                     onMouseEnter={() => setChosenSocialMedia("Github")}
                     onClick={() => openPage(url)}
                 >
-                    <img src="./assets/img/github_icon.webp" alt="Github" />
+                    <img src="./assets/img/media/github_icon.webp" alt="Github" />
                 </div>
 
                 {/* INSTAGRAM */}
@@ -54,7 +54,7 @@ function SocialMedia() {
                     onMouseEnter={() => setChosenSocialMedia("Instagram")}
                     onClick={() => openPage(url)}
                 >
-                    <img src="./assets/img/instagram_icon.webp" alt="Instagram" />
+                    <img src="./assets/img/media/instagram_icon.webp" alt="Instagram" />
                 </div>
 
             </div>

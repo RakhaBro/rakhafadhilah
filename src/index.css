@@ -45,7 +45,7 @@ a {
 }
 
 .scroll-container::-webkit-scrollbar {
-  display: block;
+  display: flex;
   width: 6px;
   padding-left: 12px;
 }

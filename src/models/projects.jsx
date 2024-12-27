@@ -16,21 +16,21 @@ const data_of_projects = [
         skills: ["flutter", "dart", "firebase", "node", "figma", "agora"],
         platform: ["mobile"],
         timestarted: "June 2024",
-        timended: "present",
+        timefinished: "present",
         link: ["https://hiclob.com"],
-        embedvideo: "https://www.youtube.com/embed/_jmYs17n448?si=cE8SMeegfT4-YsE0",
+        assetvideo: "./assets/vid/projects/hiclob.webm",
         team: [
             {
                 name: "M. Hanif Solatan",
                 role: "Co-Founder, CMO",
                 contribution: "UI/UX Design, Marketing & Branding",
-                photourl: "./assets/img/rakha.webp"
+                photourl: "./assets/img/people/hanif.webp"
             },
             {
                 name: "Najwa Alya Rahma",
                 role: "Co-Founder, CBO",
                 contribution: "Business Development, System Analyst",
-                photourl: "./assets/img/rakha.webp"
+                photourl: "./assets/img/people/najwa.webp"
             }
         ],
         additionalparagraph:
@@ -55,20 +55,20 @@ const data_of_projects = [
         skills: ["three", "php", "mysql", "xendit"],
         platform: ["web"],
         timestarted: "December 2023",
-        timended: "February 2024",
-        embedvideo: "https://www.youtube.com/embed/_jmYs17n448?si=cE8SMeegfT4-YsE0",
+        timefinished: "February 2024",
+        link: "https://www.youtube.com/watch?v=_jmYs17n448",
         team: [
             {
                 name: "Syaeful Bachtiar",
-                role: "Co-Founder, CTO",
+                role: "Co-Founder, Hacker",
                 contribution: "Technical Development, System Architect",
-                photourl: "./assets/img/rakha.webp"
+                photourl: "./assets/img/people/syaeful.webp"
             },
             {
-                name: "Najwa Alya Rahma",
-                role: "Co-Founder, CBO",
+                name: "M. Fajar Ramadhan",
+                role: "Co-Founder, Hipster",
                 contribution: "UX Researcher, System Analyst",
-                photourl: "./assets/img/rakha.webp"
+                photourl: "./assets/img/people/fajar.webp"
             }
         ],
         additionalparagraph:
@@ -93,14 +93,15 @@ const data_of_projects = [
         skills: ["codeigniter", "php", "mysql", "bootstrap"],
         platform: ["web"],
         timestarted: "September 2024",
-        timended: "December 2024",
-        embedvideo: "https://www.youtube.com/embed/_jmYs17n448?si=cE8SMeegfT4-YsE0",
+        timefinished: "December 2024",
+        link: "https://www.linkedin.com/posts/rakha-fadhilah-technopreneur_i-am-proudly-ready-to-show-off-my-final-class-activity-7276229172404920320-AByq?utm_source=share",
+        assetvideo: "./assets/vid/projects/findelify.webm",
         team: [
             {
                 name: "Yusril Mubaroq",
-                role: "Founder",
+                role: "Founder, Hacker",
                 contribution: "Technical Development, System Architect",
-                photourl: "./assets/img/rakha.webp"
+                photourl: "./assets/img/people/yusril.webp"
             }
         ],
         additionalparagraph:
@@ -114,7 +115,7 @@ const data_of_projects = [
         id: 3,
         cover: "fozzle",
         title: "Fozzle",
-        role: "Solo (No team)",
+        role: "Solo Developer",
         contribution: "Fullstack Development",
         description:
             <p>
@@ -124,8 +125,7 @@ const data_of_projects = [
         skills: ["react", "electron", "js", "css"],
         platform: ["desktop"],
         timestarted: "December 2024",
-        timended: "December 2024",
-        embedvideo: "https://www.youtube.com/embed/_jmYs17n448?si=cE8SMeegfT4-YsE0",
+        timefinished: "December 2024",
         additionalparagraph:
             <p>
                 
@@ -137,7 +137,7 @@ const data_of_projects = [
         id: 4,
         cover: "simpelku",
         title: "Simpelku",
-        role: "Solo (No team)",
+        role: "Solo Developer",
         contribution: "Fullstack Development",
         description:
             <p>
@@ -148,8 +148,7 @@ const data_of_projects = [
         skills: ["react", "electron", "js", "css"],
         platform: ["desktop"],
         timestarted: "December 2024",
-        timended: "present",
-        embedvideo: "https://www.youtube.com/embed/_jmYs17n448?si=cE8SMeegfT4-YsE0",
+        timefinished: "present",
         additionalparagraph:
             <p>
                 

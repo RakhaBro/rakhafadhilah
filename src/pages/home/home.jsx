@@ -245,7 +245,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                     <div className="summary">
                         <div className="upper neum neum_hoverable">
                             <div className="img_container">
-                                <img src="/assets/img/rakha.webp" alt="" />
+                                <img src="/assets/img/people/rakha.webp" alt="" />
                             </div>
                             <div>
                                 <h2>Muhammad Rakha Fadhilah</h2>

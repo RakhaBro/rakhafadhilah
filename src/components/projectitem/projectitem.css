@@ -34,7 +34,7 @@
     width: 100%;
     aspect-ratio: 2.8;
     object-fit: cover;
-    filter: saturate(20%) contrast(130%);
+    filter: saturate(40%) contrast(130%);
     border-radius: 48px 48px 0px 0px;
     transition: .15s;
 }
