@@ -7,8 +7,26 @@ import SocialMedia from "../../components/socialmedia/socialmedia";
 import ProjectItem from "../../components/projectitem/projectitem";
 import data_of_projects from "../../data/projects";
 import { PopupContext } from "../../providers/popupProvider";
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
+import { SkillsContext } from "../../providers/skillsProvider";
 
 const Page_Home = React.memo(({mousePosition}) => {
+
+
+
+    // SKILL DATA
+    const {skills, fetchSkills} = useContext(SkillsContext);
+    useEffect(() => {
+        const setSkillsProvider = async () => {
+            if (skills == null) {
+                fetchSkills();
+            }
+        }
+        setSkillsProvider();
+    }, []);
+
+
 
     const {popupChild, setPopupChild} = useContext(PopupContext);
 
@@ -338,7 +356,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div></div>
                 <div className="skills_container">
                     <div className="skills">
-                        <h1>Tech Skills</h1>
+                        <h1>Tech Knowledge</h1>
                         <div className="skill_list">
                             
                             <br />
