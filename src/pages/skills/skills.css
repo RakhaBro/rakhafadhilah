@@ -1,9 +1,13 @@
 .allskills_container {
     background: #21283244;
-    /* width: 86%; */
-    max-width: 1200px;
-    height: 90%;
+    width: 50svw;
+    max-width: 1000px;
+    min-width: 280px;
+    height: 80svh;
+    max-height: 700px;
     overflow: hidden;
+    align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
 }
 
 .allskills_container .upper {
@@ -29,14 +33,42 @@
 
 .allskills_container .content {
     width: 100%;
-    height: 60svh;
     padding: 24px;
+    flex: 1;
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    column-gap: 12px;
-    row-gap: 12px;
+    /* display: grid; */
+    /* grid-template-columns: auto auto auto; */
+    /* column-gap: 12px; */
+    /* row-gap: 12px; */
+    /* column-count: 3; */
     overflow-y: auto;
+}
+
+.allskills_container .nodata_container {
+    width: 100%;
+    flex: 1;
+    align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.allskills_container .nodata_container button {
+    width: fit-content;
+    padding: 12px 48px;
+    border-radius: 100vh;
+    background-color: #ffffff;
+    color: #000;
+    align-items: center; justify-content: center; display: flex;
+    gap: 12px;
+    transition: .15s;
+}
+
+.allskills_container .nodata_container button p {
+    font-size: 1.04em;
+}
+
+.allskills_container .nodata_container button:hover {
+    box-shadow: 0px 0px 26px #ffffff33;
 }
 
 

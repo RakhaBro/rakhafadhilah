@@ -24,13 +24,17 @@ const data_of_projects = [
                 name: "M. Hanif Solatan",
                 role: "Co-Founder, CMO",
                 contribution: "UI/UX Design, Marketing & Branding",
-                photourl: "./assets/img/people/hanif.webp"
+                photourl: "./assets/img/people/hanif.webp",
+                instagram: "https://www.instagram.com/sltnhaniv",
+                linkedin: "https://www.linkedin.com/in/muhammad-hanif-solatan-342989258/"
             },
             {
                 name: "Najwa Alya Rahma",
                 role: "Co-Founder, CBO",
                 contribution: "Business Development, System Analyst",
-                photourl: "./assets/img/people/najwa.webp"
+                photourl: "./assets/img/people/najwa.webp",
+                instagram: "https://www.instagram.com/najwa_alya_rahma",
+                linkedin: "https://www.linkedin.com/in/najwa-alya-rahma-9671ba342/"
             }
         ],
         additionalparagraph:
@@ -62,13 +66,17 @@ const data_of_projects = [
                 name: "Syaeful Bachtiar",
                 role: "Co-Founder, Hacker",
                 contribution: "Technical Development, System Architect",
-                photourl: "./assets/img/people/syaeful.webp"
+                photourl: "./assets/img/people/syaeful.webp",
+                instagram: "https://www.instagram.com/syaeful_bachtiar4/",
+                linkedin: "https://www.linkedin.com/in/syaeful-bachtiar-043336283/"
             },
             {
                 name: "M. Fajar Ramadhan",
                 role: "Co-Founder, Hipster",
                 contribution: "UX Researcher, System Analyst",
-                photourl: "./assets/img/people/fajar.webp"
+                photourl: "./assets/img/people/fajar.webp",
+                instagram: "https://www.instagram.com/mfajarr25/",
+                linkedin: "https://www.linkedin.com/in/muhammad-fajar-ramadhan-908aa2278/"
             }
         ],
         additionalparagraph:
@@ -101,7 +109,9 @@ const data_of_projects = [
                 name: "Yusril Mubaroq",
                 role: "Founder, Hacker",
                 contribution: "Technical Development, System Architect",
-                photourl: "./assets/img/people/yusril.webp"
+                photourl: "./assets/img/people/yusril.webp",
+                instagram: "https://www.instagram.com/_ysrilm21/",
+                linkedin: "https://www.linkedin.com/in/yusril-mubaroq-0379b0306/"
             }
         ],
         additionalparagraph:

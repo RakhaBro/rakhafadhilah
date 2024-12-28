@@ -14,7 +14,7 @@ const AllSkills = React.memo(() => {
             return;
         }
         const queried = data_of_skills
-            .filter(skill => skill.name.toLowerCase().includes(searchQuery.toLowerCase()));
+            .filter(skill => skill.name.toLowerCase().includes(searchQuery.toLowerCase().trim()));
         setQueriedSkills(queried);
     }, [searchQuery]);
 
@@ -31,20 +31,31 @@ const AllSkills = React.memo(() => {
                     <input
                         type="text"
                         placeholder="Search Rakha's skill"
+                        maxLength={30}
                         onChange={handleTextChange}
                     />
                 </div>
             </div>
             
-            <div className="content scroll-container">
-                {
-                    queriedSkills.length === 0
-                        ? <p>Rakha hasn't learnt this</p>
-                        : queriedSkills.map((skill, index) => {
-                            return <SkillItem key={index} data={skill} />;
-                        })
-                }
-            </div>
+            
+            {
+                queriedSkills.length === 0
+                    ? <div className="nodata_container">
+                        <h4>Rakha hasn't learnt this</h4>
+                        <p>Suggest Rakha to learn "{searchQuery.trim()}"</p>
+                        <br />
+                        <div>
+                            <button>Suggest</button>
+                        </div>
+                    </div>
+                    : <div className="content scroll-container">
+                        {
+                            queriedSkills.map((skill, index) => {
+                                return <SkillItem key={index} data={skill} />;
+                            })
+                        }
+                    </div>
+            }
 
         </div>
     );

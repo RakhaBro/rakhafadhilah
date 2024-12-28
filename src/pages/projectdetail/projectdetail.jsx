@@ -124,6 +124,14 @@ const ProjectDetail = React.memo(({ data }) => {
 });
 
 const TeamPersonnel = React.memo(({ data }) => {
+
+    const isMyProfile = data.name == null;
+
+    const openPage = (url) => {
+        if(url == null) return;
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
+    
     return(
         <div className="personnel">
             <img
@@ -134,8 +142,35 @@ const TeamPersonnel = React.memo(({ data }) => {
                 <p>{data.role}</p>
             </div>
             <div className="media">
-                <img src="./assets/img/media/linkedin_icon.webp" alt="" />
-                <img src="./assets/img/media/instagram_icon.webp" alt="" />
+                {
+                    isMyProfile
+                    ? <>
+                        <img
+                            onClick={() => openPage("https://www.linkedin.com/in/rakha-fadhilah-technopreneur")}
+                            src="./assets/img/media/linkedin_icon.webp" alt=""
+                        />
+                        <img
+                            onClick={() => openPage("https://www.instagram.com/rakha__fadhilah")}
+                            src="./assets/img/media/instagram_icon.webp" alt=""
+                        />
+                    </>
+                    : <>
+                        {
+                            data.linkedin &&
+                                <img
+                                    onClick={() => openPage(data.linkedin)}
+                                    src="./assets/img/media/linkedin_icon.webp" alt=""
+                                />
+                        }
+                            {
+                                data.instagram &&
+                                <img
+                                    onClick={() => openPage(data.instagram)}
+                                    src="./assets/img/media/instagram_icon.webp" alt=""
+                                />
+                            }
+                        </>
+                }
             </div>
         </div>
     );

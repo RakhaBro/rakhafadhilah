@@ -213,6 +213,8 @@ const Page_Home = React.memo(({mousePosition}) => {
             ref={pageDocumentRef}
         >
 
+            <SocialMedia />
+
             <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
 
             <div className="section_top">
@@ -240,7 +242,6 @@ const Page_Home = React.memo(({mousePosition}) => {
 
                 </div>
                 
-                <SocialMedia />
             </div>
 
 

@@ -8,11 +8,11 @@
 }
 
 .social_media_list {
-    width: 68px;
+    height: 68px;
     padding: 12px;
     box-sizing: border-box;
     align-items: center; justify-content: end; display: flex;
-    flex-direction: column;
+    flex-direction: row;
     opacity: 0;
     animation: social_media_appear .5s forwards linear;
     animation-delay: 1s;
@@ -29,7 +29,7 @@
 }
 
 .social_media_item {
-    width: 100%;
+    height: 100%;
     padding-top: 12px;
     padding-right: 12px;
     box-sizing: border-box;
@@ -37,7 +37,7 @@
 
 .social_media_list img {
     opacity: .2;
-    width: 100%;
+    height: 100%;
     aspect-ratio: 1;
     object-fit: contain;
     transition: .15s;
