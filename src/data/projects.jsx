@@ -19,6 +19,7 @@ const data_of_projects = [
         timefinished: "present",
         link: ["https://hiclob.com"],
         assetvideo: "./assets/vid/projects/hiclob.webm",
+        attachedimages: [1, 2, 3],
         team: [
             {
                 name: "M. Hanif Solatan",
@@ -79,7 +80,7 @@ const data_of_projects = [
                 linkedin: "https://www.linkedin.com/in/muhammad-fajar-ramadhan-908aa2278/"
             }
         ],
-        attachedimages: ["test", "test", "test"],
+        attachedimages: [1, 2, 3, 4, 5],
         additionalparagraph:
             <p>
                 
@@ -115,6 +116,7 @@ const data_of_projects = [
                 linkedin: "https://www.linkedin.com/in/yusril-mubaroq-0379b0306/"
             }
         ],
+        attachedimages: [1],
         additionalparagraph:
             <p>
                 
@@ -138,6 +140,7 @@ const data_of_projects = [
         timestarted: "December 2024",
         timefinished: "December 2024",
         assetvideo: "./assets/vid/projects/fozzle.webm",
+        attachedimages: [1, 2, 3, 4],
         additionalparagraph:
             <p>
                 

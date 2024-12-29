@@ -55,7 +55,7 @@ const ProjectDetail = React.memo(({ data }) => {
                                     return (
                                         <div key={index} className="img_container">
                                             <img
-                                                src="./assets/img/projects/project_mebelverse_clean.webp"
+                                                src={`./assets/img/projects/attaches_${data.cover}/${image}.webp`}
                                                 alt=""
                                             />
                                         </div>
@@ -63,36 +63,39 @@ const ProjectDetail = React.memo(({ data }) => {
                                 })
                             }
                         </div>
-                        <div className="attached_images_control">
-                            <div>
-                                <div style={{
-                                    transform: "rotate(90deg)",
-                                    opacity: shownAttachedImageIndex == 0 ? 0.3 : 1,
-                                }}>
-                                    <button
-                                        className="btn_slide"
-                                        onClick={slideLeft}
-                                    >
-                                        <Icon_Chevron dimension={16} color="#151515" />
-                                    </button>
+                        {
+                            data.attachedimages.length > 1 &&
+                            <div className="attached_images_control">
+                                <div>
+                                    <div style={{
+                                        transform: "rotate(90deg)",
+                                        opacity: shownAttachedImageIndex == 0 ? 0.3 : 1,
+                                    }}>
+                                        <button
+                                            className="btn_slide"
+                                            onClick={slideLeft}
+                                        >
+                                            <Icon_Chevron dimension={16} color="#151515" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{
+                                        transform: "rotate(-90deg)",
+                                        opacity: shownAttachedImageIndex == data.attachedimages.length - 1
+                                            ? 0.3
+                                            : 1,
+                                    }}>
+                                        <button
+                                            className="btn_slide"
+                                            onClick={slideRight}
+                                        >
+                                            <Icon_Chevron dimension={16} color="#151515" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div style={{
-                                    transform: "rotate(-90deg)",
-                                    opacity: shownAttachedImageIndex == data.attachedimages.length - 1
-                                        ? 0.3
-                                        : 1,
-                                }}>
-                                    <button
-                                        className="btn_slide"
-                                        onClick={slideRight}
-                                    >
-                                        <Icon_Chevron dimension={16} color="#151515" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 }
                 <div className="team_container neum">
