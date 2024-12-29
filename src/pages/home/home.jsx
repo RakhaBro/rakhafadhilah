@@ -7,9 +7,8 @@ import SocialMedia from "../../components/socialmedia/socialmedia";
 import ProjectItem from "../../components/projectitem/projectitem";
 import data_of_projects from "../../data/projects";
 import { PopupContext } from "../../providers/popupProvider";
-import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
 import { SkillsContext } from "../../providers/skillsProvider";
+import { SuggestionsContext } from "../../providers/suggestionsProvider";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
@@ -19,11 +18,24 @@ const Page_Home = React.memo(({mousePosition}) => {
     const {skills, fetchSkills} = useContext(SkillsContext);
     useEffect(() => {
         const setSkillsProvider = async () => {
-            if (skills == null) {
+            if (skills.length == 0) {
                 fetchSkills();
             }
         }
         setSkillsProvider();
+    }, []);
+    
+    
+    
+    // SKILL SUGGESTIONS DATA
+    const {suggestions, fetchSuggestions} = useContext(SuggestionsContext);
+    useEffect(() => {
+        const setSuggestionsProvider = async () => {
+            if (suggestions.length == 0) {
+                fetchSuggestions();
+            }
+        }
+        setSuggestionsProvider();
     }, []);
 
 

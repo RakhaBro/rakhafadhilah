@@ -49,7 +49,7 @@ const data_of_projects = [
         cover: "mebelverse",
         title: "Mebelverse",
         role: "Founder, Hustler",
-        contribution: "Project Management, Fullstack Development",
+        contribution: "Project Management, Fullstack Development, VR Metaverse Development, Business Development",
         description:
             <p>
                 <span>VR-Based E-Commerce</span> that focuses on selling
@@ -79,6 +79,7 @@ const data_of_projects = [
                 linkedin: "https://www.linkedin.com/in/muhammad-fajar-ramadhan-908aa2278/"
             }
         ],
+        attachedimages: ["test", "test", "test"],
         additionalparagraph:
             <p>
                 

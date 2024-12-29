@@ -1,6 +1,7 @@
 import data_of_skills from "../../data/skills";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Icon_Out from "../../assets/icons/outIcon";
+import Icon_Chevron from "../../assets/icons/chevron_bottom";
 import "./projectdetail.css";
 
 const ProjectDetail = React.memo(({ data }) => {
@@ -16,12 +17,84 @@ const ProjectDetail = React.memo(({ data }) => {
     }, [isVideoReady]);
 
 
+    const attachedImagesRef = useRef();
+    const [shownAttachedImageIndex, setShownAttachedImageIndex] = useState(0);
+    
+    const slideRight = () =>  {
+        if (shownAttachedImageIndex < data.attachedimages.length - 1) {
+            setShownAttachedImageIndex((prev) => prev + 1);
+        }
+    }
+
+    const slideLeft = () => {
+        if (shownAttachedImageIndex > 0) {
+            setShownAttachedImageIndex((prev) => prev - 1);
+        }
+    }
+
+    useEffect(() => {
+        if (attachedImagesRef.current) {
+            attachedImagesRef.current.scrollTo({
+                left: attachedImagesRef.current.clientWidth * shownAttachedImageIndex,
+                behavior: "smooth",
+            });
+        }
+    }, [shownAttachedImageIndex]);
+
     return (
         <div className="projectdetail_container">
             
             <div className="left">
-                <div className="left_top neum">
-                </div>
+                {
+                    data.attachedimages &&
+                    <div className="attached_images neum">
+                        <div className="attached_images_content" ref={attachedImagesRef}>
+                            {
+                                data.attachedimages &&
+                                data.attachedimages.map((image, index) => {
+                                    return (
+                                        <div key={index} className="img_container">
+                                            <img
+                                                src="./assets/img/projects/project_mebelverse_clean.webp"
+                                                alt=""
+                                            />
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                        <div className="attached_images_control">
+                            <div>
+                                <div style={{
+                                    transform: "rotate(90deg)",
+                                    opacity: shownAttachedImageIndex == 0 ? 0.3 : 1,
+                                }}>
+                                    <button
+                                        className="btn_slide"
+                                        onClick={slideLeft}
+                                    >
+                                        <Icon_Chevron dimension={16} color="#151515" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <div style={{
+                                    transform: "rotate(-90deg)",
+                                    opacity: shownAttachedImageIndex == data.attachedimages.length - 1
+                                        ? 0.3
+                                        : 1,
+                                }}>
+                                    <button
+                                        className="btn_slide"
+                                        onClick={slideRight}
+                                    >
+                                        <Icon_Chevron dimension={16} color="#151515" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
                 <div className="team_container neum">
                     <div className="title">
                         <h2>Team :</h2>

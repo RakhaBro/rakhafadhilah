@@ -123,7 +123,7 @@
 
 /* SECTION NAVIGATION */
 
-.section_navigation {
+.section_upperbuttons {
     width: 100%;
     align-items: center; justify-content: start; display: flex;
     gap: 24px;
@@ -131,26 +131,41 @@
     box-sizing: border-box;
 }
 
-.section_navigation button {
+.section_upperbuttons .suggest_btn_container {
+    flex: 1;
+    align-items: center; justify-content: end; display: flex;
+}
+
+.section_upperbuttons .suggest_btn_container button {
+    padding: 12px 18px;
+}
+
+.nav_btns_container  {
+    align-items: center; justify-content: center; display: flex;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.nav_btns_container button {
     all: unset;
     padding: 6px 12px;
     border-bottom: 3px solid transparent;
     transition: .15s;
 }
 
-.section_navigation .active_section {
+.nav_btns_container .active_section {
     border-bottom: 3px solid white;
 }
 
-.section_navigation button:hover  {
+.nav_btns_container button:hover  {
     box-shadow: unset;
 }
 
-.section_navigation button:not(.active_section):hover  {
+.nav_btns_container button:not(.active_section):hover  {
     border-bottom: 3px solid #ffffff22;
 }
 
-.section_navigation p {
+.nav_btns_container p {
     color: white;
     font-size: 20px;
 }
@@ -202,4 +217,16 @@
 
 .suggestionform_container button.disabled:hover {
     box-shadow: unset;
+}
+
+.suggestionform_container .btns_container {
+    width: 100%;
+    align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn_cancel {
+    background: transparent !important;
+    color: #ffffffaa !important;
 }
