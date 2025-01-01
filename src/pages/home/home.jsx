@@ -291,10 +291,11 @@ const Page_Home = React.memo(({mousePosition}) => {
                             <div>
                                 <h2>Muhammad Rakha Fadhilah</h2>
                                 <p>
-                                    React JS, React Native, Node JS, Vite, Electron,
-                                    Flutter, Firebase, React Three Fiber, Three JS
+                                Founder & CEO, Hiclob
+                                | ASEAN ACE-YS 2023 & 2024 Delegate
+                                | Top 38 Innovillage 2023, Telkom
+                                | Developer Skilled in Diverse Tech Stacks
                                     <br />
-                                    <span>(2+ years of study and work)</span>
                                 </p>
                             </div>
                         </div>
