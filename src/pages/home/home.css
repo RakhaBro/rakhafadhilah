@@ -55,7 +55,7 @@ body {
 }
 
 .page_home .section_top .maintitle h1 {
-    font-size: 42px;
+    font-size: 54px;
     display: inline;
     color: #fff;
 }
@@ -213,7 +213,7 @@ body {
 
 .page_home .summary .lower p {
     text-align: left;
-    font-size: 1.02em;
+    font-size: 1.04em;
 }
 
 .page_home .summary .lower p span {
@@ -308,7 +308,7 @@ body {
 
 .page_home .section .projects_container > .title h1 {
     color: #fff;
-    font-size: 4em;
+    font-size: 5em;
 }
 
 .page_home .section .projects_container > .title h2 {
@@ -346,7 +346,7 @@ body {
 
 .page_home .section .achievements_container .title h1 {
     color: #fff;
-    font-size: 4em;
+    font-size: 5em;
 }
 
 .page_home .section .achievements_container .title h2 {

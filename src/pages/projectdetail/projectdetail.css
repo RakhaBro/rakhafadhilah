@@ -147,7 +147,7 @@
     position: absolute;
     z-index: 901;
     pointer-events: all;
-    font-size: 12px;
+    /* font-size: 12px; */
     position: absolute;
     z-index: 800;
     text-decoration: unset;
@@ -227,7 +227,7 @@
 }
 
 .projectdetail_container .right .content .skills_container p {
-    font-size: 14px;
+    /* font-size: 14px; */
     font-style: italic;
 }
 
@@ -250,6 +250,10 @@
     align-self: stretch;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+
+.projectdetail_container .team_container b {
+    color: white;
 }
 
 .projectdetail_container .team_container .content {

@@ -253,7 +253,7 @@ const Page_Home = React.memo(({mousePosition}) => {
 
                     <div className="maintitle">
                         <h1>Rakha Fadhilah</h1>
-                        <p>Founder of Hiclob | React Developer</p>
+                        <p>A Diverse Curious & Persever</p>
                     </div>
 
                     <div className="btn_scrolldown_container"
@@ -265,7 +265,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <button className="btn_scrolldown"
                             onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight, behavior: 'smooth'})}
                         >
-                            <p>Start stalking</p>
+                            <p>Explore me</p>
                             <Icon_Chevron_Bottom dimension={12} color={"#000"} />
                         </button>
                     </div>
@@ -301,18 +301,15 @@ const Page_Home = React.memo(({mousePosition}) => {
                         </div>
                         <div className="lower neum neum_hoverable">
                             <h2>Summary</h2>
-                            <p>
-                                I embody an <span>entrepreneurial spirit</span> and a <span>strong passion</span> for technology. 
-                                As the <span>founder</span> of
-                                <span> <a href="https://hiclob.com" target="_blank">Hiclob</a></span>, 
-                                a platform connecting people with shared interests, I aim to foster meaningful connections.
+                            <p> I am <span>passionate</span> about <span>technology</span> and driven by
+                                an <span>entrepreneurial</span> spirit. As the founder
+                                of <span><a href="https://hiclob.com" target="_blank">Hiclob</a></span>,
+                                a platform connecting people with shared interests,
+                                I strive to create <span>meaningful connections</span>.
                             </p>
-                            <p>
-                                I have contributed to diverse projects
-                                spanning <span>Web, Mobile, and Desktop</span> platforms, 
-                                working with a wide range of <span>tech stacks</span>.
-                                My expertise lies in the <span>JavaScript ecosystem</span>.
-                            </p>
+                            <p> With experience across <span>Web, Mobile, and Desktop</span> platforms,
+                                I specialize in the <span>JavaScript</span> and <span>Dart</span> ecosystem
+                                and have worked on <span>diverse</span> tech stacks. </p>
                             <div></div>
                             <button
                                 className="btn_see_my_project"
