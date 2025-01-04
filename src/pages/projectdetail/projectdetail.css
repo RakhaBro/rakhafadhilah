@@ -162,7 +162,7 @@
 }
 
 .cover a:hover {
-    background: white;
+    background: black;
 }
 
 
@@ -183,12 +183,12 @@
 .projectdetail_container .right h1 {
     font-size: 2.5em;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 
 .projectdetail_container .right p span {
     font-weight: bold;
-    color: white;
+    color: black;
 }
 
 .projectdetail_container .right .content table tr td {
@@ -197,14 +197,14 @@
 
 .projectdetail_container .right .content table tr td:first-child {
     font-weight: bold;
-    /* color: white; */
+    /* color: black; */
     padding-right: 24px;
     
 }
 
 .projectdetail_container .right .content table tr td:nth-child(2) {
     font-weight: bold;
-    /* color: white; */
+    /* color: black; */
     padding-right: 12px;
 }
 
@@ -253,7 +253,7 @@
 }
 
 .projectdetail_container .team_container b {
-    color: white;
+    color: black;
 }
 
 .projectdetail_container .team_container .content {

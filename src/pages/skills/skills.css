@@ -103,7 +103,7 @@
 }
 
 .skillitem .maininfo p:first-child {
-    color: white;
+    color: black;
 }
 
 .skillitem div p:last-child {
@@ -154,7 +154,7 @@
 }
 
 .nav_btns_container .active_section {
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
 }
 
 .nav_btns_container button:hover  {
@@ -166,7 +166,7 @@
 }
 
 .nav_btns_container p {
-    color: white;
+    color: black;
     font-size: 20px;
 }
 

@@ -51,13 +51,13 @@ body {
     left: 0px;
     text-align: center;
     width: 100%;
-    filter: drop-shadow(0px 0px 16px #151325);
+    filter: drop-shadow(0px 0px 16px #f0f9ff);
 }
 
 .page_home .section_top .maintitle h1 {
     font-size: 54px;
     display: inline;
-    color: #fff;
+    color: black;
 }
 
 
@@ -151,19 +151,7 @@ body {
 }
 
 .page_home .summary .neum {
-    animation: summary_neum_background 2.5s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-@keyframes summary_neum_background {
-    0% {
-        background: #212832;
-    }
-    50% {
-        background: #16202e;
-    }
-    100% {
-        background: #212832;
-    }
+    background: linear-gradient(-45deg, #f3f0f3, #dcd9df);
 }
 
 .page_home .summary > div:hover {
@@ -178,7 +166,7 @@ body {
 
 
 .page_home .summary h2 {
-    color: #fff;
+    color: black;
     font-size: 1.5em;
 }
 
@@ -187,7 +175,7 @@ body {
 }
 
 .page_home .summary .upper span {
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 
@@ -216,9 +204,13 @@ body {
     font-size: 1.04em;
 }
 
+.page_home .summary button p {
+    color: white;
+}
+
 .page_home .summary .lower p span {
     font-weight: bold;
-    color: white;
+    color: black;
     /* filter: drop-shadow(0px 0px 8px #1efcde22); */
 }
 
@@ -226,7 +218,7 @@ body {
     all: unset;
     padding: 12px 24px;
     border-radius: 100vh;
-    background-color: #ffffff;
+    background-color: black;
     color: #000;
     align-items: center; justify-content: center; display: flex;
     gap: 12px;
@@ -255,12 +247,12 @@ body {
 }
 
 .page_home .section .skills h1 {
-    color: #fff;
+    color: black;
     font-size: 4em;
 }
 
 .page_home .section .skills h3 {
-    color: #fff;
+    color: black;
 }
 
 .page_home .section .skills button {
@@ -307,7 +299,7 @@ body {
 }
 
 .page_home .section .projects_container > .title h1 {
-    color: #fff;
+    color: black;
     font-size: 5em;
 }
 
@@ -345,7 +337,7 @@ body {
 }
 
 .page_home .section .achievements_container .title h1 {
-    color: #fff;
+    color: black;
     font-size: 5em;
 }
 

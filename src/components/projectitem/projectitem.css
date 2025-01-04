@@ -20,7 +20,7 @@
 
 .projectitem:hover {
     transform: scale(1.01);
-    filter: brightness(1.4);
+    /* filter: brightness(1.4); */
 }
 
 
@@ -47,10 +47,10 @@
 .projectitem_gradient {
     position: absolute;
     width: 100%;
-    aspect-ratio: 2.8;
-    background: linear-gradient(0deg, #212832 3.5%, #21283200 65%);
+    aspect-ratio: 6;
+    background: linear-gradient(0deg, #ede9ed 5%, #ede9ed55 50%, #ede9ed00);
     transform: translateY(-100%);
-    border-radius: 48px 48px 0px 0px;
+    /* border-radius: 48px 48px 0px 0px; */
 }
 
 
@@ -75,7 +75,7 @@
 }
 
 .projectitem_container .title h1 {
-    color: #fff;
+    color: black;
 }
 
 
@@ -88,7 +88,7 @@
 }
 
 .projectitem .description p span{
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 
@@ -129,8 +129,8 @@
     all: unset;
     padding: 12px 48px;
     border-radius: 100vh;
-    background-color: #ffffff;
-    color: #000;
+    background-color: black;
+    color: white;
     align-items: center; justify-content: center; display: flex;
     transition: .15s;
 }
