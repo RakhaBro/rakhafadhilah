@@ -47,7 +47,7 @@ body {
 
 .page_home .section_top .maintitle {
     position: absolute;
-    top: 10svh;
+    top: 8svh;
     left: 0px;
     text-align: center;
     width: 100%;
@@ -55,9 +55,9 @@ body {
 }
 
 .page_home .section_top .maintitle h1 {
-    font-size: 54px;
+    font-size: 58px;
     display: inline;
-    color: black;
+    /* color: black; */
 }
 
 
@@ -151,7 +151,7 @@ body {
 }
 
 .page_home .summary .neum {
-    background: linear-gradient(-45deg, #f3f0f3, #dcd9df);
+    background: linear-gradient(-45deg, #e3eff5, #ede9ed);
 }
 
 .page_home .summary > div:hover {
@@ -247,7 +247,7 @@ body {
 }
 
 .page_home .section .skills h1 {
-    color: black;
+    /* color: black; */
     font-size: 4em;
 }
 
@@ -299,7 +299,7 @@ body {
 }
 
 .page_home .section .projects_container > .title h1 {
-    color: black;
+    /* color: black; */
     font-size: 5em;
 }
 
@@ -337,7 +337,7 @@ body {
 }
 
 .page_home .section .achievements_container .title h1 {
-    color: black;
+    /* color: black; */
     font-size: 5em;
 }
 

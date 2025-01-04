@@ -9,6 +9,7 @@ import data_of_projects from "../../data/projects";
 import { PopupContext } from "../../providers/popupProvider";
 import { SkillsContext } from "../../providers/skillsProvider";
 import { SuggestionsContext } from "../../providers/suggestionsProvider";
+import GiantRound from "../../components/giantround/giantround";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
@@ -243,6 +244,8 @@ const Page_Home = React.memo(({mousePosition}) => {
             ref={pageDocumentRef}
         >
 
+            <GiantRound scroll={scrollPosition} />
+
             <SocialMedia />
 
             <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
@@ -252,7 +255,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div className="mainlayout">
 
                     <div className="maintitle">
-                        <h1>Rakha Fadhilah</h1>
+                        <h1 className="gradient_text">Rakha Fadhilah</h1>
                         <p>A Diverse Curious & Persever</p>
                     </div>
 
@@ -335,7 +338,7 @@ const Page_Home = React.memo(({mousePosition}) => {
             >
                 <div className="projects_container">
                     <div className="title">
-                        <h1>Project Highlights</h1>
+                        <h1 className="gradient_text">Project Highlights</h1>
                         <h2>From 2022 to 2025</h2>
                     </div>
                     <div className="projects_content">
@@ -366,7 +369,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div></div>
                 <div className="skills_container">
                     <div className="skills">
-                        <h1>Tech Knowledge</h1>
+                        <h1 className="gradient_text">Tech Knowledge</h1>
                         <div className="skill_list">
                             
                             <br />
@@ -405,7 +408,7 @@ const Page_Home = React.memo(({mousePosition}) => {
             >
                 <div className="achievements_container">
                     <div className="title">
-                        <h1>Achievement Highlights</h1>
+                        <h1 className="gradient_text">Achievement Highlights</h1>
                         <h2>From 2022 to 2025</h2>
                         <br />
                         <br />

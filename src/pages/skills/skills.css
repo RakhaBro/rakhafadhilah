@@ -1,5 +1,5 @@
 .allskills_container {
-    background: #21283255;
+    background: #def0ffaa;
     width: 50svw;
     max-width: 1000px;
     min-width: 280px;
@@ -21,7 +21,7 @@
     width: 50%;
     align-items: center; justify-content: start; display: flex;
     gap: 12px;
-    background-color: #212832;
+    background-color: #fffb;
     padding: 12px 24px;
     border-radius: 12px;
 }
@@ -56,6 +56,7 @@
     flex: 1;
     align-items: center; justify-content: center; display: flex;
     flex-direction: column;
+    color: black !important;
     gap: 12px;
 }
 
@@ -63,7 +64,7 @@
     width: fit-content;
     padding: 12px 48px;
     border-radius: 100vh;
-    background-color: #ffffff;
+    background-color: #ffffffbb;
     color: #000;
     align-items: center; justify-content: center; display: flex;
     gap: 12px;
@@ -107,7 +108,7 @@
 }
 
 .skillitem div p:last-child {
-    color: #dddddd66;
+    color: rgb(21, 36, 43);
 }
 
 .skillitem .dateinfo p {
@@ -189,6 +190,7 @@
     width: 100%;
     align-items: center; justify-content: space-evenly; display: flex;
     flex-direction: column;
+    color: black;
 }
 
 .suggestionform_container .invalid {
@@ -196,7 +198,7 @@
 }
 
 .suggestionform_container .invalid_active {
-    color: lightcoral;
+    color: rgb(214, 32, 0);
 }
 
 .suggestionform_container h2, .suggestionform_container p {
@@ -211,8 +213,8 @@
 }
 
 .suggestionform_container button.disabled {
-    background: #1c222b;
-    color: #4d5b6d;
+    background: #797d83;
+    color: #98a0aa;
 }
 
 .suggestionform_container button.disabled:hover {

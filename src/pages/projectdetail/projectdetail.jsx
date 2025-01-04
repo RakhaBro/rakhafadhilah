@@ -131,7 +131,6 @@ const ProjectDetail = React.memo(({ data }) => {
                                 }}
                             >
                                 <source src={data.assetvideo} type="video/webm" />
-                                <p>Your browser doesn't support video tag</p>
                             </video>
                         }
                         <div className="upper">
@@ -142,7 +141,7 @@ const ProjectDetail = React.memo(({ data }) => {
                             data.link &&
                             <a href={data.link} target="_blank">
                                 Visit {data.title}
-                                <Icon_Out dimension={12} color={"#222"} />
+                                <Icon_Out dimension={12} color={"#4a4a4a"} />
                             </a>
                         }
                     </div>

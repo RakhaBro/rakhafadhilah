@@ -30,6 +30,7 @@
 
 .popup_container .neum {
     border-radius: 24px;
+    box-shadow: 0px 0px 24px rgba(33, 43, 49, 0.3);
 }
 
 .popup_container .btn_close {

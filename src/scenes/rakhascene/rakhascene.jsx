@@ -110,10 +110,11 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
                 intensity={9 * (1 - achievementPhaseProgress)}
                 castShadow
             />
+
             <directionalLight
                 position={[-4, .5, 4]}
-                color={"#3b3bff"}
-                intensity={3 * (1 - achievementPhaseProgress)}
+                color={"#1818ff"}
+                intensity={12 * (1 - achievementPhaseProgress)}
                 castShadow
             />
 
@@ -122,10 +123,10 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
                 position={[
                     (4 * (1 - achievementPhaseProgress)),
                     (.5 + (achievementPhaseProgress / 2)),
-                    (-10 * (1 - achievementPhaseProgress) + 5)
+                    (-9 * (1 - achievementPhaseProgress) + 5)
                 ]}
                 color={"#ffe8bd"}
-                intensity={12}
+                intensity={7.5}
                 castShadow
             />
 

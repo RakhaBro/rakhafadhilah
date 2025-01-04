@@ -47,7 +47,7 @@ const Popup = React.memo(() => {
                     <div className="popup_content">
                         {popupChild}
                         <button className="btn_close neum" onClick={closePopup}>
-                            <Icon_Close dimension={20} />
+                            <Icon_Close dimension={20} color={"black"} />
                         </button>
                     </div>
                 </div>

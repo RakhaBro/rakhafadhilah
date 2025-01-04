@@ -99,7 +99,7 @@ const AllSkills = React.memo(() => {
                     : <>
                         <div className="upper">
                             <div className="input_container">
-                                <Icon_search dimension={20} />
+                                <Icon_search dimension={20} color={"black"} />
                                 <input
                                     type="text"
                                     placeholder={

@@ -47,10 +47,11 @@
 .projectitem_gradient {
     position: absolute;
     width: 100%;
-    aspect-ratio: 6;
-    background: linear-gradient(0deg, #ede9ed 5%, #ede9ed55 50%, #ede9ed00);
+    aspect-ratio: 17;
+    background: linear-gradient(0deg, #ede9ed 30%, #ede9ed00);
     transform: translateY(-100%);
     /* border-radius: 48px 48px 0px 0px; */
+    display: none;
 }
 
 

@@ -33,7 +33,7 @@ body {
   height: 100svh;
   /* background-color: #000000; */
   /* background-color: #ede9ed; */
-  background: linear-gradient(45deg, #f3f0f3, #b6bbbe, #ede9ed);
+  background: linear-gradient(45deg, #f3f0f3, #bbd0db, #ede9ed);
   scroll-behavior: smooth;
 }
 
@@ -59,16 +59,15 @@ a {
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(98, 99, 100, 0.4);
   border-radius: 4px;
 }
 
 .scroll-container::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(98, 99, 100, 0.7);
 }
 
 .scroll-container::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
 }
 
 /* =========================================================== */
@@ -101,7 +100,9 @@ button {
 }
 
 .gradient_text {
-  background: linear-gradient(45deg, #ff9e70, #c2c3ff, #b941ce);
+  /* background: linear-gradient(45deg, #ff9e70, #c2c3ff, #b941ce); */
+  /* background: linear-gradient(45deg, #ff9e70, #485053, #b941ce); */
+  background: linear-gradient(45deg, #c96f46, #2985a7, #b720d1);
   background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
@@ -120,10 +121,6 @@ button {
     1px 1px 24px rgba(24, 43, 80, 0.1),
     -3px -3px 12px rgba(243, 250, 255, 0.904);
 }
-
-/* .neum_hoverable:hover {
-  box-shadow: 6px 6px 26px rgba(10, 10, 10, .6), -3px -3px 12px rgba(60, 162, 240, 0.08);
-} */
 
 
 
