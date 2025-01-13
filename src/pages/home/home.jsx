@@ -13,6 +13,7 @@ import GiantRound from "../../components/giantround/giantround";
 import Nav from "../../components/nav/nav";
 import { DimensionContext } from "../../providers/dimensionProvider";
 import DimensionUnsupported from "../dimensionunsupported/dimensionunsupported";
+import Page_Achievements from "../achievements/achievements";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
@@ -246,6 +247,12 @@ const Page_Home = React.memo(({mousePosition}) => {
     }, [scrollPosition]);
     // ===============================================
 
+    const showAllAchievemnts = () => {
+        setPopupChild(
+            <Page_Achievements />
+        );
+    };
+
 
     const goToScroll = (destination) => {
         pageDocumentRef.current.scrollTo({top: destination, behavior: 'smooth'})
@@ -458,7 +465,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <h2>From 2022 to 2025</h2>
                         <br />
                         <br />
-                        <button><p>See all</p></button>
+                        <button onClick={showAllAchievemnts}><p>See all</p></button>
                     </div>
                 </div>
             </div>
