@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Page_Home from "./pages/home/home"
-import Page_Contact from "./pages/contact/contact"
 import CustomizeCursor from "./components/cursor/cursor"
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Popup from './components/popup/popup';
 
 function App() {
@@ -38,11 +37,10 @@ function App() {
       />
       <Popup />
       <Router>
-        <Routes>
-          <Route path='/' element={<Page_Home mousePosition={mousePosition} />} />
-          <Route path='/contact' element={<Page_Contact />} />
-        </Routes>
-      </Router>
+          <Routes>
+            <Route path='/' element={<Page_Home mousePosition={mousePosition} />} />
+          </Routes>
+        </Router>
     </div>
   );
 }

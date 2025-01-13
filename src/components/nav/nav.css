@@ -1,0 +1,25 @@
+.nav {
+    z-index: 3000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100svw - 6px);
+    backdrop-filter: blur(12px);
+    align-items: center; justify-content: end; display: flex;
+    padding: 6px;
+    box-sizing: border-box;
+    gap: 12px 24px;
+}
+
+.nav > .nav_button {
+    padding: 12px;
+    font-size: 18px;
+}
+
+.nav_button:hover {
+    color: black !important;
+}
+
+.nav:hover .nav_button {
+    color: darkgrey;
+}

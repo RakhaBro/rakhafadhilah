@@ -25,7 +25,7 @@ const GiantRound = React.memo(({scroll}) => {
             setTranslate({x: 0, y: 50});
         }
 
-        if (scroll > 100 && scroll < 300) {
+        if ((scroll > 100 && scroll < 300) || (scroll > 400 && scroll < 600)) {
             setOpacity(0);
         } else {
             setOpacity(1);

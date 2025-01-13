@@ -10,9 +10,26 @@ import { PopupContext } from "../../providers/popupProvider";
 import { SkillsContext } from "../../providers/skillsProvider";
 import { SuggestionsContext } from "../../providers/suggestionsProvider";
 import GiantRound from "../../components/giantround/giantround";
+import Nav from "../../components/nav/nav";
+import { DimensionContext } from "../../providers/dimensionProvider";
+import DimensionUnsupported from "../dimensionunsupported/dimensionunsupported";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
+
+    // DIMENSION ====================================
+    const { dimension, setDimension } = useContext(DimensionContext);
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //     setDimension(window.innerWidth);
+    //     };
+    //     handleResize();
+
+    //     window.addEventListener('resize', handleResize);
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    // }, [])
 
 
     // SKILL DATA
@@ -56,15 +73,20 @@ const Page_Home = React.memo(({mousePosition}) => {
 
     // SCROLL CONTROL ================================
     const [scrollPosition, setScrollPosition] = useState(0);
+    useEffect(() => {
+        console.log(scrollPosition);
+    }, [scrollPosition]);
     const [scrollMovement, setScrollMovement] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
 
     const [projectSectionScrollPosition, setProjectSectionScrollPosition] = useState(0);
     useEffect(() => {
-        projectSectionRef.current.scrollTo({
-            left: projectSectionScrollPosition,
-            behavior: projectPhaseProgress === 1 ? 'smooth' : 'instant'
-        });
+        if (projectSectionRef.current) {
+            projectSectionRef.current.scrollTo({
+                left: projectSectionScrollPosition,
+                behavior: projectPhaseProgress === 1 ? 'smooth' : 'instant'
+            });
+        }
     }, [projectSectionScrollPosition]);
     
     useEffect(() => {
@@ -225,17 +247,30 @@ const Page_Home = React.memo(({mousePosition}) => {
     // ===============================================
 
 
+    const goToScroll = (destination) => {
+        pageDocumentRef.current.scrollTo({top: destination, behavior: 'smooth'})
+    }
+
 
     useEffect(() => {
-        projectSectionRef.current.scrollTo({left: 0, behavior: 'smooth'});
-        pageDocumentRef.current.scrollTo({top: 0, behavior: 'smooth'});
-        pageDocumentRef.current.addEventListener("wheel", handleWheel);
-        pageDocumentRef.current.addEventListener("scroll", handleScroll);
+        if (pageDocumentRef.current) {
+            pageDocumentRef.current.scrollTo({left: 0, behavior: 'smooth'});
+            pageDocumentRef.current.scrollTo({top: 0, behavior: 'smooth'});
+            pageDocumentRef.current.addEventListener("wheel", handleWheel);
+            pageDocumentRef.current.addEventListener("scroll", handleScroll);
+        }
         return () => {
-            pageDocumentRef.current.removeEventListener("wheel", handleWheel);
-            pageDocumentRef.current.removeEventListener("scroll", handleScroll);
+            if (pageDocumentRef.current) {
+                pageDocumentRef.current.removeEventListener("wheel", handleWheel);
+                pageDocumentRef.current.removeEventListener("scroll", handleScroll);
+            }
         };
     }, []);
+
+
+    if (dimension <= 698) {
+        return <DimensionUnsupported />
+    }
 
     return(
         <div
@@ -243,6 +278,17 @@ const Page_Home = React.memo(({mousePosition}) => {
             id="page_home"
             ref={pageDocumentRef}
         >
+
+            <Nav buttonDataList={
+                [
+                    {title: "Home", onClick: () => goToScroll(0)},
+                    {title: "Summary", onClick: () => goToScroll(window.innerHeight)},
+                    {title: "Projects", onClick: () => goToScroll(window.innerHeight * 2)},
+                    {title: "Skills", onClick: () => goToScroll(window.innerHeight * 3)},
+                    {title: "Achievements", onClick: () => goToScroll(window.innerHeight * 4)},
+                    {title: "Contact", onClick: () => goToScroll(window.innerHeight * 5)},
+                ]
+            } />
 
             <GiantRound scroll={scrollPosition} />
 
@@ -266,7 +312,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                         }}
                     >
                         <button className="btn_scrolldown"
-                            onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight, behavior: 'smooth'})}
+                            onClick={() => goToScroll(window.innerHeight)}
                         >
                             <p>Explore me</p>
                             <Icon_Chevron_Bottom dimension={12} color={"#000"} />
@@ -304,8 +350,8 @@ const Page_Home = React.memo(({mousePosition}) => {
                         </div>
                         <div className="lower neum neum_hoverable">
                             <h2>Summary</h2>
-                            <p> I am <span>passionate</span> about <span>technology</span> and driven by
-                                an <span>entrepreneurial</span> spirit. As the founder
+                            <p> I am driven by an <span>entrepreneurial</span> spirit and <span>passion</span> in <span>technology</span>.
+                                As the founder
                                 of <span><a href="https://hiclob.com" target="_blank">Hiclob</a></span>,
                                 a platform connecting people with shared interests,
                                 I strive to create <span>meaningful connections</span>.

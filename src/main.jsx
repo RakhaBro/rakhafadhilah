@@ -4,13 +4,16 @@ import App from './App.jsx'
 import { PopupProvider } from './providers/popupProvider.jsx'
 import { SkillsProvider } from './providers/skillsProvider.jsx'
 import { SuggestionsProvider } from './providers/suggestionsProvider.jsx'
+import { DimensionProvider } from './providers/dimensionProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <SkillsProvider>
-    <SuggestionsProvider>
-      <PopupProvider>
-        <App />
-      </PopupProvider>
-    </SuggestionsProvider>
-  </SkillsProvider>
+  <DimensionProvider>
+    <SkillsProvider>
+      <SuggestionsProvider>
+        <PopupProvider>
+          <App />
+        </PopupProvider>
+      </SuggestionsProvider>
+    </SkillsProvider>
+  </DimensionProvider>
 )
