@@ -1,10 +1,12 @@
 .projectitem_container {
     height: 100%;
     align-items: start; justify-content: center; display: flex;
+    margin-top: 24px;
 }
 
 .projectitem_container:nth-child(even) {
     align-items: end;
+    margin-top: 0px;
     margin-right: 96px;
 }
 
