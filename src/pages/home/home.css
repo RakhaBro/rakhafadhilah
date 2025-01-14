@@ -174,7 +174,7 @@ body {
 
 .page_home .summary .upper {
     align-items: center; justify-content: start; display: flex;
-    gap: 24px;
+    gap: 12px;
 }
 
 
@@ -209,7 +209,7 @@ body {
     /* max-height: 400px; */
     align-items: start; justify-content: start; display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
 }
 
 .page_home .summary .lower p {

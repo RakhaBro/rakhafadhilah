@@ -1,3 +1,256 @@
 .page_achievements {
+    width: 80svw;
+    max-width: 1600px;
+    min-width: 280px;
+    height: 90svh;
+    max-height: 700px;
+
+    align-items: center; justify-content: start; display: flex;
+    flex-direction: column;
     
+    border-radius: 36px !important;
+    /* background: #def0ffaa; */
+
+    overflow: hidden;
+}
+
+
+/* SECTION CONTROLLER */
+/* ========================================================= */
+
+.page_achievements .section_controller {
+    padding: 12px; box-sizing: border-box;
+    align-items: center; justify-content: start; display: flex;
+    gap: 12px;
+}
+
+.page_achievements .section_controller button {
+    all: unset;
+    padding: 6px 12px;
+    border-bottom: 3px solid transparent;
+    transition: .15s;
+}
+
+.page_achievements .section_controller .active_section {
+    border-bottom: 3px solid black;
+}
+
+.page_achievements .section_controller button:hover  {
+    box-shadow: unset;
+}
+
+.page_achievements .section_controller button:not(.active_section):hover  {
+    border-bottom: 3px solid #ffffff22;
+}
+
+.page_achievements .section_controller p {
+    color: black;
+    font-size: 20px;
+}
+
+/* ========================================================= */
+
+
+
+
+.page_achievements .achievements_content {
+    width: 100%;
+    flex: 1;
+    align-items: start; justify-content: start; display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+
+
+
+/* EVENTS */
+/* ========================================================= */
+
+.page_achievements .events {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    flex-shrink: 0;
+    align-items: center; justify-content: start; display: flex;
+    flex-direction: column;
+    gap: 72px;
+    padding: 36px;
+    box-sizing: border-box;
+}
+
+.page_achievements .btns_container button {
+    width: fit-content;
+    padding: 12px 48px;
+    border-radius: 100vh;
+    background-color: #ffffffbb;
+    color: #000;
+    align-items: center; justify-content: center; display: flex;
+    gap: 12px;
+    transition: .15s;
+}
+
+.page_achievements .btns_container button p {
+    font-size: 1.04em;
+}
+
+.page_achievements .btns_container button:hover {
+    box-shadow: 0px 0px 26px #ffffff33;
+}
+
+.page_achievements .btns_container {
+    align-items: center; justify-content: start; display: flex;
+    gap: 12px;
+    /* padding-bottom: 12px;
+    box-sizing: border-box; */
+}
+
+
+
+
+
+
+
+
+
+
+/* ACHIEVEMENT ITEM */
+
+.achievement_item {
+    width: 100%;
+    /* min-height: 200px; */
+    border-radius: calc(48px - 24px);
+    align-items: start; justify-content: start; display: flex;
+    gap: 24px;
+}
+
+.achievement_item.reversed {
+    flex-direction: row-reverse;
+}
+
+.achievement_item .right {
+    flex: 1;
+    align-self: stretch;
+    align-items: start; justify-content: start; display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.achievement_item .right p span {
+    color: #1b1b1f;
+    font-weight: bold;
+}
+
+.achievement_item .right.reversed {
+    align-items: end;
+    text-align: right;
+}
+
+.achievement_item .img_container {
+    width: 42%;
+    min-width: 300px;
+    flex-shrink: 0;
+    aspect-ratio: 4/3;
+    border-radius: 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement_item .img_container .images {
+    width: 100%;
+    height: 100%;
+    align-items: start; justify-content: start; display: flex;
+    overflow-x: scroll;
+}
+
+.achievement_item .img_container .images img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.achievement_item .attached_images_control {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    align-items: center; justify-content: space-between; display: flex;
+}
+
+.achievement_item .attached_images_control button {
+    height: min-content;
+    background: #ffffffcc;
+    color: black;
+    box-shadow: 0px 0px 12px #0003;
+    padding: 12px;
+    border-radius: 24px;
+    margin: 12px;
+    transition: .15s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CERTIFICATIONS */
+/* ===================================================== */
+
+.certifications {
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding: 36px;
+    box-sizing: border-box;
+    align-items: start; justify-content: center; display: flex;
+    align-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+/* CERTIFICATION ITEM */
+/* ===================================================== */
+
+.certification_item {
+    width: 30%;
+    margin: 12px;
+    margin-bottom: 18px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+.certification_item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    transition: .15s;
+    filter: brightness(98%);
+}
+
+.certification_item img:hover {
+    transform: scale(1.02);
+    filter: brightness(110%);
+}
+
+.certification_item .text {
+    color: black;
+    text-align: center;
+    font-size: 14px;
 }

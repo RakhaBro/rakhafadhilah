@@ -286,16 +286,19 @@ const Page_Home = React.memo(({mousePosition}) => {
             ref={pageDocumentRef}
         >
 
-            <Nav buttonDataList={
-                [
-                    {title: "Home", onClick: () => goToScroll(0)},
-                    {title: "Summary", onClick: () => goToScroll(window.innerHeight)},
-                    {title: "Projects", onClick: () => goToScroll(window.innerHeight * 2)},
-                    {title: "Skills", onClick: () => goToScroll(window.innerHeight * 3)},
-                    {title: "Achievements", onClick: () => goToScroll(window.innerHeight * 4)},
-                    {title: "Contact", onClick: () => goToScroll(window.innerHeight * 5)},
-                ]
-            } />
+            <Nav
+                scroll={scrollPosition}
+                buttonDataList={
+                    [
+                        {title: "Home", onClick: () => goToScroll(0)},
+                        {title: "Summary", onClick: () => goToScroll(window.innerHeight)},
+                        {title: "Projects", onClick: () => goToScroll(window.innerHeight * 2)},
+                        {title: "Skills", onClick: () => goToScroll(window.innerHeight * 3)},
+                        {title: "Achievements", onClick: () => goToScroll(window.innerHeight * 4)},
+                        {title: "Contact", onClick: () => goToScroll(window.innerHeight * 5)},
+                    ]
+                }
+            />
 
             <GiantRound scroll={scrollPosition} />
 
@@ -366,13 +369,13 @@ const Page_Home = React.memo(({mousePosition}) => {
                             <p> With experience across <span>Web, Mobile, and Desktop</span> platforms,
                                 I specialize in the <span>JavaScript</span> and <span>Dart</span> ecosystem
                                 and have worked on <span>diverse</span> tech stacks. </p>
-                            <div></div>
+                            {/* <div></div> */}
                             <button
                                 className="btn_see_my_project"
                                 onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight * 2, behavior: 'smooth'})}
                             >
                                 <p>See my projects</p>
-                                {/* <Icon_Chevron_Bottom dimension={12} color={"#000"} /> */}
+                                <Icon_Chevron_Bottom dimension={12} />
                             </button>
                         </div>
                     </div>
@@ -392,7 +395,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div className="projects_container">
                     <div className="title">
                         <h1 className="gradient_text">Project Highlights</h1>
-                        <h2>From 2022 to 2025</h2>
+                        <h2>From 2023 to {new Date().getFullYear()}</h2>
                     </div>
                     <div className="projects_content">
                         
@@ -462,7 +465,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                 <div className="achievements_container">
                     <div className="title">
                         <h1 className="gradient_text">Achievement Highlights</h1>
-                        <h2>From 2022 to 2025</h2>
+                        <h2>From 2023 to 2025</h2>
                         <br />
                         <br />
                         <button onClick={showAllAchievemnts}><p>See all</p></button>

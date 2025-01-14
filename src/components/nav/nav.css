@@ -9,6 +9,7 @@
     padding: 6px;
     box-sizing: border-box;
     gap: 12px 24px;
+    transition: .3s;
 }
 
 .nav > .nav_button {

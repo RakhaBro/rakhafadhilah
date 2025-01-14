@@ -7,8 +7,8 @@
 
 .customizedcursor {
     position: relative;
-    top: -30px;
-    left: -30px;
+    top: -28px;
+    left: -28px;
     width: 70px;
     height: 70px;
     background: radial-gradient(circle, rgba(0, 0, 0, .08), rgba(0, 0, 0, 0.5));

@@ -94,6 +94,11 @@ const data_of_skills = [
         "name": "Agora",
         "category": "Video Communication",
     },
+    {
+        "id": "webxr",
+        "name": "WebXR",
+        "category": "VR Mechanism",
+    },
 ];
 
 export default data_of_skills;

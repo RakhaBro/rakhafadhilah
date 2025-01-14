@@ -1,5 +1,5 @@
 :root {
-  cursor: url('./assets/svg/cursor.svg') 16 16, auto;
+  cursor: url('./assets/img/cursor.webp') 2 2, auto;
   font-family: "Rounded Elegance", sans-serif;
   font-weight: bold;
   line-height: 1.5;
@@ -67,8 +67,8 @@ a {
   background: rgba(98, 99, 100, 0.7);
 }
 
-.scroll-container::-webkit-scrollbar-track {
-}
+/* .scroll-container::-webkit-scrollbar-track {
+} */
 
 /* =========================================================== */
 /* =========================================================== */
@@ -91,6 +91,7 @@ p {
 button {
   all: unset;
   pointer-events: all;
+  user-select: none;
   box-sizing: border-box;
   align-self: stretch;
   align-items: center; justify-content: center; display: flex;

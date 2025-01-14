@@ -57,7 +57,7 @@ const data_of_projects = [
                 bamboo <span>furniture</span>, that helps local to sell their
                 handmade furniture <span>abroad</span>.
             </p>,
-        skills: ["three", "php", "mysql", "xendit"],
+        skills: ["webxr", "three", "php", "mysql", "xendit"],
         platform: ["web"],
         timestarted: "December 2023",
         timefinished: "February 2024",
