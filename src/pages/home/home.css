@@ -23,6 +23,7 @@ body {
     padding: 48px;
     box-sizing: border-box;
     transition: .4s;
+    user-select: all;
 }
 
 .page_home .section_top {
