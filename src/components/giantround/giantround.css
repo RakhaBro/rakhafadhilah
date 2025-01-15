@@ -6,6 +6,10 @@
     transition: 1s;
 }
 
+.dark_mode .giantround_container {
+    display: none;
+}
+
 .giantround_position {
     position: fixed;
     width: 100svw;

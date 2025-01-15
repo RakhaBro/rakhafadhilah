@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import "./popup.css";
 import { PopupContext } from "../../providers/popupProvider";
 import Icon_Close from "../../assets/icons/closeIcon";
+import { UimodeContext } from "../../providers/uimodeProvider";
 
 const Popup = React.memo(() => {
 
     const {popupChild, setPopupChild} = useContext(PopupContext);
+
+    const { uimode } = useContext(UimodeContext);
     
     const [isPopupActive, setIsPopupActive] = useState(popupChild != null);
 
@@ -47,7 +50,10 @@ const Popup = React.memo(() => {
                     <div className="popup_content">
                         {popupChild}
                         <button className="btn_close neum" onClick={closePopup}>
-                            <Icon_Close dimension={20} color={"black"} />
+                            <Icon_Close
+                                dimension={20}
+                                color={uimode == "light" ? "black" : "white"}
+                            />
                         </button>
                     </div>
                 </div>

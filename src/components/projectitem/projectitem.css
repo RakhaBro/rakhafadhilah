@@ -50,7 +50,7 @@
     position: absolute;
     width: 100%;
     aspect-ratio: 17;
-    background: linear-gradient(0deg, #e3e6e6 30%, #e3e6e600);
+    background: var(--alpha_gradient_1);
     transform: translateY(-100%);
     /* border-radius: 48px 48px 0px 0px; */
     display: none;
@@ -78,7 +78,7 @@
 }
 
 .projectitem_container .title h1 {
-    color: black;
+    color: var(--text_1);
 }
 
 
@@ -91,7 +91,7 @@
 }
 
 .projectitem .description p span{
-    color: black;
+    color: var(--text_1);
     font-weight: bold;
 }
 
@@ -132,8 +132,8 @@
     all: unset;
     padding: 12px 48px;
     border-radius: 100vh;
-    background-color: black;
-    color: white;
+    background-color: var(--contrast_1);
+    color: var(--contrast_2);
     align-items: center; justify-content: center; display: flex;
     transition: .15s;
 }

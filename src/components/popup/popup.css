@@ -35,7 +35,7 @@
 
 .popup_container .btn_close {
     align-self: unset;
-    color: black;
+    color: var(--text_1);
     height: min-content;
     align-self: stretch;
     flex-shrink: 0;

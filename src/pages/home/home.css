@@ -14,7 +14,6 @@ body {
 }
 
 .page_home .section {
-    pointer-events: none;
     position: relative;
     scroll-snap-align: start;
     width: 100%;
@@ -23,7 +22,7 @@ body {
     padding: 48px;
     box-sizing: border-box;
     transition: .4s;
-    user-select: all;
+    pointer-events: all;
 }
 
 .page_home .section_top {
@@ -53,7 +52,7 @@ body {
     left: 0px;
     text-align: center;
     width: 100%;
-    filter: drop-shadow(0px 0px 16px #f0f9ff);
+    filter: var(--drop_shadow_1);
 }
 
 .page_home .section_top .maintitle h1 {
@@ -86,10 +85,10 @@ body {
     pointer-events: all;
     position: fixed;
     top: 90svh;
-    color: #000;
+    color: black;
     padding: 12px 24px;
     border-radius: 100vh;
-    background-color: #ffffff;
+    background-color: white;
     align-items: center; justify-content: center; display: flex;
     animation: btn_scrolldown 2s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
     gap: 12px;
@@ -165,7 +164,7 @@ body {
 }
 
 .page_home .summary .neum {
-    background: linear-gradient(-45deg, #e3eff5, #ede9ed);
+    background: var(--background_neum_2);
 }
 
 .page_home .summary > div:hover {
@@ -180,7 +179,7 @@ body {
 
 
 .page_home .summary h2 {
-    color: black;
+    color: var(--text_1);
     font-size: 1.5em;
 }
 
@@ -189,7 +188,7 @@ body {
 }
 
 .page_home .summary .upper span {
-    color: black;
+    color: var(--text_1);
     font-weight: bold;
 }
 
@@ -224,7 +223,7 @@ body {
 
 .page_home .summary .lower p span {
     font-weight: bold;
-    color: black;
+    color: var(--text_1);
     /* filter: drop-shadow(0px 0px 8px #1efcde22); */
 }
 
@@ -232,11 +231,14 @@ body {
     all: unset;
     padding: 12px 24px;
     border-radius: 100vh;
-    background-color: black;
-    color: #000;
+    background-color: var(--contrast_1);
     align-items: center; justify-content: center; display: flex;
     gap: 12px;
     transition: .15s;
+}
+
+.page_home .summary .lower .btn_see_my_project p {
+    color: var(--contrast_2);
 }
 
 .page_home .summary .lower .btn_see_my_project:hover {
@@ -261,19 +263,18 @@ body {
 }
 
 .page_home .section .skills h1 {
-    /* color: black; */
     font-size: 4em;
 }
 
 .page_home .section .skills h3 {
-    color: black;
+    color: var(--text_1);
 }
 
 .page_home .section .skills button {
     padding: 12px 48px;
     border-radius: 100vh;
-    background-color: #ffffff;
-    color: #000;
+    background-color: white;
+    color: black;
     align-items: center; justify-content: center; display: flex;
     gap: 12px;
     transition: .15s;
@@ -313,7 +314,6 @@ body {
 }
 
 .page_home .section .projects_container > .title h1 {
-    /* color: black; */
     font-size: 5em;
 }
 
@@ -351,7 +351,6 @@ body {
 }
 
 .page_home .section .achievements_container .title h1 {
-    /* color: black; */
     font-size: 5em;
 }
 
@@ -363,8 +362,8 @@ body {
 .page_home .section .achievements_container .title button {
     padding: 12px 48px;
     border-radius: 100vh;
-    background-color: #ffffff;
-    color: #000;
+    background-color: white;
+    color: black;
     align-items: center; justify-content: center; display: flex;
     gap: 12px;
     transition: .15s;

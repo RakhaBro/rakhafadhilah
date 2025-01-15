@@ -359,7 +359,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                             </div>
                         </div>
                         <div className="lower neum neum_hoverable">
-                            <h2>Summary</h2>
+                            {/* <h2>Summary</h2> */}
                             <p> I am driven by an <span>entrepreneurial</span> spirit and <span>passion</span> in <span>technology</span>.
                                 As the founder
                                 of <span><a href="https://hiclob.com" target="_blank">Hiclob</a></span>,
@@ -369,13 +369,13 @@ const Page_Home = React.memo(({mousePosition}) => {
                             <p> With experience across <span>Web, Mobile, and Desktop</span> platforms,
                                 I specialize in the <span>JavaScript</span> and <span>Dart</span> ecosystem
                                 and have worked on <span>diverse</span> tech stacks. </p>
-                            {/* <div></div> */}
+                            <div></div>
                             <button
                                 className="btn_see_my_project"
                                 onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight * 2, behavior: 'smooth'})}
                             >
                                 <p>See my projects</p>
-                                <Icon_Chevron_Bottom dimension={12} />
+                                {/* <Icon_Chevron_Bottom dimension={12} /> */}
                             </button>
                         </div>
                     </div>

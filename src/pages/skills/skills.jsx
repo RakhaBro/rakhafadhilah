@@ -5,8 +5,11 @@ import { SuggestionsContext } from '../../providers/suggestionsProvider';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import './skills.css';
+import { UimodeContext } from '../../providers/uimodeProvider';
 
 const AllSkills = React.memo(() => {
+
+    const { uimode } = useContext(UimodeContext);
 
     const [isInSuggestionForm, setIsInSuggestionForm] = useState(false);
 
@@ -99,7 +102,10 @@ const AllSkills = React.memo(() => {
                     : <>
                         <div className="upper">
                             <div className="input_container">
-                                <Icon_search dimension={20} color={"black"} />
+                                <Icon_search
+                                    dimension={20}
+                                    color={uimode == "light" ? "black" : "white"}
+                                />
                                 <input
                                     type="text"
                                     placeholder={

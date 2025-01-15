@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: calc(100svw - 6px);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
     align-items: center; justify-content: space-between; display: flex;
     padding: 6px;
     box-sizing: border-box;
@@ -28,9 +28,9 @@
 }
 
 .nav_button:hover {
-    color: black !important;
+    color: var(--text_1) !important;
 }
 
 .nav_buttons:hover .nav_button {
-    color: darkgrey;
+    color: var(--text_3);
 }

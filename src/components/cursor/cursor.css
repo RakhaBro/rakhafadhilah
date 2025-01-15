@@ -5,7 +5,7 @@
     pointer-events: none;
 }
 
-.customizedcursor {
+/* .customizedcursor {
     position: relative;
     top: -28px;
     left: -28px;
@@ -14,4 +14,4 @@
     background: radial-gradient(circle, rgba(0, 0, 0, .08), rgba(0, 0, 0, 0.5));
     border-radius: 100vh;
     transition: .15s opacity;
-}
+} */
