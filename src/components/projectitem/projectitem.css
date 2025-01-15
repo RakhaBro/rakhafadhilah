@@ -50,7 +50,7 @@
     position: absolute;
     width: 100%;
     aspect-ratio: 17;
-    background: linear-gradient(0deg, #ede9ed 30%, #ede9ed00);
+    background: linear-gradient(0deg, #e3e6e6 30%, #e3e6e600);
     transform: translateY(-100%);
     /* border-radius: 48px 48px 0px 0px; */
     display: none;

@@ -353,7 +353,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                                 Founder & CEO, Hiclob
                                 | ASEAN ACE-YS 2023 & 2024 Delegate
                                 | Top 38 Innovillage 2023, Telkom
-                                | Developer Skilled in Diverse Tech Stacks
+                                | Diverse Tech Stacks Developer
                                     <br />
                                 </p>
                             </div>

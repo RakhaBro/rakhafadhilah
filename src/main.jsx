@@ -5,9 +5,11 @@ import { PopupProvider } from './providers/popupProvider.jsx'
 import { SkillsProvider } from './providers/skillsProvider.jsx'
 import { SuggestionsProvider } from './providers/suggestionsProvider.jsx'
 import { DimensionProvider } from './providers/dimensionProvider.jsx'
+import { UimodeProvider } from './providers/uimodeProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <DimensionProvider>
+  <UimodeProvider>
+    <DimensionProvider>
     <SkillsProvider>
       <SuggestionsProvider>
         <PopupProvider>
@@ -16,4 +18,5 @@ createRoot(document.getElementById('root')).render(
       </SuggestionsProvider>
     </SkillsProvider>
   </DimensionProvider>
+  </UimodeProvider>
 )

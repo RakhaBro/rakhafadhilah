@@ -19,6 +19,10 @@
   /* user-select: none; */
 }
 
+* {
+  cursor: url('./assets/img/cursor.webp') 2 2, default !important;
+}
+
 @font-face {
   font-family: 'Rounded Elegance';
   src: url('./assets/font/rounded_elagance_regular.otf') format('opentype');
@@ -33,7 +37,8 @@ body {
   height: 100svh;
   /* background-color: #000000; */
   /* background-color: #ede9ed; */
-  background: linear-gradient(45deg, #f3f0f3, #bbd0db, #ede9ed);
+  /* background: linear-gradient(45deg, #f3f0f3, #bbd0db, #ede9ed); */
+  background: linear-gradient(45deg, #ffffff, #c0c9cc, #fffbff);
   scroll-behavior: smooth;
 }
 
@@ -115,12 +120,13 @@ button {
 .neum {
   border-radius: 48px;
   /* background: #212832; */
-  background: #ede9ed;
+  /* background: #ede9ed; */
+  background: #e3e6e6;
   transition: .15s;
   pointer-events: all;
   box-shadow:
-    1px 1px 24px rgba(24, 43, 80, 0.1),
-    -3px -3px 12px rgba(243, 250, 255, 0.904);
+    1px 1px 24px rgba(24, 43, 80, 0.2),
+    -10px -10px 24px rgba(236, 251, 255, 0.9);
 }
 
 

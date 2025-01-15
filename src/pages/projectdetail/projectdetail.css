@@ -140,7 +140,7 @@
     position: absolute;
     width: 100%;
     aspect-ratio: 24;
-    background: linear-gradient(0deg, #ede9ed 20%, #ede9ed00 70%);
+    background: linear-gradient(0deg, #e3e6e6 20%, #e3e6e600 70%);
     transform: translateY(calc(-100% + 2px));
     /* display: none; */
 }

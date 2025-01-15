@@ -42,17 +42,17 @@
 .giantround {
     position: fixed;
     z-index: 1;
-    height: 100vh;
-    width: 100vh;
+    height: 90vh;
+    width: 90vh;
     /* right: 0; */
     flex-shrink: 0;
     border-radius: 100%;
     background: linear-gradient(-45deg,
-        #ffffff,
-        #bbd0db,
-        #ffffff
+        /* #ffffff, */
+        #bbc6cc 30%,
+        #ffffff 90%
     );
-    box-shadow: -2px -2px 24px rgba(24, 43, 80, 0.1);
+    box-shadow: inset -2px -2px 24px rgba(24, 43, 80, 0.1);
     animation: gradientround_rotate 4.8s linear infinite;
     filter: blur(1px);
 }
@@ -74,17 +74,18 @@
 .giantround_shadow1 {
     position: fixed;
     z-index: 0;
-    height: calc(100vh + 2px);
-    width: calc(100vh + 2px);
+    height: calc(90vh + 2px);
+    width: calc(90vh + 2px);
     /* right: 0; */
     flex-shrink: 0;
     opacity: .5;
     border-radius: 100%;
     background: white;
+    /* background: linear-gradient(-45deg, #f3f0f3, #b6bbbe00); */
     background: linear-gradient(-45deg, #f3f0f3, #b6bbbe00);
     box-shadow:
-        -4px -4px 24px rgba(24, 43, 80, 0.1),
-        4px 4px 12px rgba(243, 250, 255, 1);
+        inset -4px -4px 24px rgba(24, 43, 80, 0.1);
+        /* inset 4px 4px 12px rgba(243, 250, 255, 1); */
     animation: giantround_shadow1_rotate 2.4s linear infinite;
     transition: 1s;
 }
