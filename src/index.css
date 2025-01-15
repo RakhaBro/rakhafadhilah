@@ -16,6 +16,7 @@
   --text_2: #504e49;
   --text_3: darkgrey;
   --text_invalid: rgb(214, 32, 0);
+  --text_gradient: linear-gradient(45deg, #c96f46, #2985a7, #b720d1);
 
   --box_shadow_1:
       1px 1px 24px rgba(24, 43, 80, 0.2),
@@ -40,6 +41,7 @@
   --text_2: darkgrey;
   --text_3: #817f7a;
   --text_invalid: rgb(255, 48, 34);
+  --text_gradient: linear-gradient(45deg, #c96f46, #2985a7, #b720d1);
   
   --box_shadow_1: unset;
   --drop_shadow_1: unset;
@@ -159,7 +161,7 @@ button {
 .gradient_text {
   /* background: linear-gradient(45deg, #ff9e70, #c2c3ff, #b941ce); */
   /* background: linear-gradient(45deg, #ff9e70, #485053, #b941ce); */
-  background: linear-gradient(45deg, #c96f46, #2985a7, #b720d1);
+  background: var(--text_gradient);
   background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
