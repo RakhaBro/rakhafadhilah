@@ -44,77 +44,7 @@ const ProjectDetail = React.memo(({ data }) => {
     return (
         <div className="projectdetail_container">
             
-            <div className="left">
-                {
-                    data.attachedimages &&
-                    <div className="attached_images neum">
-                        <div className="attached_images_content" ref={attachedImagesRef}>
-                            {
-                                data.attachedimages &&
-                                data.attachedimages.map((image, index) => {
-                                    return (
-                                        <div key={index} className="img_container">
-                                            <img
-                                                src={`./assets/img/projects/attaches_${data.cover}/${image}.webp`}
-                                                alt=""
-                                            />
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
-                        {
-                            data.attachedimages.length > 1 &&
-                            <div className="attached_images_control">
-                                <div>
-                                    <div style={{
-                                        transform: "rotate(90deg)",
-                                        opacity: shownAttachedImageIndex == 0 ? 0.3 : 1,
-                                    }}>
-                                        <button
-                                            className="btn_slide"
-                                            onClick={slideLeft}
-                                        >
-                                            <Icon_Chevron dimension={16} color="#151515" />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div style={{
-                                        transform: "rotate(-90deg)",
-                                        opacity: shownAttachedImageIndex == data.attachedimages.length - 1
-                                            ? 0.3
-                                            : 1,
-                                    }}>
-                                        <button
-                                            className="btn_slide"
-                                            onClick={slideRight}
-                                        >
-                                            <Icon_Chevron dimension={16} color="#151515" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                }
-                <div className="team_container neum">
-                    <div className="title">
-                        <h2>Team :</h2>
-                    </div>
-                    <div className="content">
-                        <TeamPersonnel data={data} />
-                        {
-                            data.team &&
-                            data.team.map((person, index) => {
-                                return <TeamPersonnel key={index} data={person} />;
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
-
-            <div className="right neum">
+            <div className="left neum">
                 <div className="cover">
                     <div className="img_container">
                         {
@@ -191,6 +121,76 @@ const ProjectDetail = React.memo(({ data }) => {
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            <div className="right">
+                {
+                    data.attachedimages &&
+                    <div className="attached_images neum">
+                        <div className="attached_images_content" ref={attachedImagesRef}>
+                            {
+                                data.attachedimages &&
+                                data.attachedimages.map((image, index) => {
+                                    return (
+                                        <div key={index} className="img_container">
+                                            <img
+                                                src={`./assets/img/projects/attaches_${data.cover}/${image}.webp`}
+                                                alt=""
+                                            />
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                        {
+                            data.attachedimages.length > 1 &&
+                            <div className="attached_images_control">
+                                <div>
+                                    <div style={{
+                                        transform: "rotate(90deg)",
+                                        opacity: shownAttachedImageIndex == 0 ? 0.3 : 1,
+                                    }}>
+                                        <button
+                                            className="btn_slide"
+                                            onClick={slideLeft}
+                                        >
+                                            <Icon_Chevron dimension={16} color="#151515" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{
+                                        transform: "rotate(-90deg)",
+                                        opacity: shownAttachedImageIndex == data.attachedimages.length - 1
+                                            ? 0.3
+                                            : 1,
+                                    }}>
+                                        <button
+                                            className="btn_slide"
+                                            onClick={slideRight}
+                                        >
+                                            <Icon_Chevron dimension={16} color="#151515" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                <div className="team_container neum">
+                    <div className="title">
+                        <h2>Team :</h2>
+                    </div>
+                    <div className="content">
+                        <TeamPersonnel data={data} />
+                        {
+                            data.team &&
+                            data.team.map((person, index) => {
+                                return <TeamPersonnel key={index} data={person} />;
+                            })
+                        }
+                    </div>
                 </div>
             </div>
 

@@ -16,9 +16,7 @@ const ProjectItem = React.memo(({data}) => {
 
     return(
         <div className="projectitem_container">
-            <div className="projectitem neum"
-                 onClick={openProjectDetail}
-            >
+            <div className="projectitem neum">
                 
                 {
                     data.cover &&
@@ -63,7 +61,7 @@ const ProjectItem = React.memo(({data}) => {
                     <div></div>
 
                     <div className="btn_container">
-                        <button>See detail</button>
+                        <button onClick={openProjectDetail}>See detail</button>
                     </div>
                 </div>
             </div>
