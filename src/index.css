@@ -124,7 +124,7 @@ a {
 /* .scroll-container::-webkit-scrollbar-track {
 } */
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   *::-webkit-scrollbar {
     display: none;
   }

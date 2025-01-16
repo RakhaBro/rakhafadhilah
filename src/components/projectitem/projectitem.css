@@ -36,11 +36,6 @@
     .projectitem {
         width: 100%;
         aspect-ratio: unset;
-    }
-}
-
-@media (max-width: 640px) {
-    .projectitem {
         min-width: unset;
         border-radius: 24px;
     }

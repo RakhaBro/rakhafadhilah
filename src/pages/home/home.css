@@ -66,12 +66,14 @@ body {
     display: inline;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 720px) {
     .page_home .section_top .maintitle {
         top: unset;
         margin-bottom: 48px;
     }
+}
 
+@media (max-width: 620px) {
     .page_home .section_top .maintitle h1 {
         font-size: 46px;
     }
@@ -188,7 +190,7 @@ body {
 @media (max-width: 820px) {
     .page_home .summary {
         padding: 60px 12px;
-        justify-content: center;
+        justify-content: start;
         width: 100%;
     }
 }
@@ -237,8 +239,23 @@ body {
     filter: brightness(140%);
 }
 
-.page_home .summary .upper h2 {
+.page_home .nametitle {
     margin-bottom: 8px;
+    align-items: center; justify-content: start; display: flex;
+    gap: 12px;
+}
+
+.page_home .nametitle .img_small {
+    width: 68px !important;
+    aspect-ratio: 1;
+    border-radius: 100vh;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .page_home .nametitle .img_small {
+        display: flex;
+    }
 }
 
 .page_home .summary .upper span {
@@ -391,6 +408,7 @@ body {
 }
 
 .page_home .section .skills {
+    padding-left: 48px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -419,7 +437,7 @@ body {
 
 @media (max-width: 720px) {
     .page_home .section .skills_container {
-        width: 70%;
+        width: 100%;
     }
 
     .page_home .section .skills h1 {
@@ -430,6 +448,9 @@ body {
 @media (max-width: 600px) {
     .page_home .section .skills h1 {
         font-size: 2em;
+    }
+    .page_home .section .skills {
+        padding-left: 18px;
     }
 }
 
@@ -447,7 +468,7 @@ body {
 
 .page_home .section .achievements_container .title {
     width: 100%;
-    padding: 48px;
+    padding-left: 48px;
     box-sizing: border-box;
 }
 
@@ -494,6 +515,6 @@ body {
         font-size: 2em;
     }
     .page_home .section .achievements_container .title {
-        padding: 18px;
+        padding-left: 18px;
     }
 }

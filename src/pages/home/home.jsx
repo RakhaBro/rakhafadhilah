@@ -326,10 +326,13 @@ const Page_Home = React.memo(({mousePosition}) => {
                     <div className="summary">
                         <div className="upper neum neum_hoverable">
                             <div className="img_container">
-                                <img src="/assets/img/people/rakha.webp" alt="" />
+                                <img src="./assets/img/people/rakha.webp" alt="" />
                             </div>
                             <div>
-                                <h2 className="gradient_text">Muhammad Rakha Fadhilah</h2>
+                                <div className="nametitle">
+                                    <img className="img_small" src="./assets/img/people/rakha.webp" alt="" />
+                                    <h2 className="gradient_text">Muhammad Rakha Fadhilah</h2>
+                                </div>
                                 <p>
                                 Founder & CEO, Hiclob
                                 | ASEAN ACE-YS 2023 & 2024 Delegate
