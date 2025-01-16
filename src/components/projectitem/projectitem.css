@@ -12,6 +12,7 @@
 
 .projectitem {
     min-height: 85%;
+    border-radius: 48px;
     min-width: 400px;
     aspect-ratio: 1;
     align-items: center; justify-content: center; display: flex;
@@ -26,6 +27,21 @@
 }
 
 
+@media (max-width: 780px) {
+    .projectitem_container {
+        align-items: end;
+        margin: 0px 12px !important;
+    }
+    .projectitem {
+        aspect-ratio: unset;
+    }
+}
+
+@media (max-width: 640px) {
+    .projectitem {
+        min-width: unset;
+    }
+}
 
 
 
@@ -105,6 +121,12 @@
     box-sizing: border-box;
     align-items: center; justify-content: start; display: flex;
     gap: 12px;
+}
+
+@media (max-width: 520px) {
+    .projectitem .skills_related {
+        display: none;
+    }
 }
 
 .projectitem .skills_related img {

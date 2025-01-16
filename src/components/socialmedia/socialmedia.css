@@ -7,6 +7,12 @@
     align-items: end; justify-content: center; display: flex;
 }
 
+@media (max-width: 780px) {
+    .social_media_container {
+        display: none;
+    }
+}
+
 .social_media_list {
     height: 68px;
     padding: 12px;

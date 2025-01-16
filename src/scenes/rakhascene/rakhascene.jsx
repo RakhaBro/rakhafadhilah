@@ -44,9 +44,13 @@ const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
                     <Rakha
                         mouseCoordinate={mousePosition} scrollPosition={scrollPosition}
                     />
+                </Suspense>
+                <Suspense fallback={null}>
                     <SkillCube
                         mouseCoordinate={mousePosition} scrollPosition={scrollPosition}
                     />
+                </Suspense>
+                <Suspense fallback={null}>
                     <AchievementHighlights
                         mouseCoordinate={mousePosition} scrollPosition={scrollPosition}
                     />

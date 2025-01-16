@@ -6,8 +6,13 @@ export const DimensionProvider = ({ children }) => {
 
     const [dimension, setDimension] = useState(window.innerWidth);
 
+    const [without3d, setWithout3D] = useState(false);
+
     return (
-        <DimensionContext.Provider value={{ dimension, setDimension }}>
+        <DimensionContext.Provider value={{
+            dimension, setDimension,
+            without3d, setWithout3D
+        }}>
         {children}
         </DimensionContext.Provider>
     );

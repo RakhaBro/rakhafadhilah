@@ -17,21 +17,7 @@ import Page_Achievements from "../achievements/achievements";
 
 const Page_Home = React.memo(({mousePosition}) => {
 
-
-    // DIMENSION ====================================
-    const { dimension, setDimension } = useContext(DimensionContext);
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //     setDimension(window.innerWidth);
-    //     };
-    //     handleResize();
-
-    //     window.addEventListener('resize', handleResize);
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     };
-    // }, [])
-
+    const { dimension, without3d } = useContext(DimensionContext);
 
     // SKILL DATA
     const {skills, fetchSkills} = useContext(SkillsContext);
@@ -74,9 +60,6 @@ const Page_Home = React.memo(({mousePosition}) => {
 
     // SCROLL CONTROL ================================
     const [scrollPosition, setScrollPosition] = useState(0);
-    useEffect(() => {
-        console.log(scrollPosition);
-    }, [scrollPosition]);
     const [scrollMovement, setScrollMovement] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
 
@@ -96,7 +79,7 @@ const Page_Home = React.memo(({mousePosition}) => {
             setIsScrolling(true);
             setTimeout(() => {
                 setIsScrolling(false)
-            }, 400);
+            }, 1000);
         }
 
         if (!isScrolling) {
@@ -274,11 +257,6 @@ const Page_Home = React.memo(({mousePosition}) => {
         };
     }, []);
 
-
-    if (dimension <= 698) {
-        return <DimensionUnsupported />
-    }
-
     return(
         <div
             className="page_home scroll-container"
@@ -304,7 +282,10 @@ const Page_Home = React.memo(({mousePosition}) => {
 
             <SocialMedia />
 
-            <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
+            {
+                dimension > 640 && !without3d &&
+                <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
+            }
 
             <div className="section_top">
                 
@@ -348,7 +329,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                                 <img src="/assets/img/people/rakha.webp" alt="" />
                             </div>
                             <div>
-                                <h2>Muhammad Rakha Fadhilah</h2>
+                                <h2 className="gradient_text">Muhammad Rakha Fadhilah</h2>
                                 <p>
                                 Founder & CEO, Hiclob
                                 | ASEAN ACE-YS 2023 & 2024 Delegate

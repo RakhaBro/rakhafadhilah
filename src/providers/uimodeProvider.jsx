@@ -12,7 +12,6 @@ export const UimodeProvider = ({ children }) => {
 
     useEffect(() => {
         document.body.className = uimode + "_mode";
-        console.log(document.body.className);
     }, [uimode])
     
     return (

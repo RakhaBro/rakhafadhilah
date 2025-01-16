@@ -3,6 +3,8 @@ import Page_Home from "./pages/home/home"
 import CustomizeCursor from "./components/cursor/cursor"
 import { useContext, useEffect, useState } from 'react';
 import Popup from './components/popup/popup';
+import { DimensionContext } from './providers/dimensionProvider';
+import DimensionUnsupported from './pages/dimensionunsupported/dimensionunsupported';
 
 function App() {
 
@@ -15,8 +17,8 @@ function App() {
       setIsMousePositionInitialized(true);
     }
     setMousePosition({
-        x: (event.clientX - (window.innerWidth / 2)) / window.innerWidth * 2,
-        y: (event.clientY - (window.innerHeight / 2)) / window.innerHeight * -2
+      x: (event.clientX - (window.innerWidth / 2)) / window.innerWidth * 2,
+      y: (event.clientY - (window.innerHeight / 2)) / window.innerHeight * -2
     });
   };
 
@@ -29,6 +31,23 @@ function App() {
   // ===============================================
 
 
+
+
+  // DIMENSION ====================================
+  const { dimension, without3d } = useContext(DimensionContext);
+  // useEffect(() => {
+  //     const handleResize = () => {
+  //     setDimension(window.innerWidth);
+  //     };
+  //     handleResize();
+
+  //     window.addEventListener('resize', handleResize);
+  //     return () => {
+  //         window.removeEventListener('resize', handleResize);
+  //     };
+  // }, [])
+
+
   return (
     <div onMouseMove={handleMouseMove}>
       <CustomizeCursor
@@ -37,10 +56,15 @@ function App() {
       />
       <Popup />
       <Router>
-          <Routes>
-            <Route path='/' element={<Page_Home mousePosition={mousePosition} />} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path='/' element={
+            dimension <= 640 && !without3d
+              ? <DimensionUnsupported />
+              : <Page_Home mousePosition={mousePosition} />
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }

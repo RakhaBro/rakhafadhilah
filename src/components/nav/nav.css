@@ -10,16 +10,29 @@
     box-sizing: border-box;
     gap: 24px;
     transition: .3s;
+    pointer-events: none;
 }
 
 .nav .ui_mode_controller {
-    padding: 0px 12px;
+    padding: 12px;
+    pointer-events: all;
 }
 
 .nav .nav_buttons {
+    pointer-events: all;
     align-items: center; justify-content: center; display: flex;
     gap: 24px;
     transition: .3s;
+}
+
+@media (max-width: 780px) {
+    .nav {
+        backdrop-filter: none;
+    }
+
+    .nav .nav_buttons {
+        display: none;
+    }
 }
 
 .nav .nav_button {
