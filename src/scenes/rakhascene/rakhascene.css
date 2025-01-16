@@ -2,7 +2,7 @@
     position: fixed;
     z-index: -1;
     width: 100%;
-    height: 100svh;
+    height: 100dvh;
     transition: .2s;
     animation: 2s canvas_container_init forwards cubic-bezier(0.39, 0.575, 0.565, 1);
 }
@@ -10,14 +10,14 @@
 @keyframes canvas_container_init {
     0% {
         opacity: 0;
-        transform: translateY(30svh);
+        transform: translateY(30dvh);
     }
     50% {
         opacity: 0;
     }
     100% {
         opacity: 1;
-        transform: translateY(0svh);
+        transform: translateY(0dvh);
     }
 }
 

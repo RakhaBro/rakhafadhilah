@@ -4,7 +4,7 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 100svh;
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(9px) saturate(0%) sepia(20%);
     align-items: center; justify-content: center; display: flex;

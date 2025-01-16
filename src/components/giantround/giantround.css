@@ -13,7 +13,7 @@
 .giantround_position {
     position: fixed;
     width: 100svw;
-    height: 100svh;
+    height: 100dvh;
     align-items: center; justify-content: center; display: flex;
     transition: 1s;
 }
@@ -38,7 +38,7 @@
 .giantround_relative {
     position: relative;
     width: 100svw;
-    height: 100svh;
+    height: 100dvh;
     align-items: center; justify-content: center; display: flex;
     transition: 1s;
 }

@@ -3,7 +3,7 @@
     width: 50svw;
     max-width: 1000px;
     min-width: 280px;
-    height: 80svh;
+    height: 80dvh;
     max-height: 700px;
     overflow: hidden;
     align-items: start; justify-content: center; display: flex;
@@ -13,7 +13,7 @@
 @media (max-width: 800px) {
     .allskills_container {
         width: calc(100svw - 48px);
-        height: 76svh;
+        height: 76dvh;
     }
 }
 

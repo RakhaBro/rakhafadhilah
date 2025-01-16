@@ -2,7 +2,7 @@
     width: 80svw;
     max-width: 1600px;
     min-width: 280px;
-    height: 90svh;
+    height: 90dvh;
     max-height: 700px;
 
     align-items: center; justify-content: start; display: flex;
@@ -18,7 +18,7 @@
     .page_achievements {
         border-radius: 24px !important;
         width: 90svw;
-        height: 80svh;
+        height: 80dvh;
     }
 }
 
