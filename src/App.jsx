@@ -58,7 +58,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={
-            dimension <= 640 && !without3d
+            dimension <= 720 && !without3d
               ? <DimensionUnsupported />
               : <Page_Home mousePosition={mousePosition} />
             }

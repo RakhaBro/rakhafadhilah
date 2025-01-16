@@ -79,7 +79,7 @@ const Page_Home = React.memo(({mousePosition}) => {
             setIsScrolling(true);
             setTimeout(() => {
                 setIsScrolling(false)
-            }, 1000);
+            }, 300);
         }
 
         if (!isScrolling) {
@@ -283,7 +283,7 @@ const Page_Home = React.memo(({mousePosition}) => {
             <SocialMedia />
 
             {
-                dimension > 640 && !without3d &&
+                dimension > 720 && !without3d &&
                 <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
             }
 

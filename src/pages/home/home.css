@@ -392,7 +392,6 @@ body {
 
 .page_home .section .skills {
     width: 100%;
-    padding: 48px;
     box-sizing: border-box;
 }
 
@@ -418,26 +417,17 @@ body {
     box-shadow: 0px 0px 26px #ffffff33;
 }
 
-@media (max-width: 1100px) {
-    .page_home .section .skills_container {
-        justify-content: start;
-        width: 100%;
-    }
-}
-
 @media (max-width: 720px) {
     .page_home .section .skills_container {
-        justify-content: start;
+        width: 70%;
     }
+
     .page_home .section .skills h1 {
         font-size: 3em;
     }
 }
 
 @media (max-width: 600px) {
-    .page_home .section .skills {
-        padding: 18px;
-    }
     .page_home .section .skills h1 {
         font-size: 2em;
     }
