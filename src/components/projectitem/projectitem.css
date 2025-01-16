@@ -12,13 +12,13 @@
 
 .projectitem {
     min-height: 85%;
-    border-radius: 48px;
     min-width: 400px;
     aspect-ratio: 1;
     align-items: center; justify-content: center; display: flex;
     flex-direction: column;
     transition: .15s;
     transform: scale(1);
+    overflow: hidden;
 }
 
 .projectitem:hover {
@@ -29,10 +29,12 @@
 
 @media (max-width: 780px) {
     .projectitem_container {
+        align-self: stretch;
         align-items: end;
         margin: 0px 12px !important;
     }
     .projectitem {
+        width: 100%;
         aspect-ratio: unset;
     }
 }
@@ -40,6 +42,7 @@
 @media (max-width: 640px) {
     .projectitem {
         min-width: unset;
+        border-radius: 24px;
     }
 }
 
@@ -52,9 +55,9 @@
 .projectitem .projectitem_cover img {
     width: 100%;
     aspect-ratio: 2.8;
+    max-height: 120px;
     object-fit: cover;
     filter: saturate(40%) contrast(130%);
-    border-radius: 48px 48px 0px 0px;
     transition: .15s;
 }
 
@@ -68,7 +71,6 @@
     aspect-ratio: 17;
     background: var(--alpha_gradient_1);
     transform: translateY(-100%);
-    /* border-radius: 48px 48px 0px 0px; */
     display: none;
 }
 
@@ -162,4 +164,20 @@
 
 .projectitem_container button:hover {
     box-shadow: 0px 0px 26px #ffffff33;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .projectitem_content .title,
+    .projectitem .description {
+        padding: 0px 12px;
+    }
+
+    .projectitem .btn_container {
+        padding: 12px;
+        padding-top: 0px;
+    }
 }

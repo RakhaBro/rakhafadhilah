@@ -9,8 +9,12 @@
     padding: 6px;
     box-sizing: border-box;
     gap: 24px;
-    transition: .3s;
+    transition: .3s, 0s width;
     pointer-events: none;
+}
+
+.dark_mode .nav {
+    background: linear-gradient(to bottom, #000000, #00000000);
 }
 
 .nav .ui_mode_controller {

@@ -10,6 +10,13 @@
     flex-direction: column;
 }
 
+@media (max-width: 800px) {
+    .allskills_container {
+        width: calc(100svw - 48px);
+        height: 76svh;
+    }
+}
+
 .allskills_container .upper {
     width: 100%;
     align-items: center; justify-content: center; display: flex;
@@ -23,7 +30,14 @@
     gap: 12px;
     background-color: var(--background_neum_3);
     padding: 12px 24px;
+    box-sizing: border-box;
     border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .allskills_container .input_container {
+        width: 100%;
+    }
 }
 
 .allskills_container input {
@@ -32,7 +46,7 @@
 }
 
 .allskills_container .content {
-    width: 100%;
+    width: 100% !important;
     padding-top: 0px;
     flex: 1;
     align-items: start; justify-content: start; display: flex;
@@ -93,10 +107,23 @@
     break-inside: avoid;
 }
 
+@media (max-width: 520px) {
+    .skillitem {
+        padding: 12px 0px;
+    }
+}
+
 .skillitem img {
     width: 50px;
     height: 50px;
     object-fit: contain;
+}
+
+@media (max-width: 520px) {
+    .skillitem img {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 .skillitem .maininfo {
@@ -113,6 +140,12 @@
 
 .skillitem .dateinfo p {
     text-align: right;
+}
+
+@media (max-width: 480px) {
+    .skillitem .dateinfo {
+        display: none;
+    }
 }
 
 
@@ -132,9 +165,21 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 520px) {
+    .allskills_container .section_upperbuttons {
+        padding: 12px;
+    }
+}
+
 .section_upperbuttons .suggest_btn_container {
     flex: 1;
     align-items: center; justify-content: end; display: flex;
+}
+
+@media (max-width: 520px) {
+    .section_upperbuttons .suggest_btn_container {
+        display: none;
+    }
 }
 
 .section_upperbuttons .suggest_btn_container button {
@@ -190,6 +235,8 @@
     width: 100%;
     align-items: center; justify-content: space-evenly; display: flex;
     flex-direction: column;
+    padding: 12px;
+    box-sizing: border-box;
     color: var(--text_1);
 }
 

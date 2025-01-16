@@ -61,11 +61,12 @@ const AllSkills = React.memo(() => {
 
 
     const contentRef = useRef();
+    const allSkillsContainerRef = useRef();
     const [activeSectionIndex, setActiveSectionIndex] = useState(0);
     const switchSection = () => {
         if (contentRef.current) {
             contentRef.current.scrollTo({
-                left: window.innerWidth * .5 * activeSectionIndex,
+                left: window.innerWidth * allSkillsContainerRef.current.clientWidth * activeSectionIndex,
                 behavior: 'smooth'
             });
         }
@@ -91,7 +92,7 @@ const AllSkills = React.memo(() => {
 
 
     return(
-        <div className="allskills_container neum">
+        <div className="allskills_container neum" ref={allSkillsContainerRef}>
 
             {
                 isInSuggestionForm
@@ -132,7 +133,7 @@ const AllSkills = React.memo(() => {
                                     onClick={() => setActiveSectionIndex(1)}
                                     className={activeSectionIndex == 1 ? 'active_section' : null}
                                 >
-                                    <p>People Suggestions</p>
+                                    <p>Suggested</p>
                                 </button>
                             </div>
                             <div className="suggest_btn_container">

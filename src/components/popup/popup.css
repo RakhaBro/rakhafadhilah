@@ -58,3 +58,21 @@
     align-items: center; justify-content: center; display: flex;
     gap: 24px;
 }
+
+
+
+
+@media (max-width: 820px) {
+    .popup_content {
+        /* flex-direction: column-reverse; */
+        gap: 12px !important;
+    }
+    .popup_container .btn_close {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        padding: 0px !important;
+        width: 40px;
+        border-radius: 12px;
+    }
+}

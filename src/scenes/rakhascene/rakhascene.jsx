@@ -4,9 +4,11 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Rakha from "../../components/3dobjects/rakha";
 import { EffectComposer, Bloom, SSAO, Vignette, Outline } from "@react-three/postprocessing";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useContext, useState } from "react";
+import { UimodeContext } from "../../providers/uimodeProvider";
 import SkillCube from "../../components/3dobjects/skillcube";
 import AchievementHighlights from "../../components/3dobjects/achievement_highlights";
+import { MathUtils } from "three";
 
 
 const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
@@ -82,6 +84,8 @@ const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
 // LIGHTING SETUP
 const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
 
+    const { uimode } = useContext(UimodeContext);
+
     const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
     const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
 
@@ -99,7 +103,15 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
     return(
         <>
             {/* <Environment preset="studio" backgroundIntensity={.2} /> */}
-            <ambientLight intensity={1.5 + (achievementPhaseProgress * 2)} color={"#8c9eff"} />
+            <ambientLight
+                intensity={
+                    uimode == "light"
+                        ? 1.5
+                        : .4
+                    + (achievementPhaseProgress * 2)
+                }
+                color={"#8c9eff"}
+            />
 
             <directionalLight
                 position={[4, 1.2, 1]}
