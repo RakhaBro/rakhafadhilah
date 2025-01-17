@@ -9,12 +9,6 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
     const windowAspectRatio = window.innerWidth / window.innerHeight;
 
     const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
-    useFrame(() => {
-        setAchievementPhaseProgress(
-            (scrollPosition - 300)
-            / 100
-        );
-    });
 
     const { loads, setLoads } = useContext(LoadindicatorContext);
     const meshRef = useRef();
@@ -80,15 +74,18 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
     }
 
 
-     useFrame((state, delta) => {
-        controlAnimation();
-    });
-
-
     useEffect(() => {
         groupRef.current.position.x = 3;
         controlAnimation();
     }, []);
+
+    useFrame(() => {
+        setAchievementPhaseProgress(
+            (scrollPosition - 300)
+            / 100
+        );
+        controlAnimation();
+    });
 
 
     return(

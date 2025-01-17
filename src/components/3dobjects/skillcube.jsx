@@ -9,12 +9,6 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
     const windowAspectRatio = window.innerWidth / window.innerHeight;
 
     const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
-    useFrame(() => {
-        setSkillPhaseProgress(
-            (scrollPosition - 200)
-            / 100
-        );
-    });
 
     const groupRef = useRef();
     
@@ -86,6 +80,10 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
 
      useFrame((state, delta) => {
+        setSkillPhaseProgress(
+            (scrollPosition - 200)
+            / 100
+        );
         controlAnimation();
     });
 
