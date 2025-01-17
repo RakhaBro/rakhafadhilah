@@ -49,7 +49,7 @@ const ProjectDetail = React.memo(({ data }) => {
                     <div className="img_container">
                         {
                             !isVideoStarted &&
-                            <img src={`./assets/img/projects/project_${data.cover}_clean.webp`} alt="" />
+                            <img loading="lazy" src={`./assets/img/projects/project_${data.cover}_clean.webp`} alt="" />
                         }
                         {
                             data.assetvideo &&
@@ -97,7 +97,7 @@ const ProjectDetail = React.memo(({ data }) => {
                             {
                                 data.skills.map((skill, index) => {
                                     return(
-                                        <img
+                                        <img loading="lazy"
                                             key={index}
                                             src={`./assets/img/skills/skill_${skill}.webp`}
                                             title={data_of_skills.find(skilldata => skilldata.id === skill).name}
@@ -134,7 +134,7 @@ const ProjectDetail = React.memo(({ data }) => {
                                 data.attachedimages.map((image, index) => {
                                     return (
                                         <div key={index} className="img_container">
-                                            <img
+                                            <img loading="lazy"
                                                 src={`./assets/img/projects/attaches_${data.cover}/${image}.webp`}
                                                 alt=""
                                             />
@@ -209,7 +209,7 @@ const TeamPersonnel = React.memo(({ data }) => {
     
     return(
         <div className="personnel">
-            <img
+            <img loading="lazy"
                 className="personnel_photo"
                 src={data.photourl ?? "./assets/img/people/rakha.webp"} alt="" />
             <div className="personnel_info">
@@ -220,11 +220,11 @@ const TeamPersonnel = React.memo(({ data }) => {
                 {
                     isMyProfile
                     ? <>
-                        <img
+                        <img loading="lazy"
                             onClick={() => openPage("https://www.linkedin.com/in/rakha-fadhilah-technopreneur")}
                             src="./assets/img/media/linkedin_icon.webp" alt=""
                         />
-                        <img
+                        <img loading="lazy"
                             onClick={() => openPage("https://www.instagram.com/rakha__fadhilah")}
                             src="./assets/img/media/instagram_icon.webp" alt=""
                         />
@@ -232,14 +232,14 @@ const TeamPersonnel = React.memo(({ data }) => {
                     : <>
                         {
                             data.linkedin &&
-                                <img
+                                <img loading="lazy"
                                     onClick={() => openPage(data.linkedin)}
                                     src="./assets/img/media/linkedin_icon.webp" alt=""
                                 />
                         }
                             {
                                 data.instagram &&
-                                <img
+                                <img loading="lazy"
                                     onClick={() => openPage(data.instagram)}
                                     src="./assets/img/media/instagram_icon.webp" alt=""
                                 />

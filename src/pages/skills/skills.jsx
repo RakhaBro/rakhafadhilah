@@ -198,7 +198,7 @@ const SkillItem = React.memo(({data}) => {
 
     return(
         <div className="skillitem">
-            <img src={`./assets/img/skills/skill_${data.id}.webp`} alt="" />
+            <img loading="lazy" src={`./assets/img/skills/skill_${data.id}.webp`} alt="" />
             <div className="maininfo">
                 <p>{data.name}</p>
                 <p>{data.category}</p>

@@ -17,7 +17,7 @@ const DimensionUnsupported = React.memo(() => {
     return(
         <div className={"dimension_unsupported" + (initOpenWithout3D ? " init_openwithout3d" : "")}>
             <div className={"content" + (initOpenWithout3D ? " init_openwithout3d_content" : "")}>
-                <img src={"./assets/img/people/rakha.webp"} alt="" />
+                <img loading="lazy" src={"./assets/img/people/rakha.webp"} alt="" />
                 <br />
                 <h1 className="gradient_text">3D in Desktop</h1>
                 <p>

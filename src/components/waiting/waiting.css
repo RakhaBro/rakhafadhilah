@@ -73,7 +73,7 @@
     align-items: center; justify-content: center; display: flex;
     padding: 2px;
     box-sizing: border-box;
-    animation: 2.6s child_1 infinite linear;
+    animation: 2.6s child_1 infinite;
 }
 
 @keyframes child_1 {
@@ -93,7 +93,7 @@
     align-items: center; justify-content: center; display: flex;
     padding: 2px;
     box-sizing: border-box;
-    animation: 2.6s child_2 infinite linear;
+    animation: 2.6s child_2 infinite;
 }
 
 @keyframes child_2 {

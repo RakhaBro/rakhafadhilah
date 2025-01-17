@@ -1,4 +1,6 @@
-function Icon_Lightkmode({ dimension, color }) {
+import React from "react";
+
+const Icon_Lightkmode = React.memo(({ dimension, color }) => {
     return (
         <svg
             width={!isNaN(dimension) ? dimension + "px" : "64px"}
@@ -20,6 +22,6 @@ function Icon_Lightkmode({ dimension, color }) {
                     fill="url(#gradient)" /> </g>
         </svg>
     );
-}
+});
 
 export default Icon_Lightkmode;

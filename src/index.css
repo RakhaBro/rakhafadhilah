@@ -239,3 +239,10 @@ input {
 input::placeholder {
   color: var(--text_2);
 }
+
+
+
+
+img, video, video source {
+  user-select: none;
+}

@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Page_Home from "./pages/home/home"
 import CustomizeCursor from "./components/cursor/cursor"
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Popup from './components/popup/popup';
 import { DimensionContext } from './providers/dimensionProvider';
 import DimensionUnsupported from './pages/dimensionunsupported/dimensionunsupported';
 
-function App() {
+const App = React.memo(() => {
 
   // MOUSE ========================================
   const [isMousePositionInitialized, setIsMousePositionInitialized] = useState(false);
@@ -67,6 +67,6 @@ function App() {
       </Router>
     </div>
   );
-}
+});
 
 export default App

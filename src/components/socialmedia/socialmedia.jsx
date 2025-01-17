@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./socialmedia.css";
 
-function SocialMedia() {
+const SocialMedia = React.memo(() => {
 
     const [chosenSocialMedia, setChosenSocialMedia] = useState(null);
     const [url, setUrl] = useState(null);
@@ -38,7 +38,7 @@ function SocialMedia() {
                     onMouseEnter={() => setChosenSocialMedia("Linkedin")}
                     onClick={() => openPage(url)}
                 >
-                    <img src="./assets/img/media/linkedin_icon.webp" alt="Linkedin" />
+                    <img loading="lazy" src="./assets/img/media/linkedin_icon.webp" alt="Linkedin" />
                 </div>
 
                 {/* GITHUB */}
@@ -46,7 +46,7 @@ function SocialMedia() {
                     onMouseEnter={() => setChosenSocialMedia("Github")}
                     onClick={() => openPage(url)}
                 >
-                    <img src="./assets/img/media/github_icon.webp" alt="Github" />
+                    <img loading="lazy" src="./assets/img/media/github_icon.webp" alt="Github" />
                 </div>
 
                 {/* INSTAGRAM */}
@@ -54,16 +54,12 @@ function SocialMedia() {
                     onMouseEnter={() => setChosenSocialMedia("Instagram")}
                     onClick={() => openPage(url)}
                 >
-                    <img src="./assets/img/media/instagram_icon.webp" alt="Instagram" />
+                    <img loading="lazy" src="./assets/img/media/instagram_icon.webp" alt="Instagram" />
                 </div>
 
             </div>
         </div>
     );
-}
-
-
-
-
+});
 
 export default SocialMedia;

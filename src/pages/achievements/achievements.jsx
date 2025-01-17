@@ -110,6 +110,7 @@ const Item_Achievement = React.memo(({ index, data }) => {
                         {
                             data.attachedimages.map((image) =>
                                 <img
+                                    loading="lazy"
                                     key={image}
                                     src={`./assets/img/achievement_events/${data.id}/${image}.webp`}
                                     alt=""
@@ -184,7 +185,7 @@ const Item_Achievement = React.memo(({ index, data }) => {
 const Item_Certification = React.memo(({data}) => {
     return(
         <div className="certification_item">
-            <img src={`./assets/img/achievement_certifications/certif_${data.id}.webp`} alt="" />
+            <img loading="lazy" src={`./assets/img/achievement_certifications/certif_${data.id}.webp`} alt="" />
             <div className="text">
                 <p>{data.name}</p>
                 <p>{data.year}</p>

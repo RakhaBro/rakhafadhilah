@@ -331,11 +331,11 @@ const Page_Home = React.memo(({ mousePosition }) => {
                     <div className="summary">
                         <div className="upper neum neum_hoverable">
                             <div className="img_container">
-                                <img src="./assets/img/people/rakha.webp" alt="" />
+                                <img loading="lazy" src="./assets/img/people/rakha.webp" alt="" />
                             </div>
                             <div>
                                 <div className="nametitle">
-                                    <img className="img_small" src="./assets/img/people/rakha.webp" alt="" />
+                                    <img loading="lazy" className="img_small" src="./assets/img/people/rakha.webp" alt="" />
                                     <h2 className="gradient_text">Muhammad Rakha Fadhilah</h2>
                                 </div>
                                 <p>

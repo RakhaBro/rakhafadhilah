@@ -21,7 +21,7 @@ const ProjectItem = React.memo(({data}) => {
                 {
                     data.cover &&
                     <div className="projectitem_cover">
-                        <img src={`./assets/img/projects/project_${data.cover}.webp`} alt="" />
+                        <img loading="lazy" src={`./assets/img/projects/project_${data.cover}.webp`} alt="" />
                         <div className="projectitem_gradient"></div>
                     </div>
                 }
@@ -48,6 +48,7 @@ const ProjectItem = React.memo(({data}) => {
                         {
                             data.skills && data.skills.map((skill, index) => (
                                 <img
+                                    loading="lazy"
                                     title={
                                         data_of_skills.find(item => item.id === skill).name
                                     }

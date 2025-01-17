@@ -1,4 +1,6 @@
-function Icon_Close({dimension, color}) {
+import React from "react";
+
+const Icon_Close = React.memo(({dimension, color}) => {
     return(
         <svg
             width={!isNaN(dimension) ? (dimension + "px") : "64px"}
@@ -13,6 +15,6 @@ function Icon_Close({dimension, color}) {
             </g>
         </svg>
     );
-}
+});
 
 export default Icon_Close;

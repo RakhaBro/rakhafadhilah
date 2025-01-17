@@ -1,5 +1,6 @@
+import React from "react";
 
-function Icon_Out({dimension, color}) {
+const Icon_Out = React.memo(({dimension, color}) => {
     return(
         <svg
             width={!isNaN(dimension) ? (dimension + "px") : "64px"}
@@ -14,6 +15,6 @@ function Icon_Out({dimension, color}) {
                 stroke={color ?? "#ffffff"} strokeWidth="2" strokeLinecap="round"/> </g>
         </svg>
     );
-}
+});
 
 export default Icon_Out;
