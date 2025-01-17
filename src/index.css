@@ -83,6 +83,16 @@
   font-style: normal;
 }
 
+::selection {
+  background: var(--text_1);
+  color: var(--contrast_2);
+}
+
+::-moz-selection {
+  background: var(--text_1);
+  color: var(--contrast_2);
+}
+
 body {
   padding: 0px;
   margin: 0px;
