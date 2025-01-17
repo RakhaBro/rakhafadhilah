@@ -1,7 +1,8 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { MathUtils } from "three";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
 const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
@@ -14,9 +15,17 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
             / 100
         );
     });
+
+    const groupRef = useRef();
     
-    
+    const { loads, setLoads } = useContext(LoadindicatorContext);
     const meshRef = useRef();
+    useEffect(() => {
+        if (!loads.includes(meshRef.current.uuid)) {
+            setLoads((prev) => [...prev, meshRef.current.uuid]);
+        }
+    }, [meshRef.current]);
+
     const rotationRef = useRef();
     const { scene, animations } = useGLTF('assets/glb/skillcube.glb');
 
@@ -31,7 +40,7 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
 
     const controlAnimation = () => {
-        if (meshRef.current && rotationRef.current) {
+        if (groupRef.current && rotationRef.current) {
             
             // General rotation control by mouse Y coordinate
             rotationRef.current.rotation.y = MathUtils.lerp(
@@ -48,8 +57,8 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
             );
 
             // X position control by skill phase progress
-            meshRef.current.position.x = MathUtils.lerp(
-                meshRef.current.position.x,
+            groupRef.current.position.x = MathUtils.lerp(
+                groupRef.current.position.x,
                 (
                     skillPhaseProgress <= 1
                         ? -2 * (1 - skillPhaseProgress) + (windowAspectRatio * -.45)
@@ -57,15 +66,15 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
                 ),
                 0.05
             );
-            meshRef.current.rotation.x = MathUtils.lerp(
-                meshRef.current.rotation.x,
+            groupRef.current.rotation.x = MathUtils.lerp(
+                groupRef.current.rotation.x,
                 4 * (1 - skillPhaseProgress),
                 0.05
             );
 
             // Y position going down if skill phase progress is passed
-            meshRef.current.position.y = MathUtils.lerp(
-                meshRef.current.position.y,
+            groupRef.current.position.y = MathUtils.lerp(
+                groupRef.current.position.y,
                 skillPhaseProgress >= 1
                     ? -2 * (skillPhaseProgress - 1)
                     : 0,
@@ -82,14 +91,14 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
 
     useEffect(() => {
-        meshRef.current.position.x = -3;
+        groupRef.current.position.x = -3;
         controlAnimation();
     }, []);
 
 
     return(
         <group {...props}
-        ref={meshRef}
+        ref={groupRef}
         >
             <group
                 position={[0, -.05, 0]}
@@ -101,7 +110,7 @@ const SkillCube = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
                 rotation={[.6, .8, 0]}
                 >
                 <group ref={rotationRef}>
-                    <primitive object={scene}/>
+                    <primitive ref={meshRef} object={scene}/>
                 </group>
             </group>
         </group>

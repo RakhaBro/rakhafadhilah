@@ -34,18 +34,18 @@ function App() {
 
 
   // DIMENSION ====================================
-  const { dimension, without3d } = useContext(DimensionContext);
-  // useEffect(() => {
-  //     const handleResize = () => {
-  //     setDimension(window.innerWidth);
-  //     };
-  //     handleResize();
+  const { dimension, setDimension, without3d } = useContext(DimensionContext);
+  useEffect(() => {
+      const handleResize = () => {
+        setDimension(window.innerWidth);
+      };
+      handleResize();
 
-  //     window.addEventListener('resize', handleResize);
-  //     return () => {
-  //         window.removeEventListener('resize', handleResize);
-  //     };
-  // }, [])
+      window.addEventListener('resize', handleResize);
+      return () => {
+          window.removeEventListener('resize', handleResize);
+      };
+  }, [])
 
 
   return (

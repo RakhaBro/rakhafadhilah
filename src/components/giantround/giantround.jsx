@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./giantround.css";
+import { UimodeContext } from "../../providers/uimodeProvider";
 
 const GiantRound = React.memo(({scroll}) => {
+
+    const { uimode } = useContext(UimodeContext);
 
     const [opacity, setOpacity] = useState(1);
     const [translate, setTranslate] = useState({
@@ -33,22 +36,27 @@ const GiantRound = React.memo(({scroll}) => {
     }, [scroll]);
 
     return(
-        <div className="giantround_container"
-            style={{opacity: opacity}}
-        >
-            <div className="giantround_position"
-                style={{
-                    transform: `translate(${translate.x}svw, ${translate.y}svh)`
-                }}
-            >
-                <div className="giantround_scale">
-                    <div className="giantround_relative">
-                        <div className="giantround"></div>
-                        <div className="giantround_shadow1"></div>
+        <>
+            {
+                uimode == "light" &&
+                <div className="giantround_container"
+                    style={{opacity: opacity}}
+                >
+                    <div className="giantround_position"
+                        style={{
+                            transform: `translate(${translate.x}svw, ${translate.y}svh)`
+                        }}
+                    >
+                        <div className="giantround_scale">
+                            <div className="giantround_relative">
+                                <div className="giantround"></div>
+                                <div className="giantround_shadow1"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            }
+        </>
     );
 });
 

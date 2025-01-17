@@ -1,0 +1,113 @@
+.waiting {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    left: 0px;
+    width: 100dvw;
+    height: 100dvh;
+    background: var(--background_main);
+    align-items: center; justify-content: center; display: flex;
+    pointer-events: all;
+}
+
+.waiting.endWaiting {
+    animation: endwaiting .3s forwards linear;
+}
+
+@keyframes endwaiting {
+    0% {
+        
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.waiting_content {
+    align-items: center; justify-content: center; display: flex;
+    flex-direction: column;
+    gap: 36px;
+    animation: startwaiting .3s forwards linear;
+}
+
+.waiting_content h2 {
+    font-size: 1.2em;
+    filter: brightness(140%) saturate(60%);
+}
+
+@keyframes startwaiting {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+
+
+
+/* WAITING ELEMENT */
+
+.waiting_element {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 100vh;
+    align-items: center; justify-content: center; display: flex;
+    filter: brightness(140%) saturate(80%);
+}
+
+.waiting_element > div {
+    border-radius: 12px;
+}
+
+.waiting_element .child_1 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--text_gradient);
+    align-items: center; justify-content: center; display: flex;
+    padding: 2px;
+    box-sizing: border-box;
+    animation: 2.6s child_1 infinite linear;
+}
+
+@keyframes child_1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.waiting_element .child_2 {
+    position: fixed;
+    width: 96%;
+    height: 96%;
+    background: var(--text_gradient);
+    align-items: center; justify-content: center; display: flex;
+    padding: 2px;
+    box-sizing: border-box;
+    animation: 2.6s child_2 infinite linear;
+}
+
+@keyframes child_2 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.waiting_element .child_2_1 {
+    width: 100%;
+    height: 100%;
+    background: var(--background_main);
+    border-radius: calc(12px - 2px);
+}

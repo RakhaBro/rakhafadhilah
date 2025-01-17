@@ -32,8 +32,8 @@ const Nav = React.memo(({buttonDataList, scroll}) => {
                 <button onClick={switchUiMode}>
                     {
                         uimode == "light"
-                        ? <Icon_Lightmode color={"#504e49"} dimension={24} />
-                        : <Icon_Darkmode color={"#ffffff"} dimension={24} />
+                        ? <Icon_Lightmode color={"#504e49"} dimension={20} />
+                        : <Icon_Darkmode color={"#ffffff"} dimension={20} />
                     }
                 </button>
             </div>

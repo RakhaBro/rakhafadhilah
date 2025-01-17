@@ -12,15 +12,18 @@ import { SuggestionsContext } from "../../providers/suggestionsProvider";
 import GiantRound from "../../components/giantround/giantround";
 import Nav from "../../components/nav/nav";
 import { DimensionContext } from "../../providers/dimensionProvider";
-import DimensionUnsupported from "../dimensionunsupported/dimensionunsupported";
 import Page_Achievements from "../achievements/achievements";
+import Icon_Out from "../../assets/icons/outIcon";
+import Waiting from "../../components/waiting/waiting";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
-const Page_Home = React.memo(({mousePosition}) => {
+const Page_Home = React.memo(({ mousePosition }) => {
 
     const { dimension, without3d } = useContext(DimensionContext);
+    const { doneWaiting } = useContext(LoadindicatorContext);
 
     // SKILL DATA
-    const {skills, fetchSkills} = useContext(SkillsContext);
+    const { skills, fetchSkills } = useContext(SkillsContext);
     useEffect(() => {
         const setSkillsProvider = async () => {
             if (skills.length == 0) {
@@ -29,11 +32,11 @@ const Page_Home = React.memo(({mousePosition}) => {
         }
         setSkillsProvider();
     }, []);
-    
-    
-    
+
+
+
     // SKILL SUGGESTIONS DATA
-    const {suggestions, fetchSuggestions} = useContext(SuggestionsContext);
+    const { suggestions, fetchSuggestions } = useContext(SuggestionsContext);
     useEffect(() => {
         const setSuggestionsProvider = async () => {
             if (suggestions.length == 0) {
@@ -45,7 +48,7 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
 
-    const {popupChild, setPopupChild} = useContext(PopupContext);
+    const { setPopupChild } = useContext(PopupContext);
 
     const showAllSkills = () => {
         setPopupChild(
@@ -72,7 +75,7 @@ const Page_Home = React.memo(({mousePosition}) => {
             });
         }
     }, [projectSectionScrollPosition]);
-    
+
     useEffect(() => {
 
         if (scrollMovement >= 100 || scrollMovement <= -100) {
@@ -83,7 +86,7 @@ const Page_Home = React.memo(({mousePosition}) => {
         }
 
         if (!isScrolling) {
-            
+
             // IF IN PROJECTS PHASE
             if (
                 projectPhaseProgress > 0
@@ -110,7 +113,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                     );
                 }
             }
-            
+
             // ELSE, IF PAGE HAS NO SCROLL PREVENTION (DEFAULT)
             else {
                 if (scrollMovement >= 100) {
@@ -135,7 +138,7 @@ const Page_Home = React.memo(({mousePosition}) => {
         };
 
     }, [scrollMovement]);
-    
+
     const handleWheel = (event) => {
         event.preventDefault();
         setScrollMovement((value) =>
@@ -156,20 +159,20 @@ const Page_Home = React.memo(({mousePosition}) => {
         }
     };
 
-    const handleScroll = () => {
+    const handleScroll = (event) => {
         const documentScroll = pageDocumentRef.current.scrollTop;
         const currentScrollPosition = documentScroll / window.innerHeight * 100;
         setScrollPosition(currentScrollPosition);
     };
     // ===============================================
 
-    
+
     // COVER PHASE PROGRESS ========================
     const [coverPhaseProgress, setCoverPhaseProgress] = useState(0);
     useEffect(() => {
         setCoverPhaseProgress(
-            scrollPosition <= 100
-                ? (100 - scrollPosition) / 100
+            scrollPosition <= 80
+                ? (80 - scrollPosition) / 100
                 : 0
         );
     }, [scrollPosition]);
@@ -196,10 +199,10 @@ const Page_Home = React.memo(({mousePosition}) => {
     useEffect(() => {
         setProjectPhaseProgress(
             scrollPosition <= 200
-            ? scrollPosition <= 100
-                ? 0
-                : (scrollPosition - 100) / 100
-            : (200 - (scrollPosition - 100)) / 100
+                ? scrollPosition <= 100
+                    ? 0
+                    : (scrollPosition - 100) / 100
+                : (200 - (scrollPosition - 100)) / 100
         );
     }, [scrollPosition]);
     // ===============================================
@@ -209,23 +212,23 @@ const Page_Home = React.memo(({mousePosition}) => {
     useEffect(() => {
         setSkillPhaseProgress(
             scrollPosition <= 300
-            ? scrollPosition <= 200
-                ? 0
-                : (scrollPosition - 200) / 100
-            : (300 - (scrollPosition - 100)) / 100
+                ? scrollPosition <= 200
+                    ? 0
+                    : (scrollPosition - 200) / 100
+                : (300 - (scrollPosition - 100)) / 100
         );
     }, [scrollPosition]);
     // ===============================================
-    
+
     // ACHIEVEMENT PHASE PROGRESS ====================
     const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
     useEffect(() => {
         setAchievementPhaseProgress(
             scrollPosition <= 400
-            ? scrollPosition <= 300
-                ? 0
-                : (scrollPosition - 300) / 100
-            : (400 - (scrollPosition - 100)) / 100
+                ? scrollPosition <= 300
+                    ? 0
+                    : (scrollPosition - 300) / 100
+                : (400 - (scrollPosition - 100)) / 100
         );
     }, [scrollPosition]);
     // ===============================================
@@ -238,14 +241,14 @@ const Page_Home = React.memo(({mousePosition}) => {
 
 
     const goToScroll = (destination) => {
-        pageDocumentRef.current.scrollTo({top: destination, behavior: 'smooth'})
+        pageDocumentRef.current.scrollTo({ top: destination, behavior: 'smooth' })
     }
 
 
     useEffect(() => {
         if (pageDocumentRef.current) {
-            pageDocumentRef.current.scrollTo({left: 0, behavior: 'smooth'});
-            pageDocumentRef.current.scrollTo({top: 0, behavior: 'smooth'});
+            pageDocumentRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+            pageDocumentRef.current.scrollTo({ top: 0, behavior: 'smooth' });
             pageDocumentRef.current.addEventListener("wheel", handleWheel);
             pageDocumentRef.current.addEventListener("scroll", handleScroll);
         }
@@ -257,23 +260,25 @@ const Page_Home = React.memo(({mousePosition}) => {
         };
     }, []);
 
-    return(
+    return (
         <div
             className="page_home scroll-container"
             id="page_home"
             ref={pageDocumentRef}
         >
 
+            {!without3d && <Waiting />}
+
             <Nav
                 scroll={scrollPosition}
                 buttonDataList={
                     [
-                        {title: "Home", onClick: () => goToScroll(0)},
-                        {title: "Summary", onClick: () => goToScroll(window.innerHeight)},
-                        {title: "Projects", onClick: () => goToScroll(window.innerHeight * 2)},
-                        {title: "Skills", onClick: () => goToScroll(window.innerHeight * 3)},
-                        {title: "Achievements", onClick: () => goToScroll(window.innerHeight * 4)},
-                        {title: "Contact", onClick: () => goToScroll(window.innerHeight * 5)},
+                        { title: "Home", onClick: () => goToScroll(0) },
+                        { title: "Summary", onClick: () => goToScroll(window.innerHeight) },
+                        { title: "Projects", onClick: () => goToScroll(window.innerHeight * 2) },
+                        { title: "Skills", onClick: () => goToScroll(window.innerHeight * 3) },
+                        { title: "Achievements", onClick: () => goToScroll(window.innerHeight * 4) },
+                        { title: "Contact", onClick: () => goToScroll(window.innerHeight * 5) },
                     ]
                 }
             />
@@ -288,8 +293,8 @@ const Page_Home = React.memo(({mousePosition}) => {
             }
 
             <div className="section_top">
-                
-                <div className="mainlayout">
+
+                <div className={"mainlayout" + (doneWaiting || without3d ? " initpage" : "")}>
 
                     <div className="maintitle">
                         <h1 className="gradient_text">Rakha Fadhilah</h1>
@@ -311,7 +316,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                     </div>
 
                 </div>
-                
+
             </div>
 
 
@@ -334,10 +339,10 @@ const Page_Home = React.memo(({mousePosition}) => {
                                     <h2 className="gradient_text">Muhammad Rakha Fadhilah</h2>
                                 </div>
                                 <p>
-                                Founder & CEO, Hiclob
-                                | ASEAN ACE-YS 2023 & 2024 Delegate
-                                | Top 38 Innovillage 2023, Telkom
-                                | Diverse Tech Stacks Developer
+                                    Founder & CEO, Hiclob
+                                    | ASEAN ACE-YS 2023 & 2024 Delegate
+                                    | Top 38 Innovillage 2023, Telkom
+                                    | Diverse Tech Stacks Developer
                                     <br />
                                 </p>
                             </div>
@@ -346,7 +351,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                             {/* <h2>Summary</h2> */}
                             <p> I am driven by an <span>entrepreneurial</span> spirit and <span>passion</span> in <span>technology</span>.
                                 As the founder
-                                of <span><a href="https://hiclob.com" target="_blank">Hiclob</a></span>,
+                                of <span><a href="https://hiclob.com" target="_blank">Hiclob<Icon_Out dimension={14} /></a></span>,
                                 a platform connecting people with shared interests,
                                 I strive to create <span>meaningful connections</span>.
                             </p>
@@ -356,7 +361,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                             <div></div>
                             <button
                                 className="btn_see_my_project"
-                                onClick={() => pageDocumentRef.current.scrollTo({top: window.innerHeight * 2, behavior: 'smooth'})}
+                                onClick={() => pageDocumentRef.current.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' })}
                             >
                                 <p>See my projects</p>
                                 {/* <Icon_Chevron_Bottom dimension={12} /> */}
@@ -382,10 +387,10 @@ const Page_Home = React.memo(({mousePosition}) => {
                         <h2>From 2023 to {new Date().getFullYear()}</h2>
                     </div>
                     <div className="projects_content">
-                        
+
                         {
                             data_of_projects.map((projectData, index) => {
-                                return(
+                                return (
                                     <ProjectItem
                                         key={index}
                                         data={projectData}
@@ -393,7 +398,7 @@ const Page_Home = React.memo(({mousePosition}) => {
                                 );
                             })
                         }
-                    
+
                     </div>
                 </div>
             </div>
@@ -411,23 +416,23 @@ const Page_Home = React.memo(({mousePosition}) => {
                     <div className="skills">
                         <h1 className="gradient_text">Tech Knowledge</h1>
                         <div className="skill_list">
-                            
+
                             <br />
                             <div className="skill_item">
                                 <h3>Frontend</h3>
                                 <p>React JS, React Native, Flutter, Three JS, React Three Fiber</p>
                             </div>
-                            
+
                             <br />
                             <div className="skill_item">
                                 <h3>Backend</h3>
-                                <p>Node JS, Firebase, Express JS</p>
+                                <p>Node JS, Firebase, MySQL</p>
                             </div>
 
                             <br />
                             <div className="skill_item">
                                 <h3>Others</h3>
-                                <p>Electron, Vite, Webpack, Docker, Git, Github</p>
+                                <p>Electron, Vite, Git, Github, Blender</p>
                             </div>
 
                         </div>
@@ -457,12 +462,12 @@ const Page_Home = React.memo(({mousePosition}) => {
                 </div>
             </div>
 
-            
+
             <div className="section">
-                
+
             </div>
 
-            
+
         </div>
     );
 });

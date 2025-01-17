@@ -6,6 +6,7 @@ import { SkillsProvider } from './providers/skillsProvider.jsx'
 import { SuggestionsProvider } from './providers/suggestionsProvider.jsx'
 import { DimensionProvider } from './providers/dimensionProvider.jsx'
 import { UimodeProvider } from './providers/uimodeProvider.jsx'
+import { LoadindicatorProvider } from './providers/loadindicationProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <UimodeProvider>
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
     <SkillsProvider>
       <SuggestionsProvider>
         <PopupProvider>
-          <App />
+          <LoadindicatorProvider>
+            <App />
+          </LoadindicatorProvider>
         </PopupProvider>
       </SuggestionsProvider>
     </SkillsProvider>

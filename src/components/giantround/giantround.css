@@ -1,13 +1,18 @@
 .giantround_container {
     position: fixed;
     z-index: -20;
-    /* display: none; */
-    opacity: .8;
     transition: 1s;
+    opacity: 0;
+    animation: 2s init forwards linear;
 }
 
-.dark_mode .giantround_container {
-    display: none;
+@keyframes init {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .8;
+    }
 }
 
 .giantround_position {

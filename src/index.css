@@ -73,6 +73,7 @@
 
 * {
   cursor: url('./assets/img/cursor.webp') 2 2, default !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @font-face {

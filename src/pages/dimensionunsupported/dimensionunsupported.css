@@ -1,11 +1,28 @@
 .dimension_unsupported {
     width: 100svw;
     height: 100dvh;
+    padding: 24px; box-sizing: border-box;
+    align-items: center; justify-content: center; display: flex;
+}
+
+.dimension_unsupported .content {
     align-items: center; justify-content: center; display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: center;
-    padding: 24px; box-sizing: border-box;
+}
+
+.dimension_unsupported .content.init_openwithout3d_content {
+    animation: .4s init_openwithout3d_content forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes init_openwithout3d_content {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-10%);
+    }
 }
 
 .dimension_unsupported p {
@@ -30,4 +47,26 @@
     border-radius: 100vh;
     background: var(--contrast_1);
     color: var(--contrast_2);
+}
+
+
+
+
+
+.dimension_unsupported.init_openwithout3d {
+    animation: .4s init_openwithout3d forwards linear;
+}
+
+@keyframes init_openwithout3d {
+    0% {
+        filter: blur(0px) brightness(100%);
+        opacity: 1;
+    }
+    75% {
+        filter: blur(9px) brightness(0%);
+    }
+    100% {
+        filter: blur(12px) brightness(0%);
+        opacity: 0;
+    }
 }

@@ -1,11 +1,20 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { MathUtils, MeshStandardMaterial } from "three";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
 const Rakha = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
+    const { loads, setLoads } = useContext(LoadindicatorContext);
+
     const meshRef = useRef();
+    useEffect(() => {
+        if (!loads.includes(meshRef.current.uuid)) {
+            setLoads((prev) => [...prev, meshRef.current.uuid]);
+        }
+    }, [meshRef.current]);
+
     const { scene, animations } = useGLTF('assets/glb/rakha.glb');
 
     let headMesh = scene.getObjectByName('head');

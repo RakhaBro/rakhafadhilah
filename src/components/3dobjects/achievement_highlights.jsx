@@ -1,7 +1,8 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { MathUtils, MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
 const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...props}) => {
 
@@ -14,9 +15,16 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
             / 100
         );
     });
-    
-    
+
+    const { loads, setLoads } = useContext(LoadindicatorContext);
     const meshRef = useRef();
+    useEffect(() => {
+        if (!loads.includes(meshRef.current.uuid)) {
+            setLoads((prev) => [...prev, meshRef.current.uuid]);
+        }
+    }, [meshRef.current]);
+    
+    const groupRef = useRef();
     const rotationRef = useRef();
     const childRotationRef = useRef();
     const { scene, animations } = useGLTF('assets/glb/achievement_highlights.glb');
@@ -32,7 +40,7 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
 
 
     const controlAnimation = () => {
-        if (meshRef.current && rotationRef.current) {
+        if (groupRef.current && rotationRef.current) {
             
             // // General rotation control by mouse Y coordinate
             rotationRef.current.rotation.y = MathUtils.lerp(
@@ -49,8 +57,8 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
             );
 
             // X position control by skill phase progress
-            meshRef.current.position.x = MathUtils.lerp(
-                meshRef.current.position.x,
+            groupRef.current.position.x = MathUtils.lerp(
+                groupRef.current.position.x,
                 (
                     achievementPhaseProgress <= 1
                         ? 3.2 * (1 - achievementPhaseProgress) + (windowAspectRatio * .11)
@@ -60,8 +68,8 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
             );
 
             // Y position going down if skill phase progress is passed
-            meshRef.current.position.y = MathUtils.lerp(
-                meshRef.current.position.y,
+            groupRef.current.position.y = MathUtils.lerp(
+                groupRef.current.position.y,
                 achievementPhaseProgress >= 1
                     ? -3 * (achievementPhaseProgress - 1)
                     : 0,
@@ -78,14 +86,14 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
 
 
     useEffect(() => {
-        meshRef.current.position.x = 3;
+        groupRef.current.position.x = 3;
         controlAnimation();
     }, []);
 
 
     return(
         <group {...props}
-            ref={meshRef}
+            ref={groupRef}
         >
             <group
                 position={[0, -.06, 0]}
@@ -100,7 +108,7 @@ const AchievementHighlights = React.memo(({mouseCoordinate, scrollPosition, ...p
                     ref={childRotationRef}
                     rotation={[0, 0, 0]}
                 >
-                    <primitive object={scene}/>
+                    <primitive ref={meshRef} object={scene}/>
                 </group>
             </group>
         </group>

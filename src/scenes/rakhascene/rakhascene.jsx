@@ -9,12 +9,15 @@ import { UimodeContext } from "../../providers/uimodeProvider";
 import SkillCube from "../../components/3dobjects/skillcube";
 import AchievementHighlights from "../../components/3dobjects/achievement_highlights";
 import { MathUtils } from "three";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
 
 const Scene_Rakha = React.memo(({mousePosition, scrollPosition}) => {
 
+    const { doneLoading } = useContext(LoadindicatorContext);
+
     return(
-        <div className="canvas_container">
+        <div className={"canvas_container" + (doneLoading ? " init" : "")}>
             <Canvas
                 flat
                 linear
