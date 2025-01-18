@@ -3,12 +3,14 @@ import "./projectitem.css";
 import { PopupContext } from "../../providers/popupProvider";
 import ProjectDetail from "../../pages/projectdetail/projectdetail";
 import data_of_skills from "../../data/skills";
+import SoundManagement from "../soundmanagement/howler";
 
 const ProjectItem = React.memo(({data}) => {
 
     const {setPopupChild} = useContext(PopupContext);
 
     const openProjectDetail = () => {
+        SoundManagement.playSound('click_1');
         setPopupChild(
             <ProjectDetail data={data} />
         );

@@ -119,6 +119,7 @@ a {
 
 *::-webkit-scrollbar {
   display: none;
+  pointer-events: none;
 }
 .scroll-container::-webkit-scrollbar {
   display: flex;
@@ -126,6 +127,7 @@ a {
   padding-left: 12px;
 }
 .scroll-container::-webkit-scrollbar-thumb {
+  pointer-events: none;
   background: rgba(98, 99, 100, 0.4);
   border-radius: 4px;
 }

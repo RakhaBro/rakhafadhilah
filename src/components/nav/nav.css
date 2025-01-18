@@ -17,15 +17,17 @@
     background: linear-gradient(to bottom, #000000, #00000000);
 }
 
-.nav .ui_mode_controller {
+.nav .btns_left {
     pointer-events: all;
+    align-items: center; justify-content: space-between; display: flex;
+    gap: 12px;
 }
 
-.nav .ui_mode_controller button {
+.nav .btns_left button {
     padding: 12px;
 }
 
-.dark_mode .ui_mode_controller button {
+.dark_mode .btns_left button {
     filter: brightness(180%) drop-shadow(0px 0px 8px rgba(255, 108, 97, 0.9));
 }
 

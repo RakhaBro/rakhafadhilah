@@ -8,7 +8,6 @@ export const LoadindicatorProvider = ({ children }) => {
     const [doneLoading, setDoneLoading] = useState(false);
 
     useEffect(() => {
-        console.log(loads);
         if (loads.length >= 3) {
             setDoneLoading(true);
         }

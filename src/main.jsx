@@ -7,19 +7,22 @@ import { SuggestionsProvider } from './providers/suggestionsProvider.jsx'
 import { DimensionProvider } from './providers/dimensionProvider.jsx'
 import { UimodeProvider } from './providers/uimodeProvider.jsx'
 import { LoadindicatorProvider } from './providers/loadindicationProvider.jsx'
+import { BgmProvider } from './providers/bgmProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <UimodeProvider>
     <DimensionProvider>
-    <SkillsProvider>
-      <SuggestionsProvider>
-        <PopupProvider>
-          <LoadindicatorProvider>
-            <App />
-          </LoadindicatorProvider>
-        </PopupProvider>
-      </SuggestionsProvider>
-    </SkillsProvider>
-  </DimensionProvider>
+      <SkillsProvider>
+        <SuggestionsProvider>
+          <PopupProvider>
+            <LoadindicatorProvider>
+              <BgmProvider>
+                <App />
+              </BgmProvider>
+            </LoadindicatorProvider>
+          </PopupProvider>
+        </SuggestionsProvider>
+      </SkillsProvider>
+    </DimensionProvider>
   </UimodeProvider>
 )

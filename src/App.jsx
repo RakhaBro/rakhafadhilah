@@ -5,6 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Popup from './components/popup/popup';
 import { DimensionContext } from './providers/dimensionProvider';
 import DimensionUnsupported from './pages/dimensionunsupported/dimensionunsupported';
+import SoundManagement from "./components/soundmanagement/howler";
 
 const App = React.memo(() => {
 
@@ -21,30 +22,32 @@ const App = React.memo(() => {
       y: (event.clientY - (window.innerHeight / 2)) / window.innerHeight * -2
     });
   };
-
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-  // ===============================================
-
+  // ==============================================
 
 
 
   // DIMENSION ====================================
   const { dimension, setDimension, without3d } = useContext(DimensionContext);
-  useEffect(() => {
-      const handleResize = () => {
-        setDimension(window.innerWidth);
-      };
-      handleResize();
 
-      window.addEventListener('resize', handleResize);
-      return () => {
-          window.removeEventListener('resize', handleResize);
-      };
+  
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+    const handleResize = () => {
+      setDimension(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    SoundManagement.addSound({key: 'click_1', src: './assets/aud/click_1.mp3', loop: false});
+    SoundManagement.addSound({key: 'click_2', src: './assets/aud/click_2.mp3', loop: false});
+    SoundManagement.addSound({key: 'click_3', src: './assets/aud/click_3.mp3', loop: false});
+    SoundManagement.addSound({key: 'bgm', src: './assets/aud/bgm.mp3', loop: true});
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, [])
 
 

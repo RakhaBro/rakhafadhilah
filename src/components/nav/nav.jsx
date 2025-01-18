@@ -3,6 +3,9 @@ import "./nav.css";
 import { UimodeContext } from "../../providers/uimodeProvider";
 import Icon_Lightmode from "../../assets/icons/lightmode";
 import Icon_Darkmode from "../../assets/icons/darkmode";
+import SoundManagement from "../soundmanagement/howler";
+import Icon_SoundOn from "../../assets/icons/soundonIcon";
+import Icon_SoundOff from "../../assets/icons/soundoffIcon";
 
 const Nav = React.memo(({buttonDataList, scroll}) => {
 
@@ -24,16 +27,32 @@ const Nav = React.memo(({buttonDataList, scroll}) => {
             setOpacity(1);
         }
     }, [scroll])
+
+    const [isMuted, setIsMuted] = useState(false);
+    useEffect(() => {
+        SoundManagement.muteAllSounds(isMuted);
+    }, [isMuted]);
+
+    const switchMuteState = () => {
+        setIsMuted((prev) => !prev);
+    }
     
     return(
         <div className="nav">
 
-            <div className="ui_mode_controller">
+            <div className="btns_left">
                 <button onClick={switchUiMode}>
                     {
                         uimode == "light"
-                        ? <Icon_Lightmode color={"#504e49"} dimension={20} />
-                        : <Icon_Darkmode color={"#ffffff"} dimension={20} />
+                        ? <Icon_Lightmode dimension={20} />
+                        : <Icon_Darkmode dimension={20} />
+                    }
+                </button>
+                <button onClick={switchMuteState}>
+                    {
+                        isMuted
+                        ? <Icon_SoundOff dimension={27} />
+                        : <Icon_SoundOn dimension={27} />
                     }
                 </button>
             </div>

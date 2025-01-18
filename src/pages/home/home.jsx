@@ -16,6 +16,8 @@ import Page_Achievements from "../achievements/achievements";
 import Icon_Out from "../../assets/icons/outIcon";
 import Waiting from "../../components/waiting/waiting";
 import { LoadindicatorContext } from "../../providers/loadindicationProvider";
+import SoundManagement from "../../components/soundmanagement/howler";
+import { BgmContext } from "../../providers/bgmProvider";
 
 const Page_Home = React.memo(({ mousePosition }) => {
 
@@ -24,41 +26,42 @@ const Page_Home = React.memo(({ mousePosition }) => {
 
     // SKILL DATA
     const { skills, fetchSkills } = useContext(SkillsContext);
-    useEffect(() => {
-        const setSkillsProvider = async () => {
-            if (skills.length == 0) {
-                fetchSkills();
-            }
-        }
-        setSkillsProvider();
-    }, []);
-
-
 
     // SKILL SUGGESTIONS DATA
     const { suggestions, fetchSuggestions } = useContext(SuggestionsContext);
-    useEffect(() => {
-        const setSuggestionsProvider = async () => {
-            if (suggestions.length == 0) {
-                fetchSuggestions();
-            }
-        }
-        setSuggestionsProvider();
-    }, []);
 
 
 
     const { setPopupChild } = useContext(PopupContext);
+    const { isBgmPlaying, setIsBgmPlaying } = useContext(BgmContext);
+
+    const pageDocumentRef = useRef(null);
+    const projectSectionRef = useRef(null);
+
+    const exploreMe = () => {
+        SoundManagement.playSound('click_2');
+        if (!isBgmPlaying) {setIsBgmPlaying(true);}
+        goToScroll(window.innerHeight);
+    }
+    
+    const seeMyProjects = () => {
+        SoundManagement.playSound('click_3');
+        pageDocumentRef.current.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
+    }
 
     const showAllSkills = () => {
+        SoundManagement.playSound('click_3');
         setPopupChild(
             <AllSkills />
         );
     };
 
-
-    const pageDocumentRef = useRef(null);
-    const projectSectionRef = useRef(null);
+    const showAllAchievemnts = () => {
+        SoundManagement.playSound('click_2');
+        setPopupChild(
+            <Page_Achievements />
+        );
+    };
 
 
     // SCROLL CONTROL ================================
@@ -167,36 +170,25 @@ const Page_Home = React.memo(({ mousePosition }) => {
     // ===============================================
 
 
-    // COVER PHASE PROGRESS ========================
     const [coverPhaseProgress, setCoverPhaseProgress] = useState(0);
+    const [summaryPhaseProgress, setSummaryPhaseProgress] = useState(0);
+    const [projectPhaseProgress, setProjectPhaseProgress] = useState(0);
+    const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
+    const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
+    
+
     useEffect(() => {
+        // COVER PHASE PROGRESS ========================
         setCoverPhaseProgress(
             scrollPosition <= 80
                 ? (80 - scrollPosition) / 100
                 : 0
         );
-    }, [scrollPosition]);
-    // ===============================================
-
-    // SUMMARY PHASE PROGRESS ========================
-    const [summaryPhaseProgress, setSummaryPhaseProgress] = useState(0);
-    useEffect(() => {
         setSummaryPhaseProgress(
             scrollPosition >= 100
                 ? (100 - (scrollPosition - 100)) / 100
                 : scrollPosition / 100
         );
-    }, [scrollPosition]);
-    // ===============================================
-
-    // PROJECTS PHASE PROGRESS =======================
-    const [projectPhaseProgress, setProjectPhaseProgress] = useState(0);
-    useEffect(() => {
-        if (projectPhaseProgress < .1) {
-            setProjectSectionScrollPosition(0);
-        }
-    }, [projectPhaseProgress]);
-    useEffect(() => {
         setProjectPhaseProgress(
             scrollPosition <= 200
                 ? scrollPosition <= 100
@@ -204,12 +196,6 @@ const Page_Home = React.memo(({ mousePosition }) => {
                     : (scrollPosition - 100) / 100
                 : (200 - (scrollPosition - 100)) / 100
         );
-    }, [scrollPosition]);
-    // ===============================================
-
-    // SKILL PHASE PROGRESS ==========================
-    const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
-    useEffect(() => {
         setSkillPhaseProgress(
             scrollPosition <= 300
                 ? scrollPosition <= 200
@@ -217,12 +203,6 @@ const Page_Home = React.memo(({ mousePosition }) => {
                     : (scrollPosition - 200) / 100
                 : (300 - (scrollPosition - 100)) / 100
         );
-    }, [scrollPosition]);
-    // ===============================================
-
-    // ACHIEVEMENT PHASE PROGRESS ====================
-    const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
-    useEffect(() => {
         setAchievementPhaseProgress(
             scrollPosition <= 400
                 ? scrollPosition <= 300
@@ -231,13 +211,15 @@ const Page_Home = React.memo(({ mousePosition }) => {
                 : (400 - (scrollPosition - 100)) / 100
         );
     }, [scrollPosition]);
+
+    useEffect(() => {
+        if (projectPhaseProgress < .1) {
+            setProjectSectionScrollPosition(0);
+        }
+    }, [projectPhaseProgress]);
     // ===============================================
 
-    const showAllAchievemnts = () => {
-        setPopupChild(
-            <Page_Achievements />
-        );
-    };
+
 
 
     const goToScroll = (destination) => {
@@ -246,6 +228,18 @@ const Page_Home = React.memo(({ mousePosition }) => {
 
 
     useEffect(() => {
+        const setSkillsProvider = async () => {
+            if (skills.length == 0) {
+                fetchSkills();
+            }
+        }
+        setSkillsProvider();
+        const setSuggestionsProvider = async () => {
+            if (suggestions.length == 0) {
+                fetchSuggestions();
+            }
+        }
+        setSuggestionsProvider();
         if (pageDocumentRef.current) {
             pageDocumentRef.current.scrollTo({ left: 0, behavior: 'smooth' });
             pageDocumentRef.current.scrollTo({ top: 0, behavior: 'smooth' });
@@ -308,7 +302,7 @@ const Page_Home = React.memo(({ mousePosition }) => {
                         }}
                     >
                         <button className="btn_scrolldown"
-                            onClick={() => goToScroll(window.innerHeight)}
+                            onClick={exploreMe}
                         >
                             <p>Explore me</p>
                             <Icon_Chevron_Bottom dimension={12} color={"#000"} />
@@ -361,7 +355,7 @@ const Page_Home = React.memo(({ mousePosition }) => {
                             <div></div>
                             <button
                                 className="btn_see_my_project"
-                                onClick={() => pageDocumentRef.current.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' })}
+                                onClick={seeMyProjects}
                             >
                                 <p>See my projects</p>
                                 {/* <Icon_Chevron_Bottom dimension={12} /> */}
