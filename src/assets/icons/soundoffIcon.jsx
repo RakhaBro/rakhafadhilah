@@ -1,4 +1,6 @@
-function Icon_SoundOff({ dimension, color }) {
+import React from "react";
+
+const Icon_SoundOff = React.memo(({ dimension, color }) => {
     return (
         <svg
             width={!isNaN(dimension) ? (dimension + "px") : "64px"}
@@ -22,6 +24,6 @@ function Icon_SoundOff({ dimension, color }) {
                     fill="none" stroke="url(#gradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> </g>
         </svg>
     );
-}
+});
 
 export default Icon_SoundOff;

@@ -169,11 +169,6 @@
     color: var(--text_1);
 }
 
-.achievement_item .right p span {
-    color: var(--text_1);
-    font-weight: bold;
-}
-
 .achievement_item .right.reversed {
     align-items: end;
     text-align: right;

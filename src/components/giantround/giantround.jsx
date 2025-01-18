@@ -28,7 +28,7 @@ const GiantRound = React.memo(({scroll}) => {
             setTranslate({x: 0, y: 50});
         }
 
-        if ((scroll > 100 && scroll < 300) || (scroll > 400 && scroll < 600)) {
+        if ((scroll > 100 && scroll < 300) || scroll > 400) {
             setOpacity(0);
         } else {
             setOpacity(1);
@@ -39,18 +39,20 @@ const GiantRound = React.memo(({scroll}) => {
         <>
             {
                 uimode == "light" &&
-                <div className="giantround_container"
-                    style={{opacity: opacity}}
-                >
-                    <div className="giantround_position"
-                        style={{
-                            transform: `translate(${translate.x}svw, ${translate.y}svh)`
-                        }}
+                <div className="giantround_container">
+                    <div className="giantround_opacity"
+                        style={{opacity: opacity}}
                     >
-                        <div className="giantround_scale">
-                            <div className="giantround_relative">
-                                <div className="giantround"></div>
-                                <div className="giantround_shadow1"></div>
+                        <div className="giantround_position"
+                            style={{
+                                transform: `translate(${translate.x}svw, ${translate.y}svh)`
+                            }}
+                        >
+                            <div className="giantround_scale">
+                                <div className="giantround_relative">
+                                    <div className="giantround"></div>
+                                    <div className="giantround_shadow1"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

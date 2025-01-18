@@ -29,10 +29,6 @@
     max-width: 420px;
 }
 
-.dimension_unsupported p span {
-    color: var(--text_1);
-}
-
 .dimension_unsupported img {
     width: 30svw;
     min-width: 110px;

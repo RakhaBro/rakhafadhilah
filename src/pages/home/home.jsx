@@ -18,6 +18,7 @@ import Waiting from "../../components/waiting/waiting";
 import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 import SoundManagement from "../../components/soundmanagement/howler";
 import { BgmContext } from "../../providers/bgmProvider";
+import Form_EmailMessage from "../../forms/emailmessage/form_emailmessage";
 
 const Page_Home = React.memo(({ mousePosition }) => {
 
@@ -144,29 +145,36 @@ const Page_Home = React.memo(({ mousePosition }) => {
 
     const handleWheel = (event) => {
         event.preventDefault();
-        setScrollMovement((value) =>
-            value + event.deltaY > 200
-                ? 200
-                : value + event.deltaY < -200
-                    ? -200
-                    : value + event.deltaY
-        );
-        if (projectPhaseProgress === 1 && event.deltaX !== 0) {
+        if (pageDocumentRef.current.scrollTop >= window.innerHeight) {
             setScrollMovement((value) =>
-                value + event.deltaX > 200
+                value + event.deltaY > 200
                     ? 200
-                    : value + event.deltaX < -200
+                    : value + event.deltaY < -200
                         ? -200
-                        : value + event.deltaX
+                        : value + event.deltaY
             );
+            if (projectPhaseProgress === 1 && event.deltaX !== 0) {
+                setScrollMovement((value) =>
+                    value + event.deltaX > 200
+                        ? 200
+                        : value + event.deltaX < -200
+                            ? -200
+                            : value + event.deltaX
+                );
+            }
         }
     };
 
     const handleScroll = (event) => {
+        if (pageDocumentRef.current.scrollTop < window.innerHeight) {event.preventDefault();}
         const documentScroll = pageDocumentRef.current.scrollTop;
         const currentScrollPosition = documentScroll / window.innerHeight * 100;
         setScrollPosition(currentScrollPosition);
     };
+
+    const handleTouchMove = (event) => {
+        if (pageDocumentRef.current.scrollTop == 0) {event.preventDefault();}
+    }
     // ===============================================
 
 
@@ -175,7 +183,6 @@ const Page_Home = React.memo(({ mousePosition }) => {
     const [projectPhaseProgress, setProjectPhaseProgress] = useState(0);
     const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
     const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
-    
 
     useEffect(() => {
         // COVER PHASE PROGRESS ========================
@@ -245,11 +252,13 @@ const Page_Home = React.memo(({ mousePosition }) => {
             pageDocumentRef.current.scrollTo({ top: 0, behavior: 'smooth' });
             pageDocumentRef.current.addEventListener("wheel", handleWheel);
             pageDocumentRef.current.addEventListener("scroll", handleScroll);
+            pageDocumentRef.current.addEventListener("touchmove", handleTouchMove, { passive: false });
         }
         return () => {
             if (pageDocumentRef.current) {
                 pageDocumentRef.current.removeEventListener("wheel", handleWheel);
                 pageDocumentRef.current.removeEventListener("scroll", handleScroll);
+                pageDocumentRef.current.removeEventListener("touchmove", handleTouchMove, { passive: false });
             }
         };
     }, []);
@@ -457,8 +466,14 @@ const Page_Home = React.memo(({ mousePosition }) => {
             </div>
 
 
-            <div className="section">
-
+            <div className="section section_contact">
+                <div className="contact_container">
+                    <div className="child_1">
+                        <h1 className="gradient_text">Connect with Me</h1>
+                        <Form_EmailMessage />
+                    </div>
+                    <div className="child_2"></div>
+                </div>
             </div>
 
 

@@ -5,12 +5,20 @@ class SoundManagement {
         this.sounds = {};
     }
 
-    addSound({key, src, loop}) {
+    soundDataList = [];
+
+    addSound({key, src, loop, volume}) {
         this.sounds[key] = new Howl({
             src: [src],
             preload: true,
-            loop: loop
+            loop: loop,
+            volume: volume ?? 1
         });
+        this.soundDataList.push({
+            "key": key,
+            "loop": loop,
+            "volume": volume ?? 1
+        })
     }
 
     playSound(key) {
@@ -22,12 +30,12 @@ class SoundManagement {
     }
 
     muteAllSounds(mute) {
-        Object.keys(this.sounds).forEach((sound => {
-            // this.sounds[sound].mute(mute);
+        Object.keys(this.sounds).forEach((soundKey => {
+            const soundVol = this.soundDataList.find((data) => data.key == soundKey).volume;
             if (mute) {
-                this.sounds[sound].fade(1, 0, 300);
+                this.sounds[soundKey].fade(soundVol, 0, 300);
             } else {
-                this.sounds[sound].fade(0, 1, 300);
+                this.sounds[soundKey].fade(0, soundVol, 300);
             }
         }));
     }

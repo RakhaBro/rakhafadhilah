@@ -172,6 +172,11 @@ p {
   font-size: 1em;
 }
 
+p span {
+  font-weight: bold;
+  color: var(--text_1);
+}
+
 @media (max-width: 740px) {
   p {
     font-size: 14px !important;
@@ -200,6 +205,10 @@ button {
   color: transparent;
   filter: drop-shadow(0px 0px 20px #e0ecff3a);
   transition: .3s;
+}
+
+.dark_mode .gradient_text {
+  filter: none;
 }
 
 .neum {
@@ -238,8 +247,13 @@ input {
   color: var(--text_1) !important;
 }
 
-input::placeholder {
-  color: var(--text_2);
+::placeholder {
+  color: var(--text_3);
+  user-select: none;
+}
+
+br {
+  user-select: none;
 }
 
 

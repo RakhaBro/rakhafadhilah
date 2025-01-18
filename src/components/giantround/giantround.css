@@ -1,7 +1,6 @@
 .giantround_container {
     position: fixed;
     z-index: -20;
-    transition: 1s;
     opacity: 0;
     animation: 2s init forwards linear;
 }
@@ -13,6 +12,11 @@
     100% {
         opacity: .8;
     }
+}
+
+
+.giantround_opacity {
+    transition: 1s;
 }
 
 .giantround_position {

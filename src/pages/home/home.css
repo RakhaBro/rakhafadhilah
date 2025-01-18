@@ -305,12 +305,6 @@ body {
     color: white;
 }
 
-.page_home .summary .lower p span {
-    font-weight: bold;
-    color: var(--text_1);
-    /* filter: drop-shadow(0px 0px 8px #1efcde22); */
-}
-
 .page_home .summary .lower p span a {
     text-decoration: unset;
 }
@@ -536,5 +530,76 @@ body {
     }
     .page_home .section .achievements_container .title {
         padding-left: 18px;
+    }
+}
+
+
+
+
+/* CONTACT SECTION ======================================== */
+/* ======================================================== */
+
+.section.section_contact {
+    height: unset !important;
+    min-height: 100lvh;
+    /* scroll-snap-align: unset; */
+}
+
+.section .contact_container {
+    width: 100%;
+    align-items: center; justify-content: start; display: flex;
+    gap: 24px;
+    padding: 0px 24px;
+    box-sizing: border-box;
+}
+
+.section .contact_container > div {
+    flex: 1;
+    align-self: stretch;
+}
+
+@media (max-width: 820px) {
+    .section .contact_container {
+        align-items: start;
+        flex-direction: column;
+        height: unset;
+    }
+
+    .section .contact_container > div {
+        width: 100%;
+        min-width: unset !important;
+    }
+}
+
+.section .contact_container .child_1 {
+    align-items: start; justify-content: center; display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 520px;
+}
+
+.section .contact_container .child_1 h1 {
+    font-size: 58px;
+}
+
+@media (max-width: 720px) {
+    .section .contact_container .child_1 h1 {
+        font-size: 58px;
+    }
+}
+
+@media (max-width: 620px) {
+    .section .contact_container .child_1 h1 {
+        font-size: 46px;
+    }
+    .section .contact_container .child_1 {
+        align-items: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .section .contact_container .child_1 h1 {
+        font-size: 36px;
+        text-align: center !important;
     }
 }
