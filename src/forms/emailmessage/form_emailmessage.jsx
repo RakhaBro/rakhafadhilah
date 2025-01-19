@@ -107,7 +107,7 @@ const Form_EmailMessage = React.memo(() => {
                                 <>
                                     The message will be sent to
                                     <br />
-                                    <span>muhammad.rakha.fadhilah@gmail.com</span>
+                                    <span>my personal email.</span>
                                 </>
                             );
                         }

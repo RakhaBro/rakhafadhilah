@@ -42,7 +42,7 @@ const App = React.memo(() => {
     SoundManagement.addSound({key: 'click_1', src: './assets/aud/click_1.mp3', loop: false, volume: .7});
     SoundManagement.addSound({key: 'click_2', src: './assets/aud/click_2.mp3', loop: false, volume: .7});
     SoundManagement.addSound({key: 'click_3', src: './assets/aud/click_3.mp3', loop: false, volume: .7});
-    SoundManagement.addSound({key: 'bgm', src: './assets/aud/bgm.mp3', loop: true, volume: 1.5});
+    SoundManagement.addSound({key: 'bgm', src: './assets/aud/bgm.mp3', loop: true, volume: 1});
 
     return () => {
       window.removeEventListener('resize', handleResize);

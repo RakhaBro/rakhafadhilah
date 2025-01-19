@@ -353,7 +353,8 @@ const Page_Home = React.memo(({ mousePosition }) => {
                         </div>
                         <div className="lower neum neum_hoverable">
                             {/* <h2>Summary</h2> */}
-                            <p> I am driven by an <span>entrepreneurial</span> spirit and <span>passion</span> in <span>technology</span>.
+                            <p> I am driven by an <span>entrepreneurial</span> spirit and <span>passion</span> in
+                                creating <span>impactful innovations</span>.
                                 As the founder
                                 of <span><a href="https://hiclob.com" target="_blank">Hiclob<Icon_Out dimension={14} /></a></span>,
                                 a platform connecting people with shared interests,
@@ -361,13 +362,13 @@ const Page_Home = React.memo(({ mousePosition }) => {
                             </p>
                             <p> With experience across <span>Web, Mobile, and Desktop</span> platforms,
                                 I specialize in the <span>JavaScript</span> and <span>Dart</span> ecosystem
-                                and have worked on <span>diverse</span> tech stacks. </p>
+                                and have worked on <span>diverse</span> tech stacks.</p>
                             <div></div>
                             <button
                                 className="btn_see_my_project"
                                 onClick={seeMyProjects}
                             >
-                                <p>See my projects</p>
+                                <p>See all projects</p>
                                 {/* <Icon_Chevron_Bottom dimension={12} /> */}
                             </button>
                         </div>
@@ -470,9 +471,10 @@ const Page_Home = React.memo(({ mousePosition }) => {
             <div className="section section_contact">
                 <div className="contact_container">
                     <div className="child_1">
-                        <h1 className="gradient_text">Connect with Me</h1>
+                        <h1 className="gradient_text">Let us Connect</h1>
                         <Form_EmailMessage />
                     </div>
+                    <div></div>
                     <Footer />
                 </div>
                 

@@ -6,11 +6,9 @@ const Footer = React.memo(() => {
         <div className="footer">
             <div></div>
             <p>
-                &copy; Copyright of Muhammad Rakha Fadhilah
-                <br />
-                muhammad.rakha.fadhilah@gmail.com
-                <br />
-                +62857-1148-1324
+                &copy; Copyright of Rakha Fadhilah
+                {/* <br />
+                muhammad.rakha.fadhilah@gmail.com */}
             </p>
         </div>
     );

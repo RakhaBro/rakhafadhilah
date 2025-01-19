@@ -81,10 +81,6 @@ const data_of_projects = [
             }
         ],
         attachedimages: [1, 2, 3, 4, 5],
-        additionalparagraph:
-            <p>
-                
-            </p>
     },
     
     // FINDELIFY
@@ -117,10 +113,6 @@ const data_of_projects = [
             }
         ],
         attachedimages: [1],
-        additionalparagraph:
-            <p>
-                
-            </p>
     },
     
     // FOZZLE
@@ -139,12 +131,9 @@ const data_of_projects = [
         platform: ["desktop"],
         timestarted: "December 2024",
         timefinished: "December 2024",
+        link: "https://www.linkedin.com/feed/update/urn:li:activity:7272834045456072704?utm_source=share&utm_medium=member_desktop",
         assetvideo: "./assets/vid/projects/fozzle.webm",
         attachedimages: [1, 2, 3, 4],
-        additionalparagraph:
-            <p>
-                
-            </p>
     },
     
     // SIMPELKU
@@ -164,10 +153,6 @@ const data_of_projects = [
         platform: ["desktop"],
         timestarted: "December 2024",
         timefinished: "present",
-        additionalparagraph:
-            <p>
-                
-            </p>
     },
 
 ];
