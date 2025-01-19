@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./socialmedia.css";
 
-const SocialMedia = React.memo(() => {
+const SocialMedia = React.memo(({scrollPosition}) => {
 
     const [chosenSocialMedia, setChosenSocialMedia] = useState(null);
     const [url, setUrl] = useState(null);
@@ -30,6 +30,9 @@ const SocialMedia = React.memo(() => {
     return(
         <div className="social_media_container"
             onMouseLeave={() => setChosenSocialMedia(null)}
+            style={{
+                opacity: scrollPosition > 400 ? 0 : 1
+            }}
         >
             <div className="social_media_list">
                 

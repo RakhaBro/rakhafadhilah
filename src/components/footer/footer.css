@@ -1,0 +1,11 @@
+.footer {
+    width: 100%;
+    align-self: stretch;
+    align-items: center; justify-content: space-between; display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.dark_mode .footer p {
+    color: var(--text_3);
+}

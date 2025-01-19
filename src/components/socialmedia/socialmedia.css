@@ -5,6 +5,7 @@
     bottom: 0px;
     right: 0px;
     align-items: end; justify-content: center; display: flex;
+    transition: .3s;
 }
 
 @media (max-width: 780px) {
@@ -14,7 +15,7 @@
 }
 
 .social_media_list {
-    height: 68px;
+    height: 64px;
     padding: 12px;
     box-sizing: border-box;
     align-items: center; justify-content: end; display: flex;

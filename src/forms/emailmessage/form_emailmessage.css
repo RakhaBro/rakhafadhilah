@@ -23,7 +23,7 @@
     width: 100%;
     vertical-align: middle;
     resize: none;
-    border-radius: 12px;
+    border-radius: 18px;
     border: 2px solid var(--text_3);
     color: var(--text_1);
     font-size: 18px;
@@ -31,7 +31,7 @@
 
 .light_mode .form_emailmessage input,
 .light_mode .form_emailmessage textarea {
-    border: none;
+    border: 2px solid var(--contrast_2);
 }
 
 .form_emailmessage .form_lower {

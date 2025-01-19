@@ -41,6 +41,28 @@
     }
 }
 
+@media (max-height: 600px) {
+    .projectitem {
+        min-width: 520px;
+        aspect-ratio: unset;
+    }
+}
+
+@media (max-height: 520px) {
+    .projectitem_container {
+        height: 100%;
+        align-items: start; justify-content: center; display: flex;
+        margin: 0px !important;
+    }
+    .projectitem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: unset;
+        min-width: 520px;
+        border-radius: 24px;
+    }
+}
+
 
 
 .projectitem .projectitem_cover {

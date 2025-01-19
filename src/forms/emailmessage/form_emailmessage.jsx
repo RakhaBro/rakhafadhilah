@@ -2,6 +2,7 @@ import "./form_emailmessage.css";
 import React, { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import Icon_Check from "../../assets/icons/checkIcon";
+import SoundManagement from "../../components/soundmanagement/howler";
 
 const Form_EmailMessage = React.memo(() => {
 
@@ -50,9 +51,10 @@ const Form_EmailMessage = React.memo(() => {
             setError("Please fill all the inputs");
             return;
         }
-
+        
         if (isSending || isSent) return;
-
+        
+        SoundManagement.playSound('click_1');
         setIsSending(true);
         emailjs.send(
             "service_wjzkb19",
@@ -67,6 +69,7 @@ const Form_EmailMessage = React.memo(() => {
             (response) => {
                 console.log("Email sent successfully!", response.status, response.text);
                 setIsSent(true);
+                SoundManagement.playSound('click_3');
             },
             (error) => console.error("Failed to send email", error)
         );

@@ -19,6 +19,7 @@ import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 import SoundManagement from "../../components/soundmanagement/howler";
 import { BgmContext } from "../../providers/bgmProvider";
 import Form_EmailMessage from "../../forms/emailmessage/form_emailmessage";
+import Footer from "../../components/footer/footer";
 
 const Page_Home = React.memo(({ mousePosition }) => {
 
@@ -288,7 +289,7 @@ const Page_Home = React.memo(({ mousePosition }) => {
 
             <GiantRound scroll={scrollPosition} />
 
-            <SocialMedia />
+            <SocialMedia scrollPosition={scrollPosition} />
 
             {
                 dimension > 720 && !without3d &&
@@ -472,9 +473,12 @@ const Page_Home = React.memo(({ mousePosition }) => {
                         <h1 className="gradient_text">Connect with Me</h1>
                         <Form_EmailMessage />
                     </div>
-                    <div className="child_2"></div>
+                    <Footer />
                 </div>
+                
+            
             </div>
+
 
 
         </div>
