@@ -266,7 +266,7 @@ const Page_Home = React.memo(({ mousePosition }) => {
 
     return (
         <div
-            className="page_home scroll-container"
+            className="page_home"
             id="page_home"
             ref={pageDocumentRef}
         >

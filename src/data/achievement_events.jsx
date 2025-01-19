@@ -64,18 +64,18 @@ const data_of_events = [
         relatedlink: "",
         attachedimages: [1],
     },
-    {
-        id: "it_exhibition",
-        title: "Best Presenter | FICT IT Exhibition",
-        time: "June 2024",
-        description:
-        <p>
-                Successfully competed as the <span>1st best</span> presenter champion in <span>mobile app</span> project
-                showcase, at Horizon University Indonesia.
-            </p>,
-        relatedlink: "https://www.instagram.com/p/C86jzdBvCVG/",
-        attachedimages: [1, 2, 3, 4, 5],
-    },
+    // {
+    //     id: "it_exhibition",
+    //     title: "Best Presenter | FICT IT Exhibition",
+    //     time: "June 2024",
+    //     description:
+    //     <p>
+    //             Successfully competed as the <span>1st best</span> presenter champion in <span>mobile app</span> project
+    //             showcase, at Horizon University Indonesia.
+    //         </p>,
+    //     relatedlink: "https://www.instagram.com/p/C86jzdBvCVG/",
+    //     attachedimages: [1, 2, 3, 4, 5],
+    // },
     {
         id: "hackathon",
         title: "1st Campus Champion: Web Development | Horizon Hackathon",
