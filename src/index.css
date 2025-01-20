@@ -32,8 +32,8 @@
   --contrast_2: black;
 
   --background_main: black;
-  --background_neum_1: #212832;
-  --background_neum_2: #212832;
+  --background_neum_1: #212532;
+  --background_neum_2: #212532;
   --background_neum_3: #434c58;
   --background_semitransparent: #1a2430ab;
   
@@ -46,8 +46,8 @@
   --box_shadow_1: unset;
   --drop_shadow_1: unset;
 
-  --alpha_gradient_1: linear-gradient(0deg, #212832 30%, #21283200);
-  --alpha_gradient_2: linear-gradient(0deg, #212832 20%, #21283200 70%);
+  --alpha_gradient_1: linear-gradient(0deg, #212532 30%, #21253200);
+  --alpha_gradient_2: linear-gradient(0deg, #212532 20%, #21253200 70%);
 }
 
 /* =========================================================== */
@@ -213,7 +213,7 @@ button {
 
 .neum {
   border-radius: 48px;
-  /* background: #212832; */
+  /* background: #212532; */
   /* background: #ede9ed; */
   background: var(--background_neum_1);
   transition: .15s, 0s box-shadow !important;

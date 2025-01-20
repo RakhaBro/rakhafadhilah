@@ -38,7 +38,7 @@ const GiantRound = React.memo(({scroll}) => {
     return(
         <>
             {
-                uimode == "light" &&
+                // uimode == "light" &&
                 <div className="giantround_container">
                     <div className="giantround_opacity"
                         style={{opacity: opacity}}

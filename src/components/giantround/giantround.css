@@ -111,3 +111,19 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+
+
+.dark_mode .giantround {
+    height: 110vh;
+    width: 110vh;
+    background: radial-gradient(circle, #2a037a77, #2a037a00 70%);
+    box-shadow: unset;
+    filter: unset;
+}
+
+.dark_mode .giantround_shadow1 {
+    display: none;
+}
