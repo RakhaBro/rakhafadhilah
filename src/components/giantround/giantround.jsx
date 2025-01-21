@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./giantround.css";
-import { UimodeContext } from "../../providers/uimodeProvider";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
 const GiantRound = React.memo(({scroll}) => {
 
-    const { uimode } = useContext(UimodeContext);
+    const { doneLoading } = useContext(LoadindicatorContext);
 
     const [opacity, setOpacity] = useState(1);
     const [translate, setTranslate] = useState({
@@ -38,7 +38,7 @@ const GiantRound = React.memo(({scroll}) => {
     return(
         <>
             {
-                // uimode == "light" &&
+                doneLoading &&
                 <div className="giantround_container">
                     <div className="giantround_opacity"
                         style={{opacity: opacity}}
