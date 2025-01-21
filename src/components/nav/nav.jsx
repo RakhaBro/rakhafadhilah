@@ -7,7 +7,20 @@ import SoundManagement from "../soundmanagement/howler";
 import Icon_SoundOn from "../../assets/icons/soundonIcon";
 import Icon_SoundOff from "../../assets/icons/soundoffIcon";
 
-const Nav = React.memo(({buttonDataList, scroll}) => {
+const Nav = React.memo(({scroll, pageDocumentRef}) => {
+
+    const goToScroll = (destination) => {
+        pageDocumentRef.current.scrollTo({ top: destination, behavior: 'smooth' })
+    }
+
+    const buttonDataList = [
+        { title: "Home", onClick: () => goToScroll(0) },
+        { title: "Summary", onClick: () => goToScroll(window.innerHeight) },
+        { title: "Projects", onClick: () => goToScroll(window.innerHeight * 2) },
+        { title: "Skills", onClick: () => goToScroll(window.innerHeight * 3) },
+        { title: "Achievements", onClick: () => goToScroll(window.innerHeight * 4) },
+        { title: "Contact", onClick: () => goToScroll(window.innerHeight * 5) },
+    ]
 
     const { uimode, setUimode } = useContext(UimodeContext);
     const switchUiMode = () => {
