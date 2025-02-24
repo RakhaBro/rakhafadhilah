@@ -45,7 +45,7 @@ const Form_EmailMessage = React.memo(() => {
     const [isSending, setIsSending] = useState(false);
     const [isSent, setIsSent] = useState(false);
 
-    const sendEmail = () => {
+    const sendEmail = async () => {
         if (isValid != true || (email.length == 0 || message.length == 0)) {
             setIsValid(false);
             setError("Please fill all the inputs");
@@ -56,7 +56,7 @@ const Form_EmailMessage = React.memo(() => {
         
         SoundManagement.playSound('click_1');
         setIsSending(true);
-        emailjs.send(
+        await emailjs.send(
             "service_wjzkb19",
             "template_t9wngmq",
             {
@@ -69,9 +69,15 @@ const Form_EmailMessage = React.memo(() => {
             (response) => {
                 console.log("Email sent successfully!", response.status, response.text);
                 setIsSent(true);
+                setIsSending(false);
                 SoundManagement.playSound('click_3');
+                setEmail("");
+                setMessage("");
             },
-            (error) => console.error("Failed to send email", error)
+            (error) => {
+                console.error("Failed to send email", error);
+                setIsSending(false);
+            }
         );
     }
 
