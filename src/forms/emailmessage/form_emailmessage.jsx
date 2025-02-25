@@ -55,7 +55,9 @@ const Form_EmailMessage = React.memo(() => {
         if (isSending || isSent) return;
         
         SoundManagement.playSound('click_1');
+        
         setIsSending(true);
+        
         await emailjs.send(
             "service_wjzkb19",
             "template_t9wngmq",

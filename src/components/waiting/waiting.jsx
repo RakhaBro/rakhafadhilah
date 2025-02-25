@@ -27,7 +27,7 @@ const Waiting = React.memo(() => {
                     </div>
                 </div>
                 
-                <h2 className="gradient_text">Loading 3D Objects</h2>
+                <h2 className="gradient_text">Loading 3D Objects...</h2>
             </div>
         </div>
     );
