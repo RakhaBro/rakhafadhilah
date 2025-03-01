@@ -38,7 +38,7 @@ const SummarySection = React.memo(({scrollPosition, pageDocumentRef}) => {
                                 <h2 className="gradient_text">Muhammad Rakha Fadhilah</h2>
                             </div>
                             <p>
-                                Founder & CEO, Hiclob
+                                Building Hiclob
                                 | ASEAN ACE-YS 2023 & 2024 Delegate
                                 | Top 38 Innovillage 2023, Telkom
                                 | Diverse Tech Stacks Developer

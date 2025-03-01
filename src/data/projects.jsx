@@ -5,7 +5,7 @@ const data_of_projects = [
         id: 0,
         cover: "hiclob",
         title: "Hiclob",
-        role: "Founder, CEO",
+        role: "Founder, Hacker",
         contribution: "Project Management, Fullstack Development",
         description:
             <p>

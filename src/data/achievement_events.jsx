@@ -5,8 +5,8 @@ const data_of_events = [
         time: "October 2023 - October 2024",
         description:
             <p>
-                Connected with great people around Asia <span>
-                (CEO of Google Indonesia, Ex.Vice President of Walt Disney Asia, etc.)</span>. Discussed about
+                Connected with great people around Asia including <span>
+                Ex.Vice President of Walt Disney Asia, etc.</span>. Discussed
                 general <span>movements</span> of creative industries
                 in the next years.
             </p>,
