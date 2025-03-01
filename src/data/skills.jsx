@@ -21,7 +21,7 @@ const data_of_skills = [
     },
     {
         "id": "electron",
-        "name": "Electron JS",
+        "name": "Electron.js",
         "category": "Frontend & Backend",
     },
     {
@@ -50,6 +50,11 @@ const data_of_skills = [
         "category": "Programming Language",
     },
     {
+        "id": "ts",
+        "name": "Typescript Language",
+        "category": "Programming Language",
+    },
+    {
         "id": "mongodb",
         "name": "MongoDB",
         "category": "Database",
@@ -61,7 +66,7 @@ const data_of_skills = [
     },
     {
         "id": "node",
-        "name": "Node JS",
+        "name": "Node.js",
         "category": "Backend",
     },
     {
@@ -71,17 +76,17 @@ const data_of_skills = [
     },
     {
         "id": "react",
-        "name": "React JS",
+        "name": "React.js",
         "category": "Frontend",
     },
     {
         "id": "three",
-        "name": "Three JS",
+        "name": "Three.js",
         "category": "Frontend",
     },
     {
         "id": "vite",
-        "name": "Vite JS",
+        "name": "Vite",
         "category": "Build Tool",
     },
     {
@@ -98,6 +103,11 @@ const data_of_skills = [
         "id": "webxr",
         "name": "WebXR",
         "category": "VR Mechanism",
+    },
+    {
+        "id": "nextjs",
+        "name": "Next.js",
+        "category": "Full-Stack Framework",
     },
 ];
 
