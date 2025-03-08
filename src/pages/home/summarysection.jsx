@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Icon_Out from "../../assets/icons/outIcon";
 import SoundManagement from "../../components/soundmanagement/howler";
+import Icon_Out from "../../assets/icons/outIcon";
+import Icon_Document from "../../assets/icons/document";
 
 const SummarySection = React.memo(({scrollPosition, pageDocumentRef}) => {
 
@@ -14,9 +15,11 @@ const SummarySection = React.memo(({scrollPosition, pageDocumentRef}) => {
         );
     }, [scrollPosition]);
 
-    const seeMyProjects = () => {
+    
+    const seeMyCV = () => {
         SoundManagement.playSound('click_3');
-        pageDocumentRef.current.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
+        var pdfUrl = "./cv.pdf";
+        window.open(pdfUrl, "_blank");
     }
 
     return (
@@ -47,7 +50,6 @@ const SummarySection = React.memo(({scrollPosition, pageDocumentRef}) => {
                         </div>
                     </div>
                     <div className="lower neum neum_hoverable">
-                        {/* <h2>Summary</h2> */}
                         <p> I am driven by an <span>entrepreneurial</span> spirit and <span>passion</span> in
                             creating <span>impactful innovations</span>.
                             As the founder
@@ -56,15 +58,15 @@ const SummarySection = React.memo(({scrollPosition, pageDocumentRef}) => {
                             I strive to create <span>meaningful connections</span>.
                         </p>
                         <p> With experience across <span>Web, Mobile, and Desktop</span> platforms,
-                            I specialize in the <span>JavaScript</span> and <span>Dart</span> ecosystem
-                            and have worked on <span>diverse</span> tech stacks.</p>
+                            I have worked on <span>diverse</span> tech stacks and
+                            specialize in <span>3D visual</span> rendering for <span>web</span> interface.</p>
                         <div></div>
                         <button
-                            className="btn_see_my_project"
-                            onClick={seeMyProjects}
+                            className="btn_cv"
+                            onClick={seeMyCV}
                         >
-                            <p>See all projects</p>
-                            {/* <Icon_Chevron_Bottom dimension={12} /> */}
+                            <Icon_Document dimension={20} />
+                            <p>View My CV</p>
                         </button>
                     </div>
                 </div>
