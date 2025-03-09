@@ -101,7 +101,7 @@ body {
   /* background-color: #000000; */
   /* background-color: #ede9ed; */
   /* background: linear-gradient(45deg, #f3f0f3, #bbd0db, #ede9ed); */
-  background: var(--background_main);
+  background-color: var(--background_main);
   color: var(--text_2);
   scroll-behavior: smooth;
 }

@@ -177,7 +177,7 @@ const Page_Home = React.memo(({ mousePosition }) => {
             ref={pageDocumentRef}
         >
 
-            {!without3d && <Waiting />}
+            {!(without3d ?? false) && <Waiting />}
 
             <Nav scroll={scrollPosition} pageDocumentRef={pageDocumentRef} />
 

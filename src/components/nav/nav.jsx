@@ -6,8 +6,13 @@ import Icon_Darkmode from "../../assets/icons/darkmode";
 import SoundManagement from "../soundmanagement/howler";
 import Icon_SoundOn from "../../assets/icons/soundonIcon";
 import Icon_SoundOff from "../../assets/icons/soundoffIcon";
+import { LoadindicatorContext } from "../../providers/loadindicationProvider";
+import { DimensionContext } from "../../providers/dimensionProvider";
 
 const Nav = React.memo(({scroll, pageDocumentRef}) => {
+
+    const { doneLoading } = useContext(LoadindicatorContext);
+    const { without3d } = useContext(DimensionContext);
 
     const goToScroll = (destination) => {
         pageDocumentRef.current.scrollTo({ top: destination, behavior: 'smooth' })
@@ -48,6 +53,10 @@ const Nav = React.memo(({scroll, pageDocumentRef}) => {
 
     const switchMuteState = () => {
         setIsMuted((prev) => !prev);
+    }
+
+    if (!doneLoading && !without3d) {
+        return;
     }
     
     return(

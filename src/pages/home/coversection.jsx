@@ -8,7 +8,7 @@ import { BgmContext } from "../../providers/bgmProvider";
 const CoverSection = React.memo(({scrollPosition, pageDocumentRef}) => {
     
     const { isBgmPlaying, setIsBgmPlaying } = useContext(BgmContext);
-    const { doneWaiting } = useContext(LoadindicatorContext);
+    const { doneLoading } = useContext(LoadindicatorContext);
     const { without3d } = useContext(DimensionContext);
 
     const exploreMe = () => {
@@ -31,28 +31,30 @@ const CoverSection = React.memo(({scrollPosition, pageDocumentRef}) => {
     return (
         <div className="section_top">
 
-            <div className={"mainlayout" + (doneWaiting || without3d ? " initpage" : "")}>
+            {
+                (doneLoading || without3d) &&
+                <div className={"mainlayout initpage"}>
 
-                <div className="maintitle">
-                    <h1 className="gradient_text">Rakha Fadhilah</h1>
-                    <p>A Diverse Curious & Persever</p>
-                </div>
+                    <div className="maintitle">
+                        <h1 className="gradient_text">Rakha Fadhilah</h1>
+                        <p>A Diverse Curious & Persever</p>
+                    </div>
 
-                <div className="btn_scrolldown_container"
-                    style={{
-                        opacity: coverPhaseProgress,
-                        display: coverPhaseProgress === 0 ? "none" : "flex"
-                    }}
-                >
-                    <button className="btn_scrolldown"
-                        onClick={exploreMe}
+                    <div className="btn_scrolldown_container"
+                        style={{
+                            opacity: coverPhaseProgress,
+                            display: coverPhaseProgress === 0 ? "none" : "flex"
+                        }}
                     >
-                        <p>Explore me</p>
-                        <Icon_Chevron_Bottom dimension={12} color={"#000"} />
-                    </button>
+                        <button className="btn_scrolldown"
+                            onClick={exploreMe}
+                        >
+                            <p>Explore me</p>
+                            <Icon_Chevron_Bottom dimension={12} color={"#000"} />
+                        </button>
+                    </div>
                 </div>
-
-            </div>
+            }
 
         </div>
     );
