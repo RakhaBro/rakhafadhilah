@@ -29,9 +29,9 @@
 
 .dark_mode {
   --contrast_1: white;
-  --contrast_2: black;
+  --contrast_2: #14181f;
 
-  --background_main: black;
+  --background_main: #14181f;
   --background_neum_1: #212532;
   --background_neum_2: #212532;
   --background_neum_3: #434c58;
