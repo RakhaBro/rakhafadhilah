@@ -133,15 +133,15 @@ body {
 @keyframes btn_scrolldown {
     0% {
         opacity: 1;
-        box-shadow: 0px 0px 26px #ffffff33;
+        box-shadow: 0px 0px 26px #ffffff88;
     }
     50% {
-        opacity: .5;
-        box-shadow: 0px 0px 16px #ffffff00;
+        opacity: .7;
+        box-shadow: 0px 0px 16px #ffffff33;
     }
     100% {
         opacity: 1;
-        box-shadow: 0px 0px 26px #ffffff33;
+        box-shadow: 0px 0px 26px #ffffff88;
     }
 }
 
