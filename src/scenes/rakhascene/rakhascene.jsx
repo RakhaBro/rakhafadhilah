@@ -29,7 +29,7 @@ const Scene_Rakha = React.memo(({ mousePosition, scrollPosition }) => {
         flat
         linear
         shadows
-        dpr={[0.5, 1]}
+        dpr={[0.5, 0.9]}
         gl={{
           antialias: false,
           alpha: true,
