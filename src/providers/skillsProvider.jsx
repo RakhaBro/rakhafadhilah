@@ -1,5 +1,5 @@
-import { collection, getDocs, orderBy, query } from 'firebase/firestore';
-import React, { createContext, useState } from 'react';
+import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore';
+import React, { createContext, useState, useMemo, useCallback } from 'react';
 import { db } from '../firebase';
 
 export const SkillsContext = createContext();
@@ -7,13 +7,14 @@ export const SkillsContext = createContext();
 export const SkillsProvider = ({ children }) => {
   const [skills, setSkills] = useState([]);
 
-  const fetchSkills = async () => {
+  const fetchSkills = useCallback(async () => {
     try {
         const skillsCollection = collection(db, "skills");
         const skillsSnapshot = await getDocs(
           query(
             skillsCollection,
-            orderBy("since", "desc")
+            orderBy("since", "desc"),
+            limit(100)
           )
         );
         const skillsList = skillsSnapshot.docs.map(doc => ({
@@ -26,10 +27,14 @@ export const SkillsProvider = ({ children }) => {
         console.log("Error getting skills data: ", error);
         return null;
     }
-  };
+  }, []);
+
+  const value = useMemo(() => ({
+    skills, setSkills, fetchSkills
+  }), [skills, fetchSkills]);
 
   return (
-    <SkillsContext.Provider value={{ skills, setSkills, fetchSkills }}>
+    <SkillsContext.Provider value={value}>
       {children}
     </SkillsContext.Provider>
   );

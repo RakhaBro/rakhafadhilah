@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import SoundManagement from "../../components/soundmanagement/howler"
-import Page_Achievements from "../achievements/achievements";
 import { PopupContext } from "../../providers/popupProvider";
+
+// Lazy load modal page
+const Page_Achievements = lazy(() => import("../achievements/achievements"));
 
 const AchievementsSection = React.memo(({scrollPosition}) => {
 
@@ -21,7 +23,9 @@ const AchievementsSection = React.memo(({scrollPosition}) => {
     const showAllAchievemnts = () => {
         SoundManagement.playSound('click_2');
         setPopupChild(
-            <Page_Achievements />
+            <Suspense fallback={<div style={{padding: '2rem'}}>Loading...</div>}>
+                <Page_Achievements />
+            </Suspense>
         );
     };
 

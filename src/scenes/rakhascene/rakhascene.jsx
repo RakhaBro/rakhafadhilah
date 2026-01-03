@@ -4,11 +4,10 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Rakha from "../../components/3dobjects/rakha";
 import { EffectComposer, Bloom, SSAO, Vignette, Outline } from "@react-three/postprocessing";
-import React, { Suspense, useContext, useState } from "react";
+import React, { Suspense, useContext, useRef } from "react";
 import { UimodeContext } from "../../providers/uimodeProvider";
 import SkillCube from "../../components/3dobjects/skillcube";
 import AchievementHighlights from "../../components/3dobjects/achievement_highlights";
-import { MathUtils } from "three";
 import { LoadindicatorContext } from "../../providers/loadindicationProvider";
 
 
@@ -89,61 +88,70 @@ const Scene_Rakha_Lighting = React.memo(({mousePosition, scrollPosition}) => {
 
     const { uimode } = useContext(UimodeContext);
 
-    const [skillPhaseProgress, setSkillPhaseProgress] = useState(0);
-    const [achievementPhaseProgress, setAchievementPhaseProgress] = useState(0);
+    const ambientRef = useRef();
+    const light1Ref = useRef();
+    const light2Ref = useRef();
+    const light3Ref = useRef();
+    const light4Ref = useRef();
 
     useFrame(() => {
-        setSkillPhaseProgress(
-            (scrollPosition - 100 > 100 ? scrollPosition - 200 : 0)
-            / 100
-        );
-        setAchievementPhaseProgress(
-            (scrollPosition - 200 > 100 ? scrollPosition - 300 : 0)
-            / 100
-        );
+        const achievementProgress = (scrollPosition - 200 > 100 ? scrollPosition - 300 : 0) / 100;
+
+        // Update light intensities directly
+        if (ambientRef.current) {
+            ambientRef.current.intensity = (uimode === "light" ? 1.5 : 0.4) + (achievementProgress * 2);
+        }
+        if (light1Ref.current) {
+            light1Ref.current.intensity = 10 * (1 - achievementProgress);
+        }
+        if (light2Ref.current) {
+            light2Ref.current.intensity = 9 * (1 - achievementProgress);
+        }
+        if (light3Ref.current) {
+            light3Ref.current.intensity = 12 * (1 - achievementProgress);
+        }
+        if (light4Ref.current) {
+            light4Ref.current.position.x = 4 * (1 - achievementProgress);
+            light4Ref.current.position.y = 0.5 + (achievementProgress / 2);
+            light4Ref.current.position.z = -9 * (1 - achievementProgress) + 5;
+        }
     });
 
     return(
         <>
-            {/* <Environment preset="studio" backgroundIntensity={.2} /> */}
             <ambientLight
-                intensity={
-                    uimode == "light"
-                        ? 1.5
-                        : .4
-                    + (achievementPhaseProgress * 2)
-                }
+                ref={ambientRef}
+                intensity={uimode === "light" ? 1.5 : 0.4}
                 color={"#8c9eff"}
             />
 
             <directionalLight
+                ref={light1Ref}
                 position={[4, 1.2, 1]}
                 color={"#ff816b"}
-                intensity={10 * (1 - achievementPhaseProgress)}
+                intensity={10}
                 castShadow
             />
 
             <directionalLight
+                ref={light2Ref}
                 position={[-4, .25, -4]}
                 color={"#2f9bfa"}
-                intensity={9 * (1 - achievementPhaseProgress)}
+                intensity={9}
                 castShadow
             />
 
             <directionalLight
+                ref={light3Ref}
                 position={[-4, .5, 4]}
                 color={"#1818ff"}
-                intensity={12 * (1 - achievementPhaseProgress)}
+                intensity={12}
                 castShadow
             />
 
-            {/* LIGHT ADJUSTED FOR SKILL PHASE */}
             <directionalLight
-                position={[
-                    (4 * (1 - achievementPhaseProgress)),
-                    (.5 + (achievementPhaseProgress / 2)),
-                    (-9 * (1 - achievementPhaseProgress) + 5)
-                ]}
+                ref={light4Ref}
+                position={[4, 0.5, 5]}
                 color={"#ffe8bd"}
                 intensity={7.5}
                 castShadow

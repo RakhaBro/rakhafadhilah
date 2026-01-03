@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import SoundManagement from "../../components/soundmanagement/howler";
-import AllSkills from "../skills/skills";
 import { PopupContext } from "../../providers/popupProvider";
 import { SkillsContext } from "../../providers/skillsProvider";
 import { SuggestionsContext } from "../../providers/suggestionsProvider";
+
+// Lazy load modal page
+const AllSkills = lazy(() => import("../skills/skills"));
 
 const SkillsSection = React.memo(({scrollPosition}) => {
 
@@ -45,7 +47,9 @@ const SkillsSection = React.memo(({scrollPosition}) => {
     const showAllSkills = () => {
         SoundManagement.playSound('click_3');
         setPopupChild(
-            <AllSkills />
+            <Suspense fallback={<div style={{padding: '2rem'}}>Loading...</div>}>
+                <AllSkills />
+            </Suspense>
         );
     };
 

@@ -1,6 +1,13 @@
 import "./home.css";
-import Scene_Rakha from "../../scenes/rakhascene/rakhascene";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
 import SocialMedia from "../../components/socialmedia/socialmedia";
 import GiantRound from "../../components/giantround/giantround";
 import Nav from "../../components/nav/nav";
@@ -12,209 +19,231 @@ import ContactSection from "./contactsection";
 import SummarySection from "./summarysection";
 import CoverSection from "./coversection";
 import ProjectsSection from "./projectssection";
+import ErrorBoundary3D from "../../components/errorboundary/ErrorBoundary3D";
+
+// Lazy load 3D scene - defers ~300KB+ of Three.js until needed
+const Scene_Rakha = lazy(() => import("../../scenes/rakhascene/rakhascene"));
 
 const Page_Home = React.memo(({ mousePosition }) => {
+  const { dimension, without3d } = useContext(DimensionContext);
 
-    const { dimension, without3d } = useContext(DimensionContext);
+  const pageDocumentRef = useRef(null);
+  const projectSectionRef = useRef(null);
 
-    const pageDocumentRef = useRef(null);
-    const projectSectionRef = useRef(null);
+  // SCROLL CONTROL ================================
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollPositionRef = useRef(0);
+  const scrollMovementRef = useRef(0);
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef(null);
 
-    // SCROLL CONTROL ================================
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [scrollMovement, setScrollMovement] = useState(0);
-    const [isScrolling, setIsScrolling] = useState(false);
+  // Keep ref in sync with state for use in event handlers (avoids stale closures)
+  useEffect(() => {
+    scrollPositionRef.current = scrollPosition;
+  }, [scrollPosition]);
 
-    const [projectSectionScrollPosition, setProjectSectionScrollPosition] = useState(0);
-    useEffect(() => {
-        if (projectSectionRef.current) {
-            projectSectionRef.current.scrollTo({
-                left: projectSectionScrollPosition,
-                behavior: projectPhaseProgress === 1 ? 'smooth' : 'instant'
-            });
-        }
-    }, [projectSectionScrollPosition]);
-
-    useEffect(() => {
-
-        if (scrollMovement >= 100 || scrollMovement <= -100) {
-            setIsScrolling(true);
-            setTimeout(() => {
-                setIsScrolling(false)
-            }, 300);
-        }
-
-        if (!isScrolling) {
-
-            // IF IN PROJECTS PHASE
-            if (
-                projectPhaseProgress > 0
-                && scrollMovement >= 100
-                && projectSectionRef.current.scrollLeft < projectSectionRef.current.scrollWidth - window.innerWidth
-            ) {
-                if (projectPhaseProgress == 1) {
-                    setProjectSectionScrollPosition((value) =>
-                        value + 500 > projectSectionRef.current.scrollWidth - window.innerWidth
-                            ? projectSectionRef.current.scrollWidth - window.innerWidth
-                            : value + 500
-                    );
-                }
-            } else if (
-                projectPhaseProgress > 0
-                && scrollMovement <= -100
-                && projectSectionRef.current.scrollLeft > 0
-            ) {
-                if (projectPhaseProgress == 1) {
-                    setProjectSectionScrollPosition((value) =>
-                        value - 500 < 0
-                            ? 0
-                            : value - 500
-                    );
-                }
-            }
-
-            // ELSE, IF PAGE HAS NO SCROLL PREVENTION (DEFAULT)
-            else {
-                if (scrollMovement >= 100) {
-                    pageDocumentRef.current.scrollTo({
-                        top: (scrollPosition + 100) / 100 * window.innerHeight,
-                        behavior: 'smooth'
-                    });
-                } else if (scrollMovement <= -100) {
-                    pageDocumentRef.current.scrollTo({
-                        top: (scrollPosition - 100) / 100 * window.innerHeight,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        }
-
-        const scrollMovementInterval = setInterval(() => {
-            setScrollMovement((value) => value - value);
-        }, 20);
-        return () => {
-            clearInterval(scrollMovementInterval);
-        };
-
-    }, [scrollMovement]);
-
-    const handleWheel = (event) => {
-        event.preventDefault();
-        if (pageDocumentRef.current.scrollTop >= window.innerHeight) {
-            setScrollMovement((value) =>
-                value + event.deltaY > 200
-                    ? 200
-                    : value + event.deltaY < -200
-                        ? -200
-                        : value + event.deltaY
-            );
-            if (projectPhaseProgress === 1 && event.deltaX !== 0) {
-                setScrollMovement((value) =>
-                    value + event.deltaX > 200
-                        ? 200
-                        : value + event.deltaX < -200
-                            ? -200
-                            : value + event.deltaX
-                );
-            }
-        }
-    };
-
-    const handleScroll = (event) => {
-        if (pageDocumentRef.current.scrollTop < window.innerHeight) {event.preventDefault();}
-        const documentScroll = pageDocumentRef.current.scrollTop;
-        const currentScrollPosition = documentScroll / window.innerHeight * 100;
-        setScrollPosition(currentScrollPosition);
-    };
-
-    const handleTouchMove = (event) => {
-        if (pageDocumentRef.current.scrollTop == 0) {event.preventDefault();}
+  const [projectSectionScrollPosition, setProjectSectionScrollPosition] =
+    useState(0);
+  useEffect(() => {
+    if (projectSectionRef.current) {
+      projectSectionRef.current.scrollTo({
+        left: projectSectionScrollPosition,
+        behavior: projectPhaseProgress === 1 ? "smooth" : "instant",
+      });
     }
-    // ===============================================
+  }, [projectSectionScrollPosition]);
 
+  const processScrollMovement = useCallback((movement) => {
+    if (Math.abs(movement) >= 100 && !isScrollingRef.current) {
+      isScrollingRef.current = true;
 
-    const [projectPhaseProgress, setProjectPhaseProgress] = useState(0);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 300);
 
-    useEffect(() => {
-        setProjectPhaseProgress(
-            scrollPosition <= 200
-                ? scrollPosition <= 100
-                    ? 0
-                    : (scrollPosition - 100) / 100
-                : (200 - (scrollPosition - 100)) / 100
-        );
-    }, [scrollPosition]);
+      // Use refs to get current values (avoids stale closure)
+      const currentProjectPhase = projectPhaseProgressRef.current;
+      const currentScrollPos = scrollPositionRef.current;
 
-    useEffect(() => {
-        if (projectPhaseProgress < .1) {
-            setProjectSectionScrollPosition(0);
+      // IF IN PROJECTS PHASE
+      if (
+        currentProjectPhase > 0 &&
+        movement >= 100 &&
+        projectSectionRef.current.scrollLeft <
+          projectSectionRef.current.scrollWidth - window.innerWidth
+      ) {
+        if (currentProjectPhase === 1) {
+          setProjectSectionScrollPosition((value) =>
+            value + 500 >
+            projectSectionRef.current.scrollWidth - window.innerWidth
+              ? projectSectionRef.current.scrollWidth - window.innerWidth
+              : value + 500
+          );
         }
-    }, [projectPhaseProgress]);
-    // ===============================================
-
-
-    useEffect(() => {
-        if (pageDocumentRef.current) {
-            pageDocumentRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-            pageDocumentRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-            pageDocumentRef.current.addEventListener("wheel", handleWheel);
-            pageDocumentRef.current.addEventListener("scroll", handleScroll);
-            pageDocumentRef.current.addEventListener("touchmove", handleTouchMove, { passive: false });
+      } else if (
+        currentProjectPhase > 0 &&
+        movement <= -100 &&
+        projectSectionRef.current.scrollLeft > 0
+      ) {
+        if (currentProjectPhase === 1) {
+          setProjectSectionScrollPosition((value) =>
+            value - 500 < 0 ? 0 : value - 500
+          );
         }
-        return () => {
-            if (pageDocumentRef.current) {
-                pageDocumentRef.current.removeEventListener("wheel", handleWheel);
-                pageDocumentRef.current.removeEventListener("scroll", handleScroll);
-                pageDocumentRef.current.removeEventListener("touchmove", handleTouchMove, { passive: false });
-            }
-        };
-    }, []);
+      }
+      // ELSE, IF PAGE HAS NO SCROLL PREVENTION (DEFAULT)
+      else {
+        if (movement >= 100) {
+          pageDocumentRef.current.scrollTo({
+            top: ((currentScrollPos + 100) / 100) * window.innerHeight,
+            behavior: "smooth",
+          });
+        } else if (movement <= -100) {
+          pageDocumentRef.current.scrollTo({
+            top: ((currentScrollPos - 100) / 100) * window.innerHeight,
+            behavior: "smooth",
+          });
+        }
+      }
+    }
+    // Reset movement
+    scrollMovementRef.current = 0;
+  }, []);
 
-    return (
-        <div
-            className="page_home"
-            id="page_home"
-            ref={pageDocumentRef}
-        >
+  const handleWheel = useCallback(
+    (event) => {
+      event.preventDefault();
+      if (pageDocumentRef.current.scrollTop >= window.innerHeight) {
+        let newMovement = scrollMovementRef.current + event.deltaY;
+        newMovement = Math.max(-200, Math.min(200, newMovement));
 
-            {!(without3d ?? false) && <Waiting />}
+        // Use ref to get current value (avoids stale closure)
+        if (projectPhaseProgressRef.current === 1 && event.deltaX !== 0) {
+          newMovement = scrollMovementRef.current + event.deltaX;
+          newMovement = Math.max(-200, Math.min(200, newMovement));
+        }
 
-            <Nav scroll={scrollPosition} pageDocumentRef={pageDocumentRef} />
+        scrollMovementRef.current = newMovement;
+        processScrollMovement(newMovement);
+      }
+    },
+    [processScrollMovement]
+  );
 
-            <GiantRound scroll={scrollPosition} />
+  const handleScroll = useCallback((event) => {
+    if (pageDocumentRef.current.scrollTop < window.innerHeight) {
+      event.preventDefault();
+    }
+    const documentScroll = pageDocumentRef.current.scrollTop;
+    const currentScrollPosition = (documentScroll / window.innerHeight) * 100;
+    setScrollPosition(currentScrollPosition);
+  }, []);
 
-            <SocialMedia scrollPosition={scrollPosition} />
+  const handleTouchMove = useCallback((event) => {
+    if (pageDocumentRef.current.scrollTop == 0) {
+      event.preventDefault();
+    }
+  }, []);
+  // ===============================================
 
-            {
-                dimension > 720 && !without3d &&
-                <Scene_Rakha mousePosition={mousePosition} scrollPosition={scrollPosition} />
-            }
+  const [projectPhaseProgress, setProjectPhaseProgress] = useState(0);
+  const projectPhaseProgressRef = useRef(0);
 
-            {/* COVER SECTION */}
-            <CoverSection scrollPosition={scrollPosition} pageDocumentRef={pageDocumentRef} />
+  useEffect(() => {
+    const newProgress =
+      scrollPosition <= 200
+        ? scrollPosition <= 100
+          ? 0
+          : (scrollPosition - 100) / 100
+        : (200 - (scrollPosition - 100)) / 100;
+    setProjectPhaseProgress(newProgress);
+    projectPhaseProgressRef.current = newProgress;
+  }, [scrollPosition]);
 
-            {/* SUMMARY SECTION */}
-            <SummarySection scrollPosition={scrollPosition} pageDocumentRef={pageDocumentRef} />
+  useEffect(() => {
+    if (projectPhaseProgress < 0.1) {
+      setProjectSectionScrollPosition(0);
+    }
+  }, [projectPhaseProgress]);
+  // ===============================================
 
+  useEffect(() => {
+    const pageElement = pageDocumentRef.current;
+    if (pageElement) {
+      pageElement.scrollTo({ left: 0, behavior: "smooth" });
+      pageElement.scrollTo({ top: 0, behavior: "smooth" });
+      pageElement.addEventListener("wheel", handleWheel);
+      pageElement.addEventListener("scroll", handleScroll);
+      pageElement.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
+    }
+    return () => {
+      if (pageElement) {
+        pageElement.removeEventListener("wheel", handleWheel);
+        pageElement.removeEventListener("scroll", handleScroll);
+        pageElement.removeEventListener("touchmove", handleTouchMove, {
+          passive: false,
+        });
+      }
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [handleWheel, handleScroll, handleTouchMove]);
 
-            {/* PROJECT SECTION */}
-            <ProjectsSection projectSectionRef={projectSectionRef} projectPhaseProgress={projectPhaseProgress} />
+  return (
+    <div className="page_home" id="page_home" ref={pageDocumentRef}>
+      {!(without3d ?? false) && <Waiting />}
 
+      <Nav scroll={scrollPosition} pageDocumentRef={pageDocumentRef} />
 
-            {/* SKILL SECTION */}
-            <SkillsSection scrollPosition={scrollPosition} />
+      <GiantRound scroll={scrollPosition} />
 
+      <SocialMedia scrollPosition={scrollPosition} />
 
-            {/* ACHIEVEMENT SECTION */}
-            <AchievementsSection scrollPosition={scrollPosition} />
+      {dimension > 720 && !without3d && (
+        <ErrorBoundary3D fallback={null}>
+          <Suspense fallback={null}>
+            <Scene_Rakha
+              mousePosition={mousePosition}
+              scrollPosition={scrollPosition}
+            />
+          </Suspense>
+        </ErrorBoundary3D>
+      )}
 
+      {/* COVER SECTION */}
+      <CoverSection
+        scrollPosition={scrollPosition}
+        pageDocumentRef={pageDocumentRef}
+      />
 
-            {/* CONTACT SECTION */}
-            <ContactSection />
+      {/* SUMMARY SECTION */}
+      <SummarySection
+        scrollPosition={scrollPosition}
+        pageDocumentRef={pageDocumentRef}
+      />
 
+      {/* PROJECT SECTION */}
+      <ProjectsSection
+        projectSectionRef={projectSectionRef}
+        projectPhaseProgress={projectPhaseProgress}
+      />
 
-        </div>
-    );
+      {/* SKILL SECTION */}
+      <SkillsSection scrollPosition={scrollPosition} />
+
+      {/* ACHIEVEMENT SECTION */}
+      <AchievementsSection scrollPosition={scrollPosition} />
+
+      {/* CONTACT SECTION */}
+      <ContactSection />
+    </div>
+  );
 });
 
 export default Page_Home;

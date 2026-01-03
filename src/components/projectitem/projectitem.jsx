@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, lazy, Suspense } from "react";
 import "./projectitem.css";
 import { PopupContext } from "../../providers/popupProvider";
-import ProjectDetail from "../../pages/projectdetail/projectdetail";
 import data_of_skills from "../../data/skills";
 import SoundManagement from "../soundmanagement/howler";
+
+// Lazy load modal page
+const ProjectDetail = lazy(() => import("../../pages/projectdetail/projectdetail"));
 
 const ProjectItem = React.memo(({data}) => {
 
@@ -12,7 +14,9 @@ const ProjectItem = React.memo(({data}) => {
     const openProjectDetail = () => {
         SoundManagement.playSound('click_1');
         setPopupChild(
-            <ProjectDetail data={data} />
+            <Suspense fallback={<div style={{padding: '2rem'}}>Loading...</div>}>
+                <ProjectDetail data={data} />
+            </Suspense>
         );
     }
 

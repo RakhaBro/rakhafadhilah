@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState, useMemo } from 'react';
 
 export const UimodeContext = createContext();
 
@@ -13,9 +13,13 @@ export const UimodeProvider = ({ children }) => {
     useEffect(() => {
         document.body.className = uimode + "_mode";
     }, [uimode])
-    
+
+    const value = useMemo(() => ({
+        uimode, setUimode
+    }), [uimode]);
+
     return (
-        <UimodeContext.Provider value={{ uimode, setUimode }}>
+        <UimodeContext.Provider value={value}>
         {children}
         </UimodeContext.Provider>
     );

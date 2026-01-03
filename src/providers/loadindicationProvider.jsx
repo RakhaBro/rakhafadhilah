@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState, useMemo } from 'react';
 
 export const LoadindicatorContext = createContext();
 
@@ -13,8 +13,12 @@ export const LoadindicatorProvider = ({ children }) => {
         }
     }, [loads]);
 
+    const value = useMemo(() => ({
+        loads, setLoads, doneLoading
+    }), [loads, doneLoading]);
+
     return (
-        <LoadindicatorContext.Provider value={{ loads, setLoads, doneLoading }}>
+        <LoadindicatorContext.Provider value={value}>
             {children}
         </LoadindicatorContext.Provider>
     );
