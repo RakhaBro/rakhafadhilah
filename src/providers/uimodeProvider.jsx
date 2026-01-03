@@ -3,7 +3,9 @@ import React, { createContext, useEffect, useState, useMemo } from "react";
 export const UimodeContext = createContext();
 
 export const UimodeProvider = ({ children }) => {
-  const [uimode, setUimode] = useState("dark");
+  const [uimode, setUimode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
 
   useEffect(() => {
     document.body.className = uimode + "_mode";
