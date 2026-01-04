@@ -147,11 +147,6 @@ const Scene_Rakha_Lighting = React.memo(({ mousePosition, scrollPosition }) => {
         position={[4, 1.2, 1]}
         color={"#ff816b"}
         intensity={10}
-        shadow-mapSize-width={512}
-        shadow-mapSize-height={512}
-        shadow-camera-far={50}
-        shadow-camera-near={0.1}
-        shadow-bias={-0.0001}
       />
 
       <directionalLight
