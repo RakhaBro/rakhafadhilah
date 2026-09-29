@@ -10,7 +10,9 @@ body {
     min-height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
-    scroll-snap-type: y mandatory;
+    /* proximity (not mandatory): a gentle safety net for scrollbar/keyboard
+       navigation that won't interrupt the JS-driven smooth section scroll. */
+    scroll-snap-type: y proximity;
 }
 
 .page_home .section {
